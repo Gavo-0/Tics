@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Tarjetas (Cards)</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas (Cards)</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-card-text"></i> Tarjetas (Cards) en Bootstrap 5</h1>
+    <div class="info-block">
+      En Bootstrap 5, una <b>tarjeta</b> (“card”) es un componente flexible y extensible que sirve como contenedor de información. Las tarjetas permiten organizar el contenido de forma clara, visual y atractiva, facilitando la presentación de información relacionada, imágenes, enlaces y más, dentro de bloques estilizados con bordes, sombras, fondos y distintas opciones de personalización.
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">¿Qué es una tarjeta (card)?</h2>
+      <div class="info-block">
+        Una tarjeta es un bloque visual que agrupa información y elementos relacionados, como títulos, textos, imágenes, enlaces, listas y botones. Las tarjetas pueden incluir encabezados, pies de página, imágenes de cabecera o fondo, colores de fondo contextuales y se pueden apilar, alinear en filas o columnas, o combinar con otros componentes Bootstrap.
+      </div>
+      <ul>
+        <li><b>Encabezado:</b> Puede usarse para mostrar el título, subtítulo o icono.</li>
+        <li><b>Cuerpo:</b> Es el área principal para textos, imágenes u otros elementos.</li>
+        <li><b>Pie de página:</b> Permite añadir información adicional o acciones.</li>
+        <li><b>Colores y fondos:</b> Se pueden utilizar las clases contextuales como <code>.bg-primary</code>, <code>.bg-success</code>, etc.</li>
+        <li><b>Botones y enlaces:</b> Es común añadir botones de acción o enlaces dentro de la tarjeta.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Estructura básica de una tarjeta</h2>
+      <div class="code-block">
+<pre>
+&lt;div class="card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h4 class="card-title"&gt;Título de la tarjeta&lt;/h4&gt;
+    &lt;p class="card-text"&gt;Contenido de la tarjeta.&lt;/p&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;Acción&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      <p>
+        <b>Nota:</b> Puedes centrar el contenido de la tarjeta añadiendo la clase <code>text-center</code> al <code>div.card</code>.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Ejemplo: Tres tarjetas iguales en la misma fila</h2>
+      <div class="info-block">
+        A continuación, se muestra cómo crear tres tarjetas básicas, ubicadas en la misma fila y con el mismo ancho usando el sistema de grillas de Bootstrap. Cada tarjeta contiene un título, texto y un botón.
+      </div>
+      <div class="code-block">
+<pre>
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md"&gt;
+      &lt;div class="card text-center"&gt;
+        &lt;div class="card-body"&gt;
+          &lt;h4 class="card-title"&gt;Título de la tarjeta 1&lt;/h4&gt;
+          &lt;p class="card-text"&gt;Contenido de la tarjeta 1.&lt;/p&gt;
+          &lt;a href="#" class="btn btn-primary"&gt;Entrar&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    ... (más columnas con tarjetas)
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md">
+            <div class="card text-center shadow-sm mb-4">
+              <div class="card-header bg-primary text-white">
+                <i class="bi bi-star-fill"></i> Encabezado 1
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Título de la tarjeta 1</h4>
+                <p class="card-text">Las tarjetas permiten mostrar información relevante y acciones de manera compacta. Puedes incluir textos, listas, imágenes y más.</p>
+                <a href="#" class="btn btn-primary">
+                  <i class="bi bi-box-arrow-in-right"></i> Entrar
+                </a>
+              </div>
+              <div class="card-footer text-muted">
+                Pie de página 1
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card text-center shadow-sm mb-4">
+              <div class="card-header bg-success text-white">
+                <i class="bi bi-check-circle"></i> Encabezado 2
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Título de la tarjeta 2</h4>
+                <p class="card-text">Puedes personalizar el color de fondo, bordes y agregar botones de diferentes estilos. Las tarjetas son responsivas y se adaptan a diferentes tamaños de pantalla.</p>
+                <a href="#" class="btn btn-success">
+                  <i class="bi bi-arrow-right-circle"></i> Ver más
+                </a>
+              </div>
+              <div class="card-footer text-muted">
+                Pie de página 2
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card text-center shadow-sm mb-4">
+              <div class="card-header bg-warning text-dark">
+                <i class="bi bi-lightbulb"></i> Encabezado 3
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Título de la tarjeta 3</h4>
+                <p class="card-text">Las tarjetas pueden contener imágenes en la parte superior, enlaces, listas y cualquier otro elemento HTML que necesites mostrar.</p>
+                <a href="#" class="btn btn-warning text-white">
+                  <i class="bi bi-info-circle"></i> Detalles
+                </a>
+              </div>
+              <div class="card-footer text-muted">
+                Pie de página 3
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Personalización y variantes</h2>
+      <ul>
+        <li><b>Imágenes:</b> Puedes agregar imágenes usando <code>&lt;img class="card-img-top"&gt;</code> para mostrar una imagen en la parte superior.</li>
+        <li><b>Colores de fondo y bordes:</b> Utiliza clases como <code>.bg-primary</code>, <code>.border-success</code> para cambiar el color de fondo o el borde.</li>
+        <li><b>Listas dentro de tarjetas:</b> Puedes usar <code>&lt;ul class="list-group list-group-flush"&gt;</code> para mostrar listas.</li>
+        <li><b>Grupos de tarjetas:</b> Puedes agrupar varias tarjetas usando <code>.card-group</code> para mantenerlas del mismo tamaño y altura.</li>
+        <li><b>Sombras:</b> Añade la clase <code>.shadow</code> o <code>.shadow-sm</code> para darle profundidad visual.</li>
+      </ul>
+      <div class="code-block">
+<pre>
+&lt;div class="card mb-3"&gt;
+  &lt;img src="https://via.placeholder.com/500x200" class="card-img-top" alt="Imagen de ejemplo"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Tarjeta con imagen&lt;/h5&gt;
+    &lt;p class="card-text"&gt;Puedes añadir imágenes a tus tarjetas fácilmente.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/48 - Componente - card (con colores contextuales para fondo, borde y texto).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+  <script src="../../Js/modulos.js"></script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

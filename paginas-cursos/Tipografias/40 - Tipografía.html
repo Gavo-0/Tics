@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Títulos, Display y Small</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  
+  <style>
+   
+    @media (max-width: 600px) {
+      .title { font-size: 1rem; }
+      .topbar-btn {
+        font-size: 0.5em;
+        padding: 6px 9px;
+        border-radius: 50%;
+        justify-content: center;
+      }
+      .topbar-btn .btn-text { display: none !important; }
+      .topbar-btn .bi { margin-right: 0 !important; font-size: 1.5em; }
+      .topbar { height: 48px; padding: 2px 5px; }
+    }
+
+    .main-content {
+      padding-top: 40px;
+      padding-bottom: 30px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #7952B3;
+      font-weight: 700;
+      margin-top: 1.2em;
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+    .section-title {
+      color: #7952B3;
+      font-size: 1.3em;
+      font-weight: 700;
+      margin-top: 0.1em;
+      margin-bottom: .8em;
+    }
+    .info-block {
+      background: #f7f2fa;
+      border-left: 4px solid #7952B3;
+      border-radius: 7px;
+      padding: 1.1em 1.5em .7em 1.5em;
+      margin-bottom: 2em;
+      color: #432c5c;
+      font-size: 1.06em;
+    }
+    .example-table {
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+    }
+    .example-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .example-table th, .example-table td {
+      padding: 0.45em 1em;
+      border-bottom: 1px solid #eee;
+    }
+    .example-table th {
+      background: #eee;
+      color: #7952B3;
+      font-weight: 600;
+    }
+    .example-table td code {
+      color: #6f42c1;
+    }
+    .display-demo h1 {
+      word-break: break-word;
+      line-height: 1.2;
+    }
+    @media (max-width: 768px) {
+      h1, .display-1 { font-size: 2rem !important; }
+      h2, .display-2 { font-size: 1.75rem !important; }
+      h3, .display-3 { font-size: 1.5rem !important; }
+      .section-title { font-size: 1.1em; }
+      .info-block { font-size: 1em; padding: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'"><i class="bi bi-arrow-left"></i><span class="btn-text">Regresar al inicio</span></button>
+    </div>
+    <div class="title">Curso de Bootstrap - Títulos y Display</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()"><i class="bi bi-check2-circle"></i><span class="btn-text">Finalizar el curso</span></button>
+    </div>
+  </div>
+
+  <div class="main-content container-fluid">
+    <!-- CONTENIDO HTML AQUI (el mismo que compartiste) -->
+    <!-- OMITIDO POR BREVEDAD -->
+
+    <div class="main-content">
+    <h1 class="section-title">Tamaños de títulos con etiquetas h1 a h6</h1>
+    <div class="info-block">
+      <b>¿Cómo funciona el tamaño de fuente en Bootstrap 5?</b><br>
+      Bootstrap 5 utiliza un tamaño base de fuente de <b>16px</b> (1rem) definido en la etiqueta <code>&lt;html&gt;</code>. Los encabezados h1-h6 usan valores relativos (<b>rem</b> y <b>vw</b>) para adaptarse tanto al tamaño base como al ancho de la pantalla, mejorando la legibilidad en diferentes dispositivos.
+    </div>
+    <table class="example-table table table-bordered">
+      <thead>
+        <tr>
+          <th>Etiqueta/Clase</th>
+          <th>Tamaño en rem</th>
+          <th>Tamaño en px<br>(en pantallas ≥1200px)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>h1, .h1</code></td><td>2.5rem</td><td>40px</td></tr>
+        <tr><td><code>h2, .h2</code></td><td>2rem</td><td>32px</td></tr>
+        <tr><td><code>h3, .h3</code></td><td>1.75rem</td><td>28px</td></tr>
+        <tr><td><code>h4, .h4</code></td><td>1.5rem</td><td>24px</td></tr>
+        <tr><td><code>h5, .h5</code></td><td>1.25rem</td><td>20px</td></tr>
+        <tr><td><code>h6, .h6</code></td><td>1rem</td><td>16px</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Los encabezados HTML (<code>h1</code> a <code>h6</code>) deben usarse para marcar títulos reales de secciones, ya que son importantes para la accesibilidad y el SEO. Si solo necesitas el estilo visual, pero no la semántica de título, puedes usar las clases <code>.h1</code> a <code>.h6</code> en cualquier etiqueta.
+    </p>
+    <h1>Título de nivel 1</h1> 
+    <h2>Título de nivel 2</h2>
+    <h3>Título de nivel 3</h3>
+    <h4>Título de nivel 4</h4>
+    <h5>Título de nivel 5</h5>
+    <h6>Título de nivel 6</h6>
+
+    <hr>
+
+    <h1 class="section-title">Tamaños de títulos con clases <span style="font-family:monospace">.h1</span> a <span style="font-family:monospace">.h6</span></h1>
+    <div class="info-block">
+      <b>¿Cuándo usar <code>.h1</code> en lugar de <code>&lt;h1&gt;</code>?</b><br>
+      Usa la clase <code>.h1</code> cuando necesites un texto grande con el mismo tamaño de fuente que un encabezado, pero no sea realmente un título de sección. Ideal para resaltar palabras o frases dentro de un párrafo, botones, tarjetas u otros componentes.
+    </div>
+    <p class="h1">Texto con la clase h1</p> 
+    <p class="h2">Texto con la clase h2</p> 
+    <p class="h3">Texto con la clase h3</p> 
+    <p class="h4">Texto con la clase h4</p> 
+    <p class="h5">Texto con la clase h5</p> 
+    <p class="h6">Texto con la clase h6</p> 
+
+    <hr>
+
+    <h1 class="section-title">Clases <span style="font-family:monospace">display-1</span> a <span style="font-family:monospace">display-6</span></h1>
+    <div class="info-block">
+      <b>¿Para qué sirven las clases <code>display-1</code> a <code>display-6</code>?</b><br>
+      Bootstrap ofrece las clases <code>display-1</code> a <code>display-6</code> para títulos más destacados, como los de portada, secciones principales o llamados de atención. Estas clases aplican un tamaño de fuente más grande y un peso ligero (<b>font-weight: 300</b>) para lograr un efecto moderno y llamativo.<br>
+      Puedes usarlas en cualquier elemento, no solo en encabezados.
+    </div>
+    <div class="display-demo">
+      <h1 class="display-1">Título con display-1</h1> 
+      <h1 class="display-2">Título con display-2</h1> 
+      <h1 class="display-3">Título con display-3</h1> 
+      <h1 class="display-4">Título con display-4</h1>             
+      <h1 class="display-5">Título con display-5</h1>             
+      <h1 class="display-6">Título con display-6</h1> 
+    </div>
+    
+    <hr>
+
+    <h1 class="section-title">Etiqueta <span style="font-family:monospace">&lt;small&gt;</span> y clase <span style="font-family:monospace">.small</span> dentro de títulos</h1>
+    <div class="info-block">
+      <b>¿Qué hace la etiqueta <code>&lt;small&gt;</code>?</b><br>
+      La etiqueta <code>&lt;small&gt;</code> y la clase <code>.small</code> reducen el tamaño del texto a <b>0.875em</b> relativo al elemento padre. Perfecto para acotaciones, subtítulos o aclaraciones. Puedes combinarla con <code>text-muted</code> para tener un efecto visual más tenue.
+    </div>
+    <h1>Título de nivel 1 <small>(acotación)</small></h1> 
+    <h2>Título de nivel 2 <small>(acotación)</small></h2>
+    <h3>Título de nivel 3 <small>(acotación)</small></h3>
+    <h4>Título de nivel 4 <small>(acotación)</small></h4>
+    <h5>Título de nivel 5 <small>(acotación)</small></h5>
+    <h6>Título de nivel 6 <small>(acotación)</small></h6>
+
+    <hr>
+
+    <h1 class="section-title">Etiqueta <span style="font-family:monospace">&lt;small class="text-muted"&gt;</span> para acotaciones tenues</h1>
+    <div class="info-block">
+      <b>Ejemplo práctico:</b> Si quieres mostrar una descripción secundaria o información menos relevante, puedes usar <code>&lt;small class="text-muted"&gt;</code> para que el texto se vea más claro y discreto que el título principal.
+    </div>
+    <h1>Curso Web <small class="text-muted">(html, css y javascript)</small></h1>
+    <h2>Ejemplo de sección <small class="text-muted">(explicación breve)</small></h2>
+
+    <hr>
+
+    <div>
+      <b>Resumen:</b>
+      <ul>
+        <li>Utiliza <b>h1-h6</b> para títulos semánticos. Usa las clases <b>h1-h6</b> para texto de igual tamaño pero sin semántica de título.</li>
+        <li>Las clases <b>display-1</b> a <b>display-6</b> permiten destacar títulos con tamaños aún mayores y modernos.</li>
+        <li>La etiqueta <code>&lt;small&gt;</code> o la clase <code>.small</code> reduce el tamaño de texto dentro de un título.</li>
+        <li>Agrega <code>text-muted</code> a <code>&lt;small&gt;</code> para acotaciones visualmente más tenues.</li>
+        <li>Todos los tamaños de fuente se calculan respecto al tamaño base de 16px (1rem) definido en <code>html</code>, lo que garantiza un diseño adaptable y accesible.</li>
+        <li>Usar la jerarquía de títulos correctamente mejora la accesibilidad y el SEO de tu página.</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Tipografias/41 - Tipografía - listas.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+  <script src="../../Js/modulos.js"></script>
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

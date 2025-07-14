@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Card Group (Tarjetas agrupadas)</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <style>
+    /* ----------- CARD-GROUP CUSTOM ----------- */
+    .card-group {
+      gap: 2.2rem;
+      margin-bottom: 2.7rem;
+      justify-content: center;
+      /* Alinear horizontalmente las tarjetas en el centro */
+    }
+    @supports not (gap: 1rem) {
+      .card-group > .card:not(:last-child) {
+        margin-right: 2.2rem;
+      }
+    }
+    .custom-card {
+      border-radius: 1.3rem;
+      overflow: hidden;
+      box-shadow: 0 8px 28px 0 rgba(44,62,80,0.13), 0 2px 8px 0 rgba(44,62,80,0.08);
+      background: linear-gradient(140deg,#fff 65%,#f2f6fa 100%);
+      border: 1.7px solid #cce5ff;
+      transition: box-shadow 0.20s, transform 0.20s;
+      min-height: 390px;
+      position: relative;
+      z-index: 1;
+      max-width: 340px;
+      /* Limita el ancho de cada tarjeta para que el grupo no sea tan ancho */
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .custom-card:hover {
+      box-shadow: 0 16px 42px 0 rgba(44,62,80,0.18), 0 4px 14px 0 rgba(44,62,80,0.13);
+      transform: translateY(-7px) scale(1.023);
+      z-index: 2;
+      border-color: #9ad3ff;
+    }
+    .custom-card .card-body {
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .custom-card .card-title {
+      font-size: 1.38rem;
+      font-weight: 700;
+      color: #1b396a;
+      margin-bottom: 1rem;
+      letter-spacing: .4px;
+      text-shadow: 0 1px 0 #f0f4fa, 0 1.5px 3px #c6e0fb2a;
+    }
+    .custom-card .card-text {
+      color: #3b4961;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      min-height: 56px;
+      line-height: 1.57;
+    }
+    .custom-card .btn {
+      padding: 0.7rem 2.2rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 2rem;
+      background: linear-gradient(90deg,#7952B3 70%,#8ecae6 100%);
+      color: #fff;
+      border: none;
+      box-shadow: 0 2px 10px rgba(44,62,80,0.09);
+      transition: background 0.18s, color 0.18s, box-shadow 0.15s;
+      letter-spacing: 0.5px;
+    }
+    .custom-card .btn:hover {
+      background: linear-gradient(90deg,#543389 80%,#219ebc 120%);
+      color: #fff;
+      box-shadow: 0 6px 24px #7952B355;
+    }
+    .custom-card .icon-badge {
+      position: absolute;
+      top: -18px; left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(120deg, #4ea8de 60%, #7952B3 100%);
+      color: #fff;
+      font-size: 2.2rem;
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      box-shadow: 0 8px 26px #4ea8de26;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #fff;
+      z-index: 10;
+    }
+    /* Centrar el grupo de tarjetas en la página */
+    .card-group-centered {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .card-group-centered .card-group {
+      display: flex;
+    }
+    @media (max-width: 1200px) {
+      .card-group {
+        gap: 1.2rem;
+      }
+      .custom-card {
+        max-width: 300px;
+      }
+    }
+    @media (max-width: 991px) {
+      .card-group {
+        flex-direction: column !important;
+        gap: 1.7rem;
+        align-items: center;
+      }
+      .custom-card {
+        margin-bottom: 1.5rem;
+        max-width: 95vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .card-group {
+        gap: 1.3rem;
+        padding-left: 0;
+        padding-right: 0;
+        flex-direction: column !important;
+        align-items: center;
+      }
+      .custom-card .card-body {
+        padding: 1.1rem 1rem 1.2rem 1rem;
+      }
+      .custom-card .card-title {
+        font-size: 1.13rem;
+      }
+      .custom-card .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.97rem;
+      }
+    }
+    /* ----------- CODE BLOCK ----------- */
+    .code-block {
+      background: #000;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 1em;
+      font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+      margin-bottom: 1.5em;
+      position: relative;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      margin: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 1em;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #5a3d94;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .copy-btn:active, .copy-btn:focus {
+      background: #7952b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas (Cards)</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="main-content">
+    <h1 class="mt-3 mb-4 text-center" style="color:#7952B3;">Agrupando tarjetas con <code>card-group</code> en Bootstrap 5</h1>
+    <p class="lead mb-4 text-center">
+      Bootstrap permite agrupar tarjetas para que tengan el mismo ancho y altura usando la clase <b>card-group</b>.
+    </p>
+
+    <div class="info-block mb-4">
+      <b>¿Cómo funciona?</b><br>
+      Al envolver varias tarjetas (<code>.card</code>) dentro de un <code>div</code> con clase <code>card-group</code>, todas tendrán el mismo alto y se verán alineadas. Perfecto para mostrar información uniforme, como productos, servicios o características.
+    </div>
+
+    <div class="section-title">Ejemplo visual:</div>
+    <div class="card-group-centered">
+      <div class="card-group mt-3 d-flex">
+        <div class="card custom-card text-center position-relative">
+          
+          <div class="card-body mt-3">
+            <h4 class="card-title">Título de la tarjeta 1</h4>
+            <p class="card-text">Presenta tus productos, servicios o datos clave con estilo. Las tarjetas se ajustan automáticamente al tamaño más alto del grupo para que todo luzca alineado y profesional.</p>
+            <a href="#" class="btn">Entrar</a>
+          </div>
+        </div>          
+        <div class="card custom-card text-center position-relative">
+          <div class="card-body mt-3">
+            <h4 class="card-title">Título de la tarjeta 2</h4>
+            <p class="card-text">Puedes agregar iconos, enlaces y cualquier contenido. El diseño responsivo asegura que tu contenido se vea bien en cualquier dispositivo.</p>
+            <a href="#" class="btn">Entrar</a>
+          </div>
+        </div>          
+        <div class="card custom-card text-center position-relative">
+          <div class="card-body mt-3">
+            <h4 class="card-title">Título de la tarjeta 3</h4>
+            <p class="card-text">Las tarjetas <b>card-group</b> son ideales para mostrar bloques informativos de manera limpia y ordenada, con un toque moderno y elegante.</p>
+            <a href="#" class="btn">Entrar</a>
+          </div>
+        </div>          
+      </div>
+    </div>
+
+    <div class="section-title">Código HTML:</div>
+    <div class="code-block mb-4">
+      <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+<pre><code>&lt;div class="card-group mt-3 d-flex"&gt;
+  &lt;div class="card custom-card text-center position-relative"&gt;
+    &lt;span class="icon-badge"&gt;&lt;i class="bi bi-collection"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;div class="card-body mt-3"&gt;
+      &lt;h4 class="card-title"&gt;Título de la tarjeta 1&lt;/h4&gt;
+      &lt;p class="card-text"&gt;Presenta tus productos, servicios o datos clave con estilo...&lt;/p&gt;
+      &lt;a href="#" class="btn"&gt;Entrar&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card custom-card text-center position-relative"&gt;
+    &lt;span class="icon-badge" style="background:linear-gradient(120deg, #43b882 70%, #7bcf94 100%);"&gt;&lt;i class="bi bi-bar-chart"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;div class="card-body mt-3"&gt;
+      &lt;h4 class="card-title"&gt;Título de la tarjeta 2&lt;/h4&gt;
+      &lt;p class="card-text"&gt;Puedes agregar iconos, enlaces y cualquier contenido...&lt;/p&gt;
+      &lt;a href="#" class="btn"&gt;Entrar&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card custom-card text-center position-relative"&gt;
+    &lt;span class="icon-badge" style="background:linear-gradient(120deg, #ffb703 60%, #fbf4b5 100%); color:#795548;"&gt;&lt;i class="bi bi-lightbulb"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;div class="card-body mt-3"&gt;
+      &lt;h4 class="card-title"&gt;Título de la tarjeta 3&lt;/h4&gt;
+      &lt;p class="card-text"&gt;Las tarjetas &lt;b&gt;card-group&lt;/b&gt; son ideales para mostrar bloques informativos...&lt;/p&gt;
+      &lt;a href="#" class="btn"&gt;Entrar&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="info-block">
+      <b>¿Cuándo usar <code>card-group</code>?</b>
+      <ul>
+        <li>Cuando necesitas mostrar varias tarjetas alineadas horizontalmente con la misma altura.</li>
+        <li>Ideal para galerías, productos, características, etc.</li>
+        <li>En dispositivos móviles, las tarjetas se apilan verticalmente.</li>
+      </ul>
+      <b>Tip:</b> Para agregar separación entre tarjetas, usa la grilla de Bootstrap (<code>row</code> + <code>col</code>) y utilidades <code>g-*</code>.
+    </div>
+  </main>
+
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/53 - Componente - card (dando dimensión con la grilla y otras clases).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+  <!-- FOOTER oficial -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+  <script>
+    // Copiar bloques de código
+    function copyCode(btn) {
+      var code = btn.parentElement.querySelector('code').innerText;
+      navigator.clipboard.writeText(code);
+      btn.innerText = "¡Copiado!";
+      setTimeout(() => btn.innerText = "Copiar", 1300);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Spinners (Indicadores de carga)</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    
+   
+    .demo-section-title {
+      color: #5a3d94;
+      font-size: 1.12em;
+      font-weight: 700;
+      margin-top: 2em;
+      margin-bottom: .6em;
+    }
+    
+    .spinner-demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      align-items: center;
+    }
+    .spinner-demo-row .spinner-border,
+    .spinner-demo-row .spinner-grow {
+      margin: 0 .3em 0 0;
+    }
+    .spinner-demo-row.grow .spinner-grow {
+      margin-bottom: .6em;
+      margin-right: .3em;
+    }
+    .demo-btns-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      align-items: center;
+      margin-bottom: 1.3em;
+    }
+    .d-flex.justify-content-start,
+    .d-flex.justify-content-center,
+    .d-flex.justify-content-end {
+    
+      border-radius: 12px;
+      padding: 12px 0;
+      min-height: 70px;
+    }
+    .example-label {
+      font-size: 0.96em;
+      color: #7952B3;
+      margin-top: -.5em;
+      margin-bottom: 1.1em;
+      font-weight: 600;
+    }
+    @media (max-width: 700px) {
+      .main-content { padding: 8vw 2vw 30px 2vw; }
+      .spinner-demo-row { flex-direction: column; }
+      .demo-btns-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Spinners</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Spinners en Bootstrap 5: Indicadores visuales de carga</h1>
+  <div class="subtitle">
+    Los <b>spinners</b> son gráficos animados que indican el estado de carga o espera en una página o sección. Bootstrap 5 ofrece <b>spinners circulares</b> y <b>spinners de crecimiento</b> en todos los colores contextuales. No requieren JavaScript y son altamente personalizables.
+  </div>
+
+  <div class="info-block">
+    <strong>¿Para qué sirven los spinners?</strong>
+    <ul>
+      <li>Mostrar que una acción está en proceso (carga de datos, envío de formularios, etc).</li>
+      <li>Indicar al usuario que debe esperar antes de interactuar con la interfaz.</li>
+      <li>Mejorar la experiencia visual en aplicaciones web y móviles.</li>
+    </ul>
+    <strong>Ventajas:</strong> Son ligeros, responsivos y pueden integrarse en cualquier elemento (botones, tarjetas, overlays).
+  </div>
+
+  <h2>Ejemplo básico: Spinner circular (spinner-border)</h2>
+  <div class="spinner-demo-row">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-success" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-danger" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-info" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-light" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border text-dark" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;div class="spinner-border text-primary"&gt;
+  &lt;span class="visually-hidden"&gt;Cargando...&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+  </div>
+
+  <h2>Ejemplo: Spinner de crecimiento (spinner-grow)</h2>
+  <div class="spinner-demo-row grow">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-light" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+      <span class="visually-hidden">Cargando</span>
+    </div>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;div class="spinner-grow text-primary"&gt;
+  &lt;span class="visually-hidden"&gt;Cargando&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+  </div>
+
+  <h2>Tamaño del spinner</h2>
+  <div class="spinner-demo-row">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-grow text-success" style="width: 2.5rem; height: 2.5rem;">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-border spinner-border-sm text-danger" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <div class="spinner-grow spinner-grow-sm text-info" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"&gt;&lt;/div&gt;
+&lt;div class="spinner-grow spinner-grow-sm text-info"&gt;&lt;/div&gt;
+</pre>
+  </div>
+
+  <h2>Alineación de spinners</h2>
+  <div class="example-label">Inicio (izquierda):</div>
+  <div class="d-flex justify-content-start m-4 text-primary">
+    <div class="spinner-border">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="example-label">Centro:</div>
+  <div class="d-flex justify-content-center m-4 text-danger">
+    <div class="spinner-border">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="example-label">Final (derecha):</div>
+  <div class="d-flex justify-content-end m-4 text-warning">
+    <div class="spinner-border">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;div class="d-flex justify-content-center m-4 text-danger"&gt;
+  &lt;div class="spinner-border"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+  </div>
+
+  <h2>Ejemplo: Spinner dentro de un botón (acción en progreso)</h2>
+  <div class="demo-btns-row">
+    <button class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Ingresando...
+    </button>
+    <button class="btn btn-success" type="button" disabled>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      Guardando
+    </button>
+    <button class="btn btn-warning text-dark" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Procesando
+    </button>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;button class="btn btn-primary" type="button"&gt;
+  &lt;span class="spinner-border spinner-border-sm"&gt;&lt;/span&gt;
+  Ingresando...
+&lt;/button&gt;
+</pre>
+  </div>
+
+  <h2>Ejemplo avanzado: Spinners en tarjetas, overlays y más</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Cargando perfil...</h5>
+          <div class="spinner-border text-info" style="width:2.5rem;height:2.5rem;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 position-relative">
+      <div class="card shadow-sm">
+        <img src="https://picsum.photos/300/140" class="card-img-top" alt="Imagen aleatoria">
+        <div class="card-body text-center">
+          <h5 class="card-title">Imagen en proceso</h5>
+        </div>
+        <div class="position-absolute top-50 start-50 translate-middle">
+          <div class="spinner-grow text-danger" style="width:2.4rem;height:2.4rem;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div style="position:relative; min-height: 70px; background: #f8f9fa; border-radius: 10px;">
+        <div class="position-absolute top-50 start-50 translate-middle">
+          <div class="spinner-border text-dark" style="width:2.2rem;height:2.2rem;"></div>
+        </div>
+        <span class="visually-hidden">Cargando datos...</span>
+      </div>
+    </div>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;button class="btn btn-primary" type="button"&gt;
+  &lt;span class="spinner-border spinner-border-sm"&gt;&lt;/span&gt;
+  Ingresando...
+&lt;/button&gt;
+
+&lt;div class="card"&gt;
+  &lt;div class="card-body text-center"&gt;
+    &lt;div class="spinner-border text-info"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+  </div>
+
+  <h2>Personalización adicional</h2>
+  <ul>
+    <li>Puedes modificar el tamaño de los spinners con las clases <code>spinner-border-sm</code> y <code>spinner-grow-sm</code>, o usando estilos CSS personalizados.</li>
+    <li>Usa <code>role="status"</code> y <code>span.visually-hidden</code> para accesibilidad.</li>
+    <li>Coloca el spinner dentro de cualquier contenedor, botón, tarjeta, overlay, etc.</li>
+    <li>Utiliza colores contextuales para integrarlo con el diseño de tu app.</li>
+  </ul>
+  <p>
+    <strong>¡Recuerda!</strong> Los spinners se usan para mejorar la experiencia visual y guiar al usuario durante cargas o procesos, evitando incertidumbre.
+  </p>
+</div>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/77 - Componentes - iconos.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  </div>
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

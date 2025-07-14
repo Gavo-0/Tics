@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarjeta Bootstrap 5 con Pestañas y Ejemplos Avanzados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <style>
+    .card {
+      border-radius: 1.3rem;
+      box-shadow: 0 8px 24px rgba(44,62,80,0.09), 0 2px 8px rgba(44,62,80,0.03);
+      margin-bottom: 2.2rem;
+    }
+    .card-header {
+      border-top-left-radius: 1.3rem;
+      border-top-right-radius: 1.3rem;
+      background: #f8fafd;
+      border-bottom: 1px solid #b6e0fe;
+      padding-bottom: 0;
+    }
+    .nav-tabs.card-header-tabs .nav-link {
+      border-radius: 1rem 1rem 0 0;
+      font-weight: 500;
+      color: #7952B3;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-tabs.card-header-tabs .nav-link.active {
+      background: #7952B3;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 2px 12px rgba(121,82,179,0.09);
+    }
+    .nav-tabs.card-header-tabs .nav-link:hover:not(.active) {
+      background: #e9ecef;
+      color: #5a3d94;
+    }
+    .tab-pane {
+      padding: 1.3rem 0 0.2rem 0;
+    }
+    .nav-pills.card-header-pills .nav-link {
+      border-radius: 2rem;
+      font-weight: 500;
+      margin-right: .5rem;
+      color: #7952B3;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-pills.card-header-pills .nav-link.active {
+      background: #198754;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 2px 12px rgba(25,135,84,.10);
+    }
+    .nav-pills.card-header-pills .nav-link:hover:not(.active) {
+      background: #ede7f6;
+      color: #198754;
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas con Cabecera y Pie</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-collection"></i> Tarjeta con Pestañas Bootstrap 5</h1>
+    <div class="info-block">
+      Añade pestañas interactivas en la cabecera de una tarjeta con Bootstrap 5 para separar contenido o flujos de trabajo.<br>
+      <ul>
+        <li>Haz clic en cada pestaña para mostrar su contenido correspondiente.</li>
+        <li>Puedes colocar formularios, listas, alertas, tablas, imágenes, etc., en cada pestaña.</li>
+        <li>Incluye ejemplos avanzados y buenas prácticas para tabulación accesible.</li>
+        <li>Incluye ejemplo con <b>píldoras</b> y ejemplo con <b>contenido dinámico</b> (JS).</li>
+      </ul>
+    </div>
+    <div class="container">
+      <!-- Ejemplo clásico con nav-tabs -->
+      <div class="card border-info shadow">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs justify-content-center" id="tabExample" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="false">Opción 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Opción 2</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="true">Opción 3</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab4-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false">Opción 4</button>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="tabExampleContent">
+            <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="tab1-tab" tabindex="0">
+              <h5 class="card-title">Contenido de Opción 1</h5>
+              <ul>
+                <li>Lista de elementos <span class="badge bg-primary">Nuevo</span></li>
+                <li>Elemento destacado <span class="badge bg-warning text-dark">¡Importante!</span></li>
+              </ul>
+              <button class="btn btn-outline-primary btn-sm">Acción 1</button>
+            </div>
+            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab" tabindex="0">
+              <h5 class="card-title">Contenido de Opción 2</h5>
+              <div class="alert alert-info text-start mt-3 mb-0 p-2">¡Puedes mostrar alertas, mensajes o cualquier otro componente de Bootstrap!</div>
+              <table class="table table-sm table-striped mt-3">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Usuario 1</td>
+                    <td><span class="badge bg-success">Activo</span></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Usuario 2</td>
+                    <td><span class="badge bg-secondary">Inactivo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade show active" id="tab3" role="tabpanel" aria-labelledby="tab3-tab" tabindex="0">
+              <h5 class="card-title">Contenido de Opción 3 (Activa)</h5>
+              <form class="row g-2 justify-content-center" id="suscribeForm">
+                <div class="col-auto">
+                  <input type="email" class="form-control" placeholder="Tu correo" required>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </div>
+              </form>
+              <div class="alert alert-success mt-3 mb-0 p-2 d-none" id="alertSuscrito">¡Gracias por suscribirte!</div>
+            </div>
+            <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab" tabindex="0">
+              <h5 class="card-title">Contenido de Opción 4</h5>
+              <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap" class="img-fluid rounded shadow-sm mb-2" style="max-width:110px;">
+              <p class="card-text">Última pestaña, útil para acciones avanzadas o configuración.</p>
+              <button class="btn btn-outline-danger btn-sm">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variante con píldoras -->
+      <div class="card border-success shadow mt-4">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills justify-content-center" id="pillsExample" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pill1-tab" data-bs-toggle="pill" data-bs-target="#pill1" type="button" role="tab" aria-controls="pill1" aria-selected="false">Opción 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pill2-tab" data-bs-toggle="pill" data-bs-target="#pill2" type="button" role="tab" aria-controls="pill2" aria-selected="false">Opción 2</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pill3-tab" data-bs-toggle="pill" data-bs-target="#pill3" type="button" role="tab" aria-controls="pill3" aria-selected="true">Opción 3</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pill4-tab" data-bs-toggle="pill" data-bs-target="#pill4" type="button" role="tab" aria-controls="pill4" aria-selected="false">Opción 4</button>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="pillsExampleContent">
+            <div class="tab-pane fade" id="pill1" role="tabpanel" aria-labelledby="pill1-tab" tabindex="0">
+              <h5 class="card-title">Contenido de Opción 1 (Píldora)</h5>
+              <p class="card-text">Ejemplo de contenido con navegación tipo píldora. Cambia el diseño de las pestañas.</p>
+            </div>
+            <div class="tab-pane fade" id="pill2" role="tabpanel" aria-labelledby="pill2-tab" tabindex="0">
+              <h5 class="card-title">Contenido de Opción 2 (Píldora)</h5>
+              <p class="card-text">Puedes usar píldoras para destacar la opción activa con mayor contraste.</p>
+            </div>
+            <div class="tab-pane fade show active" id="pill3" role="tabpanel" aria-labelledby="pill3-tab" tabindex="0">
+              <h5 class="card-title">Píldora Activa</h5>
+              <p class="card-text">Esta es la opción activa por defecto en la navegación tipo píldora.</p>
+              <button class="btn btn-success">Acción rápida</button>
+            </div>
+            <div class="tab-pane fade" id="pill4" role="tabpanel" aria-labelledby="pill4-tab" tabindex="0">
+              <h5 class="card-title">Configuración avanzada</h5>
+              <p class="card-text">Puedes aprovechar las píldoras para acciones de configuración, perfiles, etc.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin variante -->
+
+      <!-- Ejemplo avanzado: Tabs dinámicos añadidos por JavaScript -->
+      <div class="card border-primary shadow mt-4">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs justify-content-center" id="dynamicTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="dyn-home-tab" data-bs-toggle="tab" data-bs-target="#dyn-home" type="button" role="tab" aria-controls="dyn-home" aria-selected="true">Inicio</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="dyn-profile-tab" data-bs-toggle="tab" data-bs-target="#dyn-profile" type="button" role="tab" aria-controls="dyn-profile" aria-selected="false">Perfil</button>
+            </li>
+            <!-- Tabs extra agregados por JS -->
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="dynamicTabsContent">
+            <div class="tab-pane fade show active" id="dyn-home" role="tabpanel" aria-labelledby="dyn-home-tab" tabindex="0">
+              <h5 class="card-title">Inicio</h5>
+              <p class="card-text">Tab predeterminado. <button id="addTabBtn" class="btn btn-outline-primary btn-sm">Añadir pestaña</button></p>
+            </div>
+            <div class="tab-pane fade" id="dyn-profile" role="tabpanel" aria-labelledby="dyn-profile-tab" tabindex="0">
+              <h5 class="card-title">Perfil</h5>
+              <p>Contenido de perfil de usuario.</p>
+            </div>
+            <!-- Contenidos extra agregados por JS -->
+          </div>
+        </div>
+      </div>
+      <!-- Fin ejemplo avanzado -->
+
+      <h2 class="mt-5">Código de ejemplo básico</h2>
+      <pre class="code-block">&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;ul class="nav nav-tabs card-header-tabs"&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;button class="nav-link active" data-bs-toggle="tab" data-bs-target="#uno"&gt;Uno&lt;/button&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;button class="nav-link" data-bs-toggle="tab" data-bs-target="#dos"&gt;Dos&lt;/button&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;div class="tab-content"&gt;
+      &lt;div class="tab-pane fade show active" id="uno"&gt;Contenido uno&lt;/div&gt;
+      &lt;div class="tab-pane fade" id="dos"&gt;Contenido dos&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h2 class="mt-4">Código de ejemplo con píldoras</h2>
+      <pre class="code-block">&lt;ul class="nav nav-pills card-header-pills"&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pillA"&gt;Píldora A&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;button class="nav-link" data-bs-toggle="pill" data-bs-target="#pillB"&gt;Píldora B&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-content"&gt;
+  &lt;div class="tab-pane fade show active" id="pillA"&gt;Contenido A&lt;/div&gt;
+  &lt;div class="tab-pane fade" id="pillB"&gt;Contenido B&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    </div>
+  </div>
+
+    <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/52 - Componente - card (grupo de tarjetas).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+  <!-- Bootstrap JS bundle (incluye Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mostrar alerta de suscripción
+    const form = document.getElementById("suscribeForm");
+    if(form) {
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        document.getElementById("alertSuscrito").classList.remove("d-none");
+        setTimeout(() => document.getElementById("alertSuscrito").classList.add("d-none"), 2200);
+        form.reset();
+      });
+    }
+    // Tabs dinámicos JS
+    document.getElementById('addTabBtn').addEventListener('click', function() {
+      var idx = document.querySelectorAll('#dynamicTabs .nav-link').length - 1;
+      var tabId = 'dyn-extra' + idx;
+      if(document.getElementById(tabId+'-tab')) return;
+      // Tab botón
+      var newTabBtn = document.createElement('button');
+      newTabBtn.className = 'nav-link';
+      newTabBtn.id = tabId + '-tab';
+      newTabBtn.setAttribute('data-bs-toggle', 'tab');
+      newTabBtn.setAttribute('data-bs-target', '#' + tabId);
+      newTabBtn.type = 'button';
+      newTabBtn.role = 'tab';
+      newTabBtn.setAttribute('aria-controls', tabId);
+      newTabBtn.setAttribute('aria-selected', 'false');
+      newTabBtn.innerText = 'Extra ' + idx;
+      var li = document.createElement('li');
+      li.className = 'nav-item';
+      li.role = 'presentation';
+      li.appendChild(newTabBtn);
+      document.getElementById('dynamicTabs').appendChild(li);
+      // Contenido
+      var newContent = document.createElement('div');
+      newContent.className = 'tab-pane fade';
+      newContent.id = tabId;
+      newContent.role = 'tabpanel';
+      newContent.setAttribute('aria-labelledby', tabId + '-tab');
+      newContent.tabIndex = 0;
+      newContent.innerHTML = '<h5>Pestaña dinámica ' + idx + '</h5><p>Contenido generado por JS.</p>';
+      document.getElementById('dynamicTabsContent').appendChild(newContent);
+    });
+  </script>
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero &amp; Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

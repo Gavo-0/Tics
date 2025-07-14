@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Control Select</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Control Select</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-list-check"></i> Formularios: Control <code>select</code></h1>
+    <div class="info-block">
+      Para aplicar Bootstrap 5 a un control <code>select</code> solo debes agregar la clase <code>form-select</code>. Puedes usarla tanto para selección única como múltiple. También existen variantes para modificar el tamaño del control.
+    </div>
+    <div class="section">
+      <h2 class="section-title">Ejemplo de Select simple y múltiple</h2>
+      <div class="code-block">
+<pre>
+&lt;form&gt;
+  &lt;label for="control1"&gt;Seleccione un elemento&lt;/label&gt; 
+  &lt;select class="form-select mb-3" id="control1" name="control1"&gt; 
+    &lt;option&gt;1&lt;/option&gt; 
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt; 
+    &lt;option&gt;4&lt;/option&gt; 
+    &lt;option&gt;5&lt;/option&gt; 
+  &lt;/select&gt;
+
+  &lt;label for="control2"&gt;Seleccione varios elementos&lt;/label&gt; 
+  &lt;select multiple class="form-select mb-3" id="control2" name="control2"&gt; 
+    &lt;option&gt;1&lt;/option&gt; 
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt; 
+    &lt;option&gt;4&lt;/option&gt; 
+    &lt;option&gt;5&lt;/option&gt; 
+  &lt;/select&gt;
+
+  &lt;button type="submit" class="btn btn-primary"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+      </div>
+      <form>
+        <label for="control1">Seleccione un elemento</label>
+        <select class="form-select mb-3" id="control1" name="control1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <label for="control2">Seleccione varios elementos</label>
+        <select multiple class="form-select mb-3" id="control2" name="control2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Selects grandes y pequeños</h2>
+      <div class="info-block">
+        Puedes modificar la dimensión del control <code>select</code> agregando las clases <code>form-select-lg</code> (grande) o <code>form-select-sm</code> (pequeño).
+      </div>
+      <div class="code-block">
+<pre>
+&lt;select class="form-select form-select-sm mb-3" id="smallSelect" name="smallSelect"&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+  &lt;option&gt;3&lt;/option&gt;
+  &lt;option&gt;4&lt;/option&gt;
+  &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+      </div>
+      <select class="form-select form-select-sm mb-3" id="smallSelect" name="smallSelect">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <select class="form-select form-select-lg mb-3" id="largeSelect" name="largeSelect">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Forms/27 - form - formulario horizontal.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+  <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Bootstrap?</title>
+    <link rel="icon" href="../../src/bootstrap.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Css/Footer.css">
+    <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+    <div class="topbar">
+        <!-- BOTÓN: usa el span con clase btn-text para el texto -->
+<button class="topbar-btn" onclick="location.href='../../index.html'">
+  <i class="bi bi-arrow-left"></i>
+  <span class="btn-text">Regresar al inicio</span>
+</button>
+<div class="title">Que es Bootstrap</div>
+<button class="topbar-btn" onclick="mostrarAlertaFinal()">
+  <i class="bi bi-check2-circle"></i>
+  <span class="btn-text">Finalizar el curso</span>
+</button>
+    </div>
+    <div class="main-content">
+        <h1 class="mb-3">Curso de Bootstrap - Introducción</h1>
+        <div class="section">
+            <h2>¿Qué es Bootstrap?</h2>
+            <p class="lead">
+                <strong>Bootstrap</strong> es un <b>framework front-end</b> gratuito y de código abierto, desarrollado originalmente por Twitter, que permite crear sitios web y aplicaciones responsivas de manera rápida y eficiente.
+            </p>
+            <ul>
+                <li>Enfoque <b>mobile-first</b>: pensado primero para dispositivos móviles.</li>
+                <li>Ideal para diseñar interfaces que se adaptan automáticamente a computadoras, tablets o teléfonos.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>¿Por qué usar Bootstrap?</h2>
+            <ul>
+                <li><b>Facilidad de uso:</b> muchas clases CSS predefinidas y componentes listos para usar.</li>
+                <li><b>Diseño responsivo:</b> sistema de cuadrícula (Grid System) que permite crear diseños adaptables.</li>
+                <li><b>Compatibilidad:</b> funciona en todos los navegadores modernos.</li>
+                <li><b>Componentes integrados:</b> botones, formularios, alertas, modales, barras de navegación, etc.</li>
+                <li><b>Personalización:</b> puedes modificar colores, fuentes y estilos fácilmente.</li>
+                <li><b>Consistencia visual:</b> asegura una apariencia coherente en todo tu sitio web.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Componentes principales de Bootstrap</h2>
+            <ul>
+                <li><b>Tipografía:</b> estilos para títulos, párrafos y texto.</li>
+                <li><b>Botones:</b> variantes con diferentes colores, tamaños y comportamientos.</li>
+                <li><b>Formularios:</b> inputs, selects, checkboxes y validaciones.</li>
+                <li><b>Menús de navegación:</b> barras adaptables a móviles y escritorio.</li>
+                <li><b>Sistema de cuadrícula:</b> divide la página en columnas y filas fácilmente.</li>
+                <li><b>Alertas:</b> mensajes de error, éxito o advertencia.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Cómo empezar a usar Bootstrap</h2>
+        </div>
+        <div class="section">
+            <h2>Ejemplo básico: Tu primera página con Bootstrap</h2>
+            <p>Puedes copiar y pegar este código para comenzar:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyToClipboard('html-ejemplo')">Copiar</button>
+                <pre><code id="html-ejemplo" class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+&lt;title&gt;Prueba de Bootstrap&lt;/title&gt;
+&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container" style="background-color:#ccc"&gt;
+    &lt;h1&gt;Título&lt;/h1&gt;
+    &lt;p&gt;Esto es una prueba de Bootstrap 5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                </div>
+        </div>
+        <div class="section">
+            <h2>Recomendación de editor</h2>
+            <p>
+                <img src="https://code.visualstudio.com/assets/images/code-stable.png" alt="VS Code" class="editor-logo">
+                Te recomendamos <strong>Visual Studio Code (VS Code)</strong>, un editor liviano, potente y gratuito, ideal para trabajar con proyectos web.
+            </p>
+            <a href="https://code.visualstudio.com/" target="_blank" class="btn btn-primary btn-sm"><span class="icon">🔗</span>Descargar VS Code</a>
+        </div>
+    </div>
+    <!-- Alerta personalizada de finalización -->
+    <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/2 - Emplear un CDN para cargar Bootstrap 5.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+   <script src="../../Js/modulos.js"> </script>
+   <script src="../../Js/chat.js"> </script>
+    <footer>
+        <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+        <div class="footer-line"></div>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="HHC" class="footer-logo" >
+        </div>
+        <div class="footer-bottom">
+            © 12-G Ángel Vargas Montero & Cristian SIles Quesada Todos los Derechos Reservados | Desarrollo Web COVAO
+        </div>
+    </footer>
+</body>
+</html>

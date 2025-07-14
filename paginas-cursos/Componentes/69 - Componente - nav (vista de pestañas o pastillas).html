@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Nav-tabs y Nav-pills</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style> 
+    .nav-demo {
+      margin-bottom: 2.2em;
+      max-width: 650px;
+    }
+    .example-label {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #7952B3;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+    .nav-caption {
+      font-size: .95em;
+      color: #432c5c;
+      margin-top: .4em;
+      margin-bottom: .7em;
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Nav-tabs y Nav-pills</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Nav-tabs y Nav-pills en Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      Puedes transformar tu menú de navegación en pestañas (<code>nav-tabs</code>) o en pastillas (<code>nav-pills</code>) de forma sencilla. Estas variantes mejoran la presentación y experiencia de navegación en tu sitio web.
+    </p>
+    <ul>
+      <li><b>nav-tabs</b>: Muestra las opciones como pestañas.</li>
+      <li><b>nav-pills</b>: Muestra las opciones como pastillas/redondeadas.</li>
+      <li><b>active</b>: Marca la opción activa.</li>
+      <li><b>disabled</b>: Desactiva una opción.</li>
+      <li><b>nav-justified</b>: Las opciones ocupan todo el ancho del contenedor.</li>
+      <li><b>nav-item</b>: Usar en cada opción junto con <code>nav-justified</code> para igualar el tamaño.</li>
+      <li><b>mt-2</b>: Agrega margen superior a la barra de navegación.</li>
+    </ul>
+
+    <h3 class="demo-section-title">Menú con pestañas (<code>nav-tabs</code>)</h3>
+    <div class="code-block">
+<pre>
+&lt;nav class="nav nav-tabs mt-2"&gt;
+  &lt;a class="nav-link" href="#"&gt;Opción 1&lt;/a&gt;
+  &lt;a class="nav-link active" href="#"&gt;Opción 2&lt;/a&gt;
+  &lt;a class="nav-link" href="#"&gt;Opción 3&lt;/a&gt;
+  &lt;a class="nav-link" href="#"&gt;Opción 4&lt;/a&gt;
+  &lt;a class="nav-link disabled" href="#"&gt;Opción 5&lt;/a&gt;
+&lt;/nav&gt;
+</pre>
+    </div>
+    <div class="nav-demo">
+      <span class="example-label">Visualización:</span>
+      <nav class="nav nav-tabs mt-2">
+        <a class="nav-link" href="#">Opción 1</a>
+        <a class="nav-link active" href="#">Opción 2</a>
+        <a class="nav-link" href="#">Opción 3</a>
+        <a class="nav-link" href="#">Opción 4</a>
+        <a class="nav-link disabled" href="#">Opción 5</a>
+      </nav>
+    </div>
+    <div class="nav-caption">
+      Las pestañas permiten al usuario identificar qué opción está activa mediante la clase <code>active</code>.
+    </div>
+
+    <h3 class="demo-section-title">Menú con pastillas (<code>nav-pills</code>)</h3>
+    <div class="code-block">
+<pre>
+&lt;nav class="nav nav-pills mt-2"&gt;
+  &lt;a class="nav-link" href="#"&gt;Opción 1&lt;/a&gt;
+  &lt;a class="nav-link active" href="#"&gt;Opción 2&lt;/a&gt;
+  &lt;a class="nav-link" href="#"&gt;Opción 3&lt;/a&gt;
+  &lt;a class="nav-link" href="#"&gt;Opción 4&lt;/a&gt;
+  &lt;a class="nav-link disabled" href="#"&gt;Opción 5&lt;/a&gt;
+&lt;/nav&gt;
+</pre>
+    </div>
+    <div class="nav-demo">
+      <span class="example-label">Visualización:</span>
+      <nav class="nav nav-pills mt-2">
+        <a class="nav-link" href="#">Opción 1</a>
+        <a class="nav-link active" href="#">Opción 2</a>
+        <a class="nav-link" href="#">Opción 3</a>
+        <a class="nav-link" href="#">Opción 4</a>
+        <a class="nav-link disabled" href="#">Opción 5</a>
+      </nav>
+    </div>
+    <div class="nav-caption">
+      Las opciones aparecen como botones redondeados (pastillas), útiles para menús de secciones o filtros.
+    </div>
+
+    <h3 class="demo-section-title">Opciones ocupando todo el ancho (<code>nav-justified</code>)</h3>
+    <p>
+      Para que las opciones ocupen todo el ancho del contenedor, usa <code>nav-justified</code> en el nav y <code>nav-item</code> en cada enlace.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;nav class="nav nav-pills nav-justified mt-2"&gt;
+  &lt;a class="nav-item nav-link" href="#"&gt;Opción 1&lt;/a&gt;
+  &lt;a class="nav-item nav-link active" href="#"&gt;Opción 2&lt;/a&gt;
+  &lt;a class="nav-item nav-link" href="#"&gt;Opción 3&lt;/a&gt;
+  &lt;a class="nav-item nav-link" href="#"&gt;Opción 4&lt;/a&gt;
+  &lt;a class="nav-item nav-link disabled" href="#"&gt;Opción 5&lt;/a&gt;
+&lt;/nav&gt;
+</pre>
+    </div>
+    <div class="nav-demo">
+      <span class="example-label">Visualización:</span>
+      <nav class="nav nav-pills nav-justified mt-2">
+        <a class="nav-item nav-link" href="#">Opción 1</a>
+        <a class="nav-item nav-link active" href="#">Opción 2</a>
+        <a class="nav-item nav-link" href="#">Opción 3</a>
+        <a class="nav-item nav-link" href="#">Opción 4</a>
+        <a class="nav-item nav-link disabled" href="#">Opción 5</a>
+      </nav>
+    </div>
+    <div class="nav-caption">
+      Cada opción se ajusta automáticamente para ocupar el mismo espacio, útil en menús principales.
+    </div>
+
+    <h3 class="demo-section-title">Colores personalizados en <code>nav-pills</code></h3>
+    <p>
+      Puedes aplicar clases de color (<code>bg-primary</code>, <code>bg-success</code>, etc.) para destacar la opción activa, usando <code>text-white</code> si es necesario.
+    </p>
+    <div class="nav-demo">
+      <nav class="nav nav-pills mt-2">
+        <a class="nav-link" href="#">Inicio</a>
+        <a class="nav-link active bg-success text-white" href="#">Tareas</a>
+        <a class="nav-link" href="#">Mensajes</a>
+        <a class="nav-link" href="#">Configuración</a>
+      </nav>
+    </div>
+
+    <h3 class="demo-section-title">Menú vertical con pestañas o pastillas</h3>
+    <p>
+      Combina <code>flex-column</code> con <code>nav-tabs</code> o <code>nav-pills</code> para mostrar un menú vertical.
+    </p>
+    <div class="nav-demo">
+      <nav class="nav nav-pills flex-column mt-2" style="max-width:250px;">
+        <a class="nav-link active" href="#">Inicio</a>
+        <a class="nav-link" href="#">Perfil</a>
+        <a class="nav-link" href="#">Configuración</a>
+        <a class="nav-link disabled" href="#">Cerrar sesión</a>
+      </nav>
+    </div>
+
+    <p>
+      <strong>Nota:</strong> Nav-tabs y nav-pills son herramientas visuales muy versátiles para organizar y resaltar grupos de opciones en una interfaz, tanto horizontal como verticalmente. Puedes combinarlas con otras utilidades de Bootstrap para lograr la apariencia y comportamiento que desees.
+    </p>
+  </div>
+</div>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/70 - Componente - nav (con elementos de tipo dropdown).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

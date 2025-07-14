@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Textarea en formularios</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Textarea</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-card-text"></i> Formularios: Control <code>textarea</code></h1>
+    <div class="info-block">
+      El control <code>textarea</code> se utiliza cuando necesitamos ingresar varias líneas de texto. En Bootstrap 5, agrega la clase <code>form-control</code> para obtener el diseño adecuado y elige la cantidad de filas visibles con el atributo <code>rows</code>.
+    </div>
+    <div class="section">
+      <h2 class="section-title">Ejemplo de formulario con textarea</h2>
+      <div class="code-block">
+<pre>
+&lt;form&gt;
+  &lt;div class="mb-3"&gt; 
+    &lt;label for="comentarios" class="form-label"&gt;Deje aquí sus comentarios&lt;/label&gt;
+    &lt;textarea class="form-control" rows="5" id="comentarios" name="comentarios"&gt;&lt;/textarea&gt;
+  &lt;/div&gt; 
+  &lt;button type="submit" class="btn btn-primary"&gt;Enviar&lt;/button&gt;      
+&lt;/form&gt;
+</pre>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="comentarios" class="form-label">Deje aquí sus comentarios</label>
+          <textarea class="form-control" rows="5" id="comentarios" name="comentarios"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+    <div class="info-block">
+      <b>Nota:</b> El atributo <code>cols</code> no afecta el ancho del <code>textarea</code> cuando se utiliza <code>form-control</code> en Bootstrap 5. Si necesitas controlar el ancho, utiliza utilidades de grid (<code>.row</code>, <code>.col</code>) o utilidades de tamaño.
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Forms/25 - form - controles checkbox y radio.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+  <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

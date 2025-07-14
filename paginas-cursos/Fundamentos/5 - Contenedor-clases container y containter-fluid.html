@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5: Uso de container y container-fluid</title>
+    <link rel="icon" href="../../src/bootstrap.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Css/Footer.css">
+    <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+    <style>
+      /* Estilo responsivo específico para tablas comparativas */
+.tabla-uso-container {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.table thead th.min-col {
+  min-width: 140px;
+}
+
+/* Fuente y espaciado optimizado en móviles */
+@media (max-width: 576px) {
+  .table {
+    font-size: 0.85rem;
+  }
+  .table td, .table th {
+    padding: 0.4rem 0.3rem;
+    white-space: nowrap;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-btns">
+            <button class="topbar-btn" onclick="location.href='../../index.html'">
+                <i class="bi bi-arrow-left"></i>
+                <span class="btn-text">Regresar al inicio</span>
+            </button>
+        </div>
+        <div class="title">Curso de Bootstrap - Containers</div>
+        <div class="topbar-btns">
+            <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+                <i class="bi bi-check2-circle"></i>
+                <span class="btn-text">Finalizar el curso</span>
+            </button>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1 class="mb-3">Bootstrap 5: Uso de <code>container</code> y <code>container-fluid</code></h1>
+        <div class="section">
+            <p>
+                En Bootstrap 5, todo diseño por rejilla (<b>grid</b>) parte de un contenedor que encierra filas (<code>row</code>) y columnas (<code>col-*</code>).
+            </p>
+            <p>
+                Bootstrap ofrece dos tipos principales de contenedores, según cómo deseas que se comporte respecto al ancho del navegador:
+            </p>
+            <ul>
+                <li>
+                    <strong><code>container</code> (ancho fijo y centrado):</strong> 
+                    <ul>
+                        <li>Tiene anchos fijos que cambian automáticamente según el breakpoint.</li>
+                        <li>Siempre permanece centrado horizontalmente.</li>
+                        <li>Ideal cuando el contenido no debe ocupar todo el ancho de pantalla, útil para mejorar la legibilidad o estética.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong><code>container-fluid</code> (ancho 100% adaptable):</strong>
+                    <ul>
+                        <li>El contenedor se extiende al 100% del ancho del viewport.</li>
+                        <li>Perfecto para diseños que necesitan aprovechar todo el espacio horizontal, como dashboards, apps o visualizaciones de datos.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Ejemplo práctico</h2>
+            <p>
+                El siguiente HTML muestra ambos tipos de contenedores y cómo se comportan:
+            </p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyToClipboard('container-example')">Copiar</button>
+                <pre><code id="container-example" class="language-html">&lt;!-- Contenedor con ancho fijo y centrado --&gt;
+&lt;div class="container my-4"&gt;
+  &lt;h2&gt;Contenedor Fijo (container)&lt;/h2&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-4 bg-secondary text-white p-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-lg-4 bg-dark text-white p-3"&gt;Columna 2&lt;/div&gt;
+    &lt;div class="col-lg-4 bg-secondary text-white p-3"&gt;Columna 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;!-- Contenedor fluido a todo lo ancho --&gt;
+&lt;div class="container-fluid my-4"&gt;
+  &lt;h2&gt;Contenedor Fluido (container-fluid)&lt;/h2&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-4 bg-secondary text-white p-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-lg-4 bg-dark text-white p-3"&gt;Columna 2&lt;/div&gt;
+    &lt;div class="col-lg-4 bg-secondary text-white p-3"&gt;Columna 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
+            <p>Visualmente:</p>
+            <!-- Ejemplo real container vs container-fluid -->
+            <div class="container my-4 border">
+              <h2>Contenedor Fijo (container)</h2>
+              <div class="row">
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 1</div>
+                <div class="col-lg-4 bg-dark text-white p-3">Columna 2</div>
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 3</div>
+              </div>
+            </div>
+            <hr>
+            <div class="container-fluid my-4 border">
+              <h2>Contenedor Fluido (container-fluid)</h2>
+              <div class="row">
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 1</div>
+                <div class="col-lg-4 bg-dark text-white p-3">Columna 2</div>
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 3</div>
+              </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>¿Cómo funciona?</h2>
+            <ul>
+                <li>El sistema de bootstrap utiliza 12 columnas por fila.</li>
+                <li>Las clases <code>col-lg-4</code> hacen que cada columna ocupe 4/12 unidades en pantallas grandes (&ge;992px).</li>
+                <li>En pantallas menores a 992px, las columnas se apilan verticalmente (responsive).</li>
+                <li>Ambos contenedores colapsan las columnas al mismo tiempo porque usan las mismas clases de columna.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>¿Cuándo usar cada uno?</h2>
+          <div class="table-responsive tabla-uso-container">
+  <table class="table table-bordered align-middle table-sm">
+    <thead class="text-center table-light">
+      <tr>
+        <th class="min-col">Caso de uso</th>
+        <th class="min-col">Usar <code>container</code></th>
+        <th class="min-col">Usar <code>container-fluid</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Blogs, artículos, formularios</td>
+        <td class="text-success fw-bold text-center">Sí</td>
+        <td class="text-danger fw-bold text-center">No recomendado</td>
+      </tr>
+      <tr>
+        <td>Dashboards, apps a pantalla completa</td>
+        <td class="text-muted text-center">No necesario</td>
+        <td class="text-success fw-bold text-center">Ideal</td>
+      </tr>
+      <tr>
+        <td>Estructura centrada con márgenes</td>
+        <td class="text-success fw-bold text-center">Sí</td>
+        <td class="text-danger fw-bold text-center">No</td>
+      </tr>
+      <tr>
+        <td>SPA (Single Page App)</td>
+        <td class="text-center">Depende del diseño</td>
+        <td class="text-success fw-bold text-center">Generalmente sí</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+        </div>
+        <div class="section">
+            <h2>Observaciones clave y tips</h2>
+            <ul>
+                <li>Ambos tipos de contenedor pueden incluir cualquier componente de Bootstrap, no solo grids.</li>
+                <li><code>container</code> tiene breakpoints internos y su ancho se adapta automáticamente según el tamaño de pantalla, pero siempre está centrado.</li>
+                <li><code>container-fluid</code> ocupa siempre el 100% del ancho de la ventana, sin márgenes laterales.</li>
+                <li>Puedes anidar containers, pero normalmente solo se usa un container principal por página.</li>
+                <li>Usa <code>container</code> para contenido legible y <code>container-fluid</code> cuando necesitas aprovechar toda la pantalla.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>¿Cómo probarlo?</h2>
+            <ul>
+                <li>Abre la página en tu navegador y cambia el tamaño de la ventana para ver cómo el <code>container</code> mantiene un ancho fijo y centrado, mientras que <code>container-fluid</code> se adapta siempre al 100%.</li>
+                <li>En dispositivos móviles, ambos containers colapsan las columnas de igual forma, porque usan <code>col-lg-4</code>.</li>
+            </ul>
+            <!-- Ejemplo real responsive container -->
+            <div class="container my-4 border">
+              <h2>Responsive con container (prueba achicar la ventana)</h2>
+              <div class="row">
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 1</div>
+                <div class="col-lg-4 bg-dark text-white p-3">Columna 2</div>
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 3</div>
+              </div>
+            </div>
+            <div class="container-fluid my-4 border">
+              <h2>Responsive con container-fluid (prueba achicar la ventana)</h2>
+              <div class="row">
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 1</div>
+                <div class="col-lg-4 bg-dark text-white p-3">Columna 2</div>
+                <div class="col-lg-4 bg-secondary text-white p-3">Columna 3</div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- Alerta personalizada de finalización -->
+    <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/6 - Columnas de diseño automático.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="../../Js/chat.js"> </script>
+    <script src="../../Js/modulos.js"></script>
+    <footer>
+        <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+        <div class="footer-line"></div>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="../../src/Felicidades.png" class="footer-logo" >
+        </div>
+        <div class="footer-bottom">
+            © 12-G Ángel Vargas Montero & Cristian SIles Quesada Todos los Derechos Reservados | Desarrollo Web COVAO
+        </div>
+    </footer>
+</body>
+</html>

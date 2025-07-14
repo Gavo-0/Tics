@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bootstrap 5 Tutorial</title>
+<link rel="icon" href="src/bootstrap.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="Css/Sidebar.css">
+<link rel="stylesheet" href="Css/Footer.css">
+<link rel="stylesheet" href="Css/Card.css">
+<link rel="stylesheet" href="Css/DarkMode.css">
+<style> 
+    .custom-alert-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .custom-alert-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      animation: slideUp 0.5s ease;
+    }
+
+    .custom-alert-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .custom-alert-btn {
+      padding: 0.5rem 1rem;
+      background-color: #7952b3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .custom-alert-btn:hover {
+      background-color: #5a3f92;
+    }
+
+    .custom-alert-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+<div id="sidebar-navbar">
+     <div class="topbar">
+    <button class="hamburger d-md-none" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
+    </button>
+    <div class="left-section d-flex">
+
+        <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">
+        <img src="src/bootstrap.png" class="right-logo" />
+    </a>
+        
+    </div>
+    <div class="title">Tutorial Bootstrap 5</div>
+    <a href="https://infocovao.xyz">
+        <img src="src/Especialidades-logos-05-e1736905518920 copy.webp" class="logo" />
+    </a>
+    
+
+
+    </div>
+
+    <div class="sidebar" id="sidebar">
+
+    <a href="#fundamentos" class="sidebar-item">
+        <div class="icon-circle"data-bs-toggle="tooltip" data-bs-placement="right" title="Fundamentos"><i class="bi bi-bar-chart"></i></div>
+        <span class="label">Fundamentos</span>
+    </a>
+    <a href="#Tablas" class="sidebar-item">
+        <div class="icon-circle"data-bs-toggle="tooltip" data-bs-placement="right" title="Tablas"><i class="bi bi-file-earmark-spreadsheet"></i></div>
+        <span class="label">Tablas</span>
+    </a>
+    <a href="#Formularios" class="sidebar-item">
+        <div class="icon-circle"data-bs-toggle="tooltip" data-bs-placement="right" title="Formularios"><i class="bi bi-file-earmark-bar-graph-fill"></i></div>
+        <span class="label">Formularios</span>
+    </a>
+    <a href="#botones" class="sidebar-item">
+        <div class="icon-circle"data-bs-toggle="tooltip" data-bs-placement="right" title="Botones"><i class="bi bi-toggle-on"></i></div>
+        <span class="label">Botones</span>
+    </a>
+    <a href="#tipografias" class="sidebar-item">
+        <div class="icon-circle"data-bs-toggle="tooltip" data-bs-placement="right" title="Tipografias"><i class="bi bi-type"></i></div>
+        <span class="label">Tipografías</span>
+    </a>
+    <a href="#imagenes" class="sidebar-item">
+        <div class="icon-circle"data-bs-toggle="tooltip" data-bs-placement="right" title="Imágenes"><i class="bi bi-card-image"></i></div>
+        <span class="label">Imágenes</span>
+    </a>
+    <a href="#componentes" class="sidebar-item">
+        <div class="icon-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Componentes"><i class="bi bi-box-seam"></i></div>
+        <span class="label">Componentes</span>
+
+        
+    </a>
+
+    <div style="margin-top: auto; padding: 16px 0; display: flex; justify-content: center;">
+        <button id="darkModeToggle" class="btn btn-sm" data-bs-toggle="tooltip" data-bs-placement="right" title="Alternar modo oscuro">
+            <i class="bi bi-moon-stars-fill"></i>
+        </button>
+    </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="fundamentos">Fundamentos</h2>
+                <div class="row g-3 justify-content-center"> 
+
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">1. ¿Qué es Bootstrap?</h5>
+                                <p class="card-text">Framework CSS que facilita el diseño web responsive y componentes listos para usar.</p>
+                            </div>
+                                <a href="paginas-cursos/Fundamentos/1 - Qué es Bootstrap.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">2. Emplear un CDN para cargar Bootstrap 5</h5>
+                                <p class="card-text">Puedes incluir Bootstrap directamente desde Internet usando enlaces CDN sin instalar archivos.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/2 - Emplear un CDN para cargar Bootstrap 5.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">3. Sistema de grillas de Bootstrap 5</h5>
+                                <p class="card-text">Organiza contenido en filas y columnas para lograr un diseño flexible y adaptables.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/3 - Sistema de grillas de Bootstrap 5.html" class="btn btn-primary">Ver más</a>  
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">4. Múltiples reglas a las columnas de una fila</h5>
+                                <p class="card-text">Permite aplicar diferentes tamaños según el ancho de pantalla (ej: col-6 col-md-4).</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/4 - Múltiples reglas a las columnas de una fila.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>   
+
+                
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">5. Contenedor: clases container y container-fluid</h5>
+                                <p class="card-text">container da ancho fijo; container-fluid ocupa todo el ancho de la pantalla.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/5 - Contenedor-clases container y containter-fluid.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">6. Columnas de diseño automático</h5>
+                                <p class="card-text">Columnas que se ajustan automáticamente al espacio disponible con col.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/6 - Columnas de diseño automático.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">7. Alineamiento vertical de las columnas</h5>
+                                <p class="card-text">Usa clases como align-items-center para centrar columnas verticalmente.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/7 - Alineamiento vertical de las columnas.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">8. Alineamiento horizontal de las columnas</h5>
+                                <p class="card-text">Permite alinear columnas a la izquierda, derecha o centro con justify-content-*.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/8 - Alineamiento horizontal de las columnas.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">9. Varias líneas en una misma fila "row"</h5>
+                                <p class="card-text">Las columnas pueden ocupar más de una línea usando flex-wrap.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/9 - Varias líneas en una misma fila-row.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">10. Reordenar las columnas en una fila</h5>
+                                <p class="card-text">Usa order-* para cambiar el orden visual de las columnas.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/10 - Reordenar las columnas en una fila.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">11. Anidamiento de columnas</h5>
+                                <p class="card-text">Puedes colocar una fila con columnas dentro de otra columna</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/11 - Anidamiento de columnas.html" class="btn btn-primary">Ver más</a> 
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">12. Offset (desplazamiento) de columnas</h5>
+                                <p class="card-text">Agrega espacio a la izquierda de una columna con offset-*.</p>
+                            </div>
+                            <a href="paginas-cursos/Fundamentos/12 - Offset (desplazamiento) de columnas.html" class="btn btn-primary">Ver más</a>      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="Tablas" >Tablas</h2>
+                <div class="row g-3 justify-content-center"> <!-- Espaciado entre columnas y centrado -->
+                    <!-- Tarjeta 1 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">13. Tablas: básica</h5>
+                                <p class="card-text">Muestra una tabla HTML simple con estilo predeterminado.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/13 - table-básica.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">14. Tablas: básica con color oscuro</h5>
+                                <p class="card-text">Agrega Tablas-dark para una apariencia oscura.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/14 - table-básica con color oscuro.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">15. Tablas: con filas con colores alternados</h5>
+                                <p class="card-text">Usa Tablas-striped para alternar colores entre filas.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/15 - table - con filas con colores alternados.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">16. Tablas: con borde en cada celda</h5>
+                                <p class="card-text">Aplica Tablas-bordered para mostrar bordes.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/16 - table - con borde en cada celda..html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">17. Tablas: iluminar la fila donde se encuentra el mouse (hover)</h5>
+                                <p class="card-text">Agrega Tablas-hover para resaltar filas al pasar el cursor.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/17 - table - iluminar la fila donde se encuentra el mouse (hover).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 6 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">18. Tablas: tabla condensada</h5>
+                                <p class="card-text">Tablas-sm reduce el espacio en celdas para Tablas compactas.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/18 - table - tabla condensada.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 7 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">19. Tablas: definición de un estilo a la cabecera de la tabla</h5>
+                                <p class="card-text">Agrega clases como thead-dark o thead-light para personalizar el encabezado.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/19 - table- definición de un estilo a la cabecera de la tabla.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 8 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">20. Tablas: clases contextuales aplicadas a filas y celdas</h5>
+                                <p class="card-text">Usa clases como Tablas-success, Tablas-danger, etc., para resaltar filas o celdas.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/20 - table - clases contextuales aplicadas a filas y celdas.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 9 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">21. Tablas: adaptables o responsive</h5>
+                                <p class="card-text">Usa Tablas-responsive para hacer la tabla desplazable horizontalmente en pantallas pequeñas.</p>
+                            </div>
+                            <a href="paginas-cursos/Tablas/21 - table - adaptable o responsive.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="Formularios" >Formularios</h2>
+                <div class="row g-3 justify-content-center"> <!-- Espaciado entre columnas y centrado -->
+                <!-- Tarjeta 1 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">22. Formularios: controles input (text y password)</h5>
+                            <p class="card-text">Campos básicos de texto y contraseña con estilos de Bootstrap.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/22 - form - controles input (text y password).html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">23. Formularios: control input (file)</h5>
+                            <p class="card-text">Permite subir archivos con un campo de tipo archivo.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/23 - form - control input (file).html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">24. Formularios: control textarea</h5>
+                            <p class="card-text">Área de texto multilínea estilizada.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/24 - form - control textarea.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">25. Formularios: controles checkbox y radio</h5>
+                            <p class="card-text">Crea opciones seleccionables con estilos consistentes.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/25 - form - controles checkbox y radio.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">26. Formularios: control select</h5>
+                            <p class="card-text">Desplegable para seleccionar una opción de una lista.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/26 - form - control select.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">27. Formularios: Formulario horizontal</h5>
+                            <p class="card-text">Inputs alineados en línea horizontal con row y col.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/27 - form - formulario horizontal.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 7 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">28. Formularios: etiquetas flotantes</h5>
+                            <p class="card-text">Inputs con etiquetas que flotan al escribir (Formulularios-floating).</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/28 - form - etiquetas flotantes.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 8 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">29. Formularios: diseños complejos empleando las grillas</h5>
+                            <p class="card-text">Combina row y col para estructurar Formululariosularios avanzados.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/29 - form - diseños complejos empleando las grillas.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 9 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">30. Formularios: texto de ayuda de un control</h5>
+                            <p class="card-text">Agrega inFormululariosación con Formulularios-text debajo del campo.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/30 - form - texto de ayuda de un control.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 10 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">31. Formularios: tamaño de los controles</h5>
+                            <p class="card-text">Ajusta el tamaño con clases como Formularios-control-sm.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/31 - form - tamaño de los controles de formulario.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 11 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">32. Formularios: control y grupo de controles HTML inhabilitados</h5>
+                            <p class="card-text">Agrega disabled para impedir la interacción.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/32 - form - control y grupo de controles HTML deshabilitados.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 12 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">33. Formularios: control range</h5>
+                            <p class="card-text">Barra deslizante para seleccionar valores numéricos.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/33 - form - control range.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 13 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card custom-card h-100">
+                        <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />   <div class="card-body text-center">
+                            <h5 class="card-title">34. Formularios: clase input-group</h5>
+                            <p class="card-text">Agrupa inputs con botones o íconos al lado.</p>
+                        </div>
+                        <a href="paginas-cursos/Forms/34 - form - clase input-group.html" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="botones" >Botones</h2>
+                <div class="row g-3 justify-content-center"> <!-- Espaciado entre columnas y centrado -->
+                    <!-- Tarjeta 1 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">35. Botones: estilos</h5>
+                                <p class="card-text">Variedad de botones con clases como btn-primary, btn-success, etc.</p>
+                            </div>
+                            <a href="paginas-cursos/Botones/35 - button - estilos.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">36. Botones: tamaño</h5>
+                                <p class="card-text">Ajusta tamaño con btn-sm o btn-lg.</p>
+                            </div>
+                            <a href="paginas-cursos/Botones/36 - button - tamaño.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">37. Botones: desactivo</h5>
+                                <p class="card-text">disabled bloquea el botón visual y funcionalmente.</p>
+                            </div>
+                            <a href="paginas-cursos/Botones/37 - button - desactivo.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">38. Botones: grupo de botones, barra de herramientas, tamaños y orientación</h5>
+                                <p class="card-text">Agrupa múltiples botones horizontal o verticalmente.</p>
+                            </div>
+                            <a href="paginas-cursos/Botones/38 - button - grupo de botones, barra de herramientas, tamaños y orientación.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">39. Botones: ubicación mediante grid y flex (CSS)</h5>
+                                <p class="card-text">Posiciona botones con clases de grilla o flexbox.</p>
+                            </div>
+                            <a href="paginas-cursos/Botones/39 - button - ubicación mediante grid y flex (css).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="tipografias" >Tipografias</h2>
+                <div class="row g-3 justify-content-center"> <!-- Espaciado entre columnas y centrado -->
+                    <!-- Tarjeta 1 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">40. Tipografía</h5>
+                                <p class="card-text">Controla el tamaño, peso y estilo del texto.</p>
+                            </div>
+                            <a href="paginas-cursos/Tipografias/40 - Tipografía.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">41. Tipografía: listas</h5>
+                                <p class="card-text">Estiliza listas ordenadas, no ordenadas y sin estilos (list-unstyled).</p>
+                            </div>
+                            <a href="paginas-cursos/Tipografias/41 - Tipografía - listas.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">42. Tipografía: citas de bloque</h5>
+                                <p class="card-text">Muestra citas con estilo (blockquote).</p>
+                            </div>
+                            <a href="paginas-cursos/Tipografias/42 - Tipografía - citas de bloque.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">43. Tipografía: abreviaturas e iniciales</h5>
+                                <p class="card-text">Usa &lt;abbr&gt; y clases como initialism para abreviaciones.</p>
+                            </div>
+                            <a href="paginas-cursos/Tipografias/43 - Tipografía - abreviaturas e iniciales.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">44. Tipografía: código y bloques de código</h5>
+                                <p class="card-text">Estiliza texto como código con "code" o "pre".</p>
+                            </div>
+                            <a href="paginas-cursos/Tipografias/44 - Tipografía - Código y bloques de código.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 6 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">45. Tipografía: clases para el alineado</h5>
+                                <p class="card-text">Controla alineación (text-center) y Formululariosato (text-uppercase, etc.).</p>
+                            </div>
+                            <a href="paginas-cursos/Tipografias/45 - Tipografía - Clases para el alineado, justificado, transformación de texto etc..html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="imagenes" >Imagenes</h2>
+                <div class="row g-3 justify-content-center"> <!-- Espaciado entre columnas y centrado -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">46. Imágenes</h5>
+                                <p class="card-text">Estiliza imágenes con clases Responsivas  </div>
+                            <a href="paginas-cursos/Imagenes/46 - Imágenes.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <div class="centered-wrapper">
+            <h2 id="componentes" >Componentes</h2>
+                <div class="row g-3 justify-content-center"> <!-- Espaciado entre columnas y centrado -->
+                    <!-- Tarjeta 1 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">47. Card (básica)</h5>
+                                <p class="card-text">Caja de contenido con borde, padding y sombra.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/47 - Componente - card (básica).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">48. Card (con colores contextuales)</h5>
+                                <p class="card-text">Personaliza color de fondo, borde o texto con clases contextuales.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/48 - Componente - card (con colores contextuales para fondo, borde y texto).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">49. Componente: Card (con imágenes)</h5>
+                                <p class="card-text">Agrega imágenes en la parte superior o inferior de la card</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/49 - Componente - card (con imágenes).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">50. Componente: Card (con cabecera y/o pie de tarjeta)</h5>
+                                <p class="card-text">Incluye header y footer dentro de la card.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/50 - Componente - card (con cabecera y pie de tarjeta).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">51. Componente: Card (pestañas)</h5>
+                                <p class="card-text">Combina nav-tabs con contenido dentro de una card.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/51 - Componente - card (pestañas).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 6 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">52. Componente: Card (grupo de tarjetas)</h5>
+                                <p class="card-text">Agrupa varias tarjetas con card-group.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/52 - Componente - card (grupo de tarjetas).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 7 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">53. Componente: Card (dando dimensión con la grilla y otras clases)</h5>
+                                <p class="card-text">Usa grid y col-* para ajustar el tamaño de las cards.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/53 - Componente - card (dando dimensión con la grilla y otras clases).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 8 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">54. Componente: alert</h5>
+                                <p class="card-text">Muestra mensajes informativos o de advertencia.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/54 - Componente - alert.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 9 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">55. Componente: modal (cuadro de diálogo modal básico)</h5>
+                                <p class="card-text">Ventana emergente centrada con contenido configurable.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/55 - Componente - modal (cuadro de diálogo modal básico).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 10 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">56. Componente: modal (tamaño y centrado del diálogo)</h5>
+                                <p class="card-text">Ajusta tamaño con clases como modal-lg y usa modal-dialog-centered.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/56 - Componente - modal (tamaño y centrado del diálogo).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 11 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">57. Componente: modal (grillas dentro de diálogos)</h5>
+                                <p class="card-text">Usa filas y columnas dentro del modal para organizar el contenido.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/57 - Componente - modal (grillas dentro de diálogos).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 12 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">58. Componente: navbar (barra de navegación simple)</h5>
+                                <p class="card-text">Barra superior con enlaces de navegación.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/58 - Componente - navbar (barra de navegación simple).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 13 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">59. Componente: navbar (contraer menú y mostrar hamburguesa)</h5>
+                                <p class="card-text">En móviles se contrae en un botón de menú (navbar-toggler).</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/59 - Componente - navbar (contraer menú de navegación y mostrar botón de hamburguesa).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 14 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">60. Componente: carousel</h5>
+                                <p class="card-text">Slider de imágenes o contenido con navegación.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/60 - Componente - carousel.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 15 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />      <div class="card-body text-center">
+                                <h5 class="card-title">61. Componente: pagination</h5>
+                                <p class="card-text">Navegación por páginas con botones numerados.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/61 - Componente - pagination.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 16 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">62. Componente: progress</h5>
+                                <p class="card-text">Barra que muestra el progreso de una tarea.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/62 - Componente - progress.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 17 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">63. Componente: dropdown (lista desplegable)</h5>
+                                <p class="card-text">Menú que se despliega al hacer clic en un botón.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/63 - Componente - dropdown (lista desplegable).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 18 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">64. Componente: collapse</h5>
+                                <p class="card-text">Muestra u oculta contenido con animación.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/64 - Componente - collapse.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 19 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">65. Componente: accordion</h5>
+                                <p class="card-text">Bloques de contenido expandible de uno en uno.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/65 - Componente - accordion.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 20 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">66. Componente: breadcrumb</h5>
+                                <p class="card-text">Indica la ubicación actual en la jerarquía del sitio.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/66 - Componente - breadcrumb.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 21 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">67. Componente: badge</h5>
+                                <p class="card-text">Pequeños contadores o etiquetas decorativas.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/67 - Componente - badge.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 22 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">68. Componente: nav (básica)</h5>
+                                <p class="card-text">Crea una navegación sencilla horizontal o vertical.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/68 - Componente - nav (básica).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 23 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">69. Componente: nav (vista de pestañas o pastillas)</h5>
+                                <p class="card-text">Navegación con estilo de tabs (nav-tabs) o pills (nav-pills).</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/69 - Componente - nav (vista de pestañas o pastillas).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 24 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">70. Componente: nav (con elementos tipo dropdown)</h5>
+                                <p class="card-text">Combina navegación con menús desplegables.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/70 - Componente - nav (con elementos de tipo dropdown).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 25 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">71. Componente: nav (con contenido para cada opción)</h5>
+                                <p class="card-text">Contenido dinámico que cambia según la opción seleccionada.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/71 - Componente - nav (con contenido para cada opción).html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 26 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">72. Componente: Scrollspy</h5>
+                                <p class="card-text">Destaca el enlace activo según el scroll de la página.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/72 - Componente - Scrollspy.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 27 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">73. Componente: Tooltips</h5>
+                                <p class="card-text">Pequeños cuadros emergentes con información adicional.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/73 - Componente - Tooltips.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 28 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">74. Componente: Popover</h5>
+                                <p class="card-text">Cuadros informativos más grandes que los tooltips.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/74 - Componente - Popover.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 29 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">75. Componente: Offcanvas</h5>
+                                <p class="card-text">Panel lateral oculto que se muestra al hacer clic.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/75 - Componente - Offcanvas copy.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 30 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">76. Componente: Spinner</h5>
+                                <p class="card-text">Indicadores de carga animados.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/76 - Componente - Spinner.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 31 -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card custom-card h-100">
+                            <img src="src/bootstrap.jpg" class="card-img-top" alt="Créditos Imagen" />       <div class="card-body text-center">
+                                <h5 class="card-title">77. Componente: Iconos</h5>
+                                <p class="card-text">Agregale personalidad a tu pagina.</p>
+                            </div>
+                            <a href="paginas-cursos/Componentes/77 - Componentes - iconos.html" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+       <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+        © 12-G Ángel Vargas Montero & Cristian SIles Quesada Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+</footer>
+<script>
+  // Mostrar modal si el curso está completo
+  document.addEventListener("DOMContentLoaded", () => {
+    const cursoFinalizado = true; // Reemplaza esto con tu lógica real
+    if (cursoFinalizado) {
+      document.getElementById("customAlert").style.display = "flex";
+    }
+
+    // Activar tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+
+    // Cerrar sidebar en móviles al hacer clic en un enlace
+    document.querySelectorAll('.sidebar-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          document.getElementById('sidebar').classList.remove('show');
+        }
+      });
+    });
+  });
+
+  function cerrarAlertaFinal() {
+    document.getElementById("customAlert").style.display = "none";
+  }
+</script>
+<script>
+
+  
+  (function (w, d, s, o, f, js, fjs) {
+    w["botsonic_widget"] = o;
+    w[o] =
+      w[o] ||
+      function () {
+        (w[o].q = w[o].q || []).push(arguments);
+      };
+    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+    js.id = o;
+    js.src = f;
+    js.async = 1;
+    fjs.parentNode.insertBefore(js, fjs);
+  })(window, document, "script", "Botsonic", "https://widget.botsonic.com/CDN/botsonic.min.js");
+  Botsonic("init", {
+    serviceBaseUrl: "https://api-azure.botsonic.ai",
+    token: "e712cde3-47a5-4419-aa33-d168f9b3f756",
+  });
+
+</script>
+
+  
+  
+<script src="Js/DarkMode.js"></script>
+<script src="Js/Tooltips.js"></script>
+<script src="Js/Sidebar.js"></script>
+</body>
+</html>

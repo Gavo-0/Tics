@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Tarjetas con Cabecera y Pie (Vertical)</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <style>
+    .custom-card {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.10), 0 2px 8px rgba(44,62,80,0.03);
+      transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+      background: linear-gradient(140deg,#fff 80%,#f8f9fa 100%);
+      min-height: 390px;
+      margin-bottom: 2rem;
+    }
+    .custom-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 44px rgba(44,62,80,0.18), 0 3px 12px rgba(44,62,80,0.07);
+      z-index: 2;
+    }
+    .custom-card .card-header {
+      font-size: 1.13rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 1.1rem 1.5rem;
+      border-bottom: none;
+      background: linear-gradient(88deg, var(--bs-primary), #79a5ff 90%);
+    }
+    .custom-card .card-header.bg-success {
+      background: linear-gradient(88deg, var(--bs-success), #7bcf94 90%) !important;
+    }
+    .custom-card .card-footer {
+      font-size: 1rem;
+      color: #444;
+      font-weight: 500;
+      padding: .9rem 1.5rem;
+      background: #f7fafc;
+      border-top: none;
+      border-radius: 0 0 1.5rem 1.5rem;
+    }
+    .custom-card .card-footer.bg-warning {
+      background: linear-gradient(88deg, #ffe57f, #fffbe9 80%) !important;
+    }
+    .custom-card .card-body {
+      padding: 2.1rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .custom-card .card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0b2545;
+      margin-bottom: 1rem;
+      letter-spacing: .5px;
+    }
+    .custom-card .card-text {
+      color: #3b4961;
+      font-size: 1.07rem;
+      margin-bottom: 2rem;
+      min-height: 60px;
+    }
+    .custom-card .btn {
+      padding: .7rem 2.1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 2rem;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+      transition: background 0.18s, color 0.18s;
+      letter-spacing: 0.5px;
+    }
+    .custom-card .btn-primary:hover,
+    .custom-card .btn-success:hover,
+    .custom-card .btn-secondary:hover {
+      background: #0b2545 !important;
+      color: #fff !important;
+    }
+    .custom-card .card-header i,
+    .custom-card .card-footer i {
+      margin-right: 8px;
+      opacity: 0.8;
+    }
+    /* Centrar vertical en pantallas grandes */
+    .vertical-center {
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas con Cabecera y Pie</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-layout-text-window"></i> Tarjetas con Cabecera y Pie</h1>
+    <div class="info-block">
+      En Bootstrap 5, una tarjeta (<b>card</b>) puede tener opcionalmente una <b>cabecera</b> (header) y/o un <b>pie</b> (footer) para añadir información adicional, títulos, acciones, estados o detalles complementarios. Esto permite personalizar aún más la presentación y estructura de la información.
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">¿Cómo se agregan cabecera y pie?</h2>
+      <ul>
+        <li>Usa la clase <code>card-header</code> para la cabecera de la tarjeta.</li>
+        <li>Usa la clase <code>card-footer</code> para el pie de la tarjeta.</li>
+        <li>Puedes combinar ambos o usar solo uno, según la necesidad.</li>
+      </ul>
+      <div class="code-block">
+<pre>
+&lt;div class="card text-center"&gt;
+  &lt;div class="card-header"&gt;Cabecera&lt;/div&gt;
+  &lt;div class="card-body"&gt;...contenido...&lt;/div&gt;
+  &lt;div class="card-footer"&gt;Pie de tarjeta&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Ejemplo: Tarjetas con cabecera y/o pie</h2>
+      <div class="container">
+        <div class="vertical-center">
+          <!-- Tarjeta 1: Cabecera y Pie -->
+          <div class="card custom-card text-center">
+            <div class="card-header text-white">
+              <i class="bi bi-award"></i> Cabecera destacada
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Tarjeta con Cabecera y Pie</h4>
+              <p class="card-text">
+                Esta tarjeta incluye tanto cabecera como pie de tarjeta. Ideal para resúmenes, estados o acciones adicionales en presentaciones o dashboards modernos.
+              </p>
+              <a href="#" class="btn btn-primary">Entrar</a>
+            </div>
+            <div class="card-footer bg-light text-muted">
+              <i class="bi bi-info-circle"></i> Pie informativo
+            </div>
+          </div>
+          <!-- Tarjeta 2: Solo Cabecera -->
+          <div class="card custom-card text-center">
+            <div class="card-header bg-success text-white">
+              <i class="bi bi-flag"></i> Cabecera éxito
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Tarjeta con Cabecera</h4>
+              <p class="card-text">
+                Esta tarjeta solo tiene cabecera. Útil para destacar títulos o categorías en la parte superior en interfaces limpias y organizadas.
+              </p>
+              <a href="#" class="btn btn-success">Entrar</a>
+            </div>
+          </div>
+          <!-- Tarjeta 3: Solo Pie -->
+          <div class="card custom-card text-center">
+            <div class="card-body">
+              <h4 class="card-title">Tarjeta con Pie</h4>
+              <p class="card-text">
+                Esta tarjeta solo posee pie de tarjeta. El pie puede mostrar estados, fechas o información secundaria con colores suaves y modernos.
+              </p>
+              <a href="#" class="btn btn-secondary">Entrar</a>
+            </div>
+            <div class="card-footer bg-warning text-dark">
+              <i class="bi bi-pen"></i> Pie destacado
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul>
+        <li><b>Cabecera:</b> Perfecta para títulos, íconos o acciones rápidas y visualmente atractivas.</li>
+        <li><b>Pie de tarjeta:</b> Útil para notas, fechas, estados o información adicional, con un toque de color y diferenciación.</li>
+        <li>Puedes personalizar con colores, iconos y estilos para una experiencia visual moderna y profesional.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+    <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/51 - Componente - card (pestañas).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+  <script src="../../Js/modulos.js"></script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

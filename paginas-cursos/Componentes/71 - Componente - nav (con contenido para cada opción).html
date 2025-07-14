@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Pestañas y contenido asociado</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+  
+    .tabs-demo {
+      margin-bottom: 2.2em;
+      max-width: 700px;
+    }
+    .example-label {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #7952B3;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+    .nav-pills .nav-link.active {
+      background-color: #7952B3;
+    }
+  </style>
+</head>
+<body>
+
+       <div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Nav-tabs y Nav-pills</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div> 
+<div class="main-content">
+  <h1>Pestañas y contenido asociado en Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      Puedes asociar paneles de contenido a tu menú de pestañas (<code>nav-tabs</code>) o pastillas (<code>nav-pills</code>). Solo se muestra el contenido de la opción seleccionada. Bootstrap 5 gestiona el cambio de contenido automáticamente usando JavaScript.
+    </p>
+    <ul>
+      <li><b>nav-tabs</b> y <b>nav-pills</b>: Menú horizontal de opciones.</li>
+      <li><b>tab-content</b>: Contenedor de paneles de contenido.</li>
+      <li><b>tab-pane</b>: Panel de cada pestaña/pastilla, vinculado por id.</li>
+      <li><b>data-bs-toggle="tab"</b>: Activa el comportamiento de pestaña.</li>
+      <li><b>show active</b>: Inicializa la pestaña y el contenido seleccionados.</li>
+      <li><b>flex-column</b>: Permite menú vertical.</li>
+    </ul>
+
+    <h3 class="demo-section-title">Ejemplo: Pestañas con contenido</h3>
+    <div class="code-block">
+<pre>
+&lt;ul class="nav nav-tabs mt-3"&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link active" data-bs-toggle="tab" href="#opcion1"&gt;Opción 1&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link" data-bs-toggle="tab" href="#opcion2"&gt;Opción 2&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link" data-bs-toggle="tab" href="#opcion3"&gt;Opción 3&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-content"&gt;
+  &lt;div class="tab-pane fade show active" id="opcion1"&gt;Contenido 1&lt;/div&gt;
+  &lt;div class="tab-pane fade" id="opcion2"&gt;Contenido 2&lt;/div&gt;
+  &lt;div class="tab-pane fade" id="opcion3"&gt;Contenido 3&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="tabs-demo">
+      <span class="example-label">Visualización:</span>
+      <ul class="nav nav-tabs mt-3">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#t1">Opción 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#t2">Opción 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#t3">Opción 3</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="t1">
+          <p>Este es el contenido de la opción 1. Solo se muestra mientras la pestaña está activa.</p>
+        </div>
+        <div class="tab-pane fade" id="t2">
+          <p>Este es el contenido de la opción 2. Se muestra al activar la pestaña correspondiente.</p>
+        </div>
+        <div class="tab-pane fade" id="t3">
+          <p>Este es el contenido de la opción 3.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Ejemplo: Pastillas con contenido (<code>nav-pills</code>)</h3>
+    <div class="tabs-demo">
+      <ul class="nav nav-pills mt-3">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#p1">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#p2">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#p3">Configuración</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="p1">
+          <p>Bienvenido a la pestaña de inicio.</p>
+        </div>
+        <div class="tab-pane fade" id="p2">
+          <p>Contenido del perfil.</p>
+        </div>
+        <div class="tab-pane fade" id="p3">
+          <p>Opciones de configuración.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Menú vertical y panel de contenido en la misma fila</h3>
+    <div class="code-block">
+<pre>
+&lt;div class="row"&gt;
+  &lt;div class="col-3"&gt;
+    &lt;ul class="nav flex-column nav-pills"&gt;
+      ...
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="col-9"&gt;
+    &lt;div class="tab-content"&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="tabs-demo">
+      <div class="row">
+        <div class="col-3">
+          <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#v1">Opción 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#v2">Opción 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#v3">Opción 3</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-9">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="v1">
+              <p>Contenido vertical opción 1.</p>
+            </div>
+            <div class="tab-pane fade" id="v2">
+              <p>Contenido vertical opción 2.</p>
+            </div>
+            <div class="tab-pane fade" id="v3">
+              <p>Contenido vertical opción 3.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Detalles de implementación</h3>
+    <ul>
+      <li>Cada <code>nav-link</code> debe tener <code>data-bs-toggle="tab"</code> y un <code>href</code> que coincida con el <code>id</code> del panel de contenido.</li>
+      <li>El panel de contenido debe tener las clases <code>tab-pane fade</code> y sólo el activo debe tener además <code>show active</code>.</li>
+      <li>Puedes usar <code>nav-tabs</code> o <code>nav-pills</code>, y horizontal o vertical (<code>flex-column</code>).</li>
+      <li>Recuerda importar <code>bootstrap.bundle.min.js</code> para la funcionalidad dinámica.</li>
+    </ul>
+
+    <p>
+      <strong>Nota:</strong> Este sistema de pestañas y paneles es ideal para organizar grandes volúmenes de información en un espacio reducido, permitiendo una navegación dinámica y fluida.
+    </p>
+  </div>
+</div>
+
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/72 - Componente - Scrollspy.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Barras de progreso</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    .progress-demo {
+      margin-bottom: 2.2em;
+      max-width: 450px;
+    }
+    .example-label {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #7952B3;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+    .progress-caption {
+      font-size: .95em;
+      color: #432c5c;
+      margin-top: .4em;
+      margin-bottom: .7em;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Barras de progreso</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Barras de progreso en Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      Las barras de progreso son herramientas visuales para mostrar el avance en una actividad o proceso. Bootstrap 5 las implementa fácilmente utilizando las clases <code>progress</code> y <code>progress-bar</code>.
+    </p>
+    <ul>
+      <li><b>progress</b>: Clase para el contenedor de la barra.</li>
+      <li><b>progress-bar</b>: Clase para la barra interna que muestra el avance.</li>
+    </ul>
+
+    <h3 class="demo-section-title">Barra de progreso por defecto</h3>
+    <div class="code-block">
+<pre>
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar" style="width:70%"&gt;70%&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress">
+        <div class="progress-bar" style="width:70%">70%</div>
+      </div>
+    </div>
+    <div class="progress-caption">La propiedad <code>style="width:70%"</code> indica el porcentaje de avance.</div>
+
+    <h3 class="demo-section-title">Barra de progreso con colores contextuales</h3>
+    <p>
+      Puedes cambiar el color de la barra usando <code>bg-success</code>, <code>bg-info</code>, <code>bg-warning</code>, <code>bg-danger</code>, etc.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar bg-success" style="width:70%"&gt;70%&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress mb-2">
+        <div class="progress-bar bg-success" style="width:70%">70%</div>
+      </div>
+      <div class="progress mb-2">
+        <div class="progress-bar bg-info" style="width:80%">80%</div>
+      </div>
+      <div class="progress mb-2">
+        <div class="progress-bar bg-warning" style="width:90%">90%</div>
+      </div>
+      <div class="progress mb-2">
+        <div class="progress-bar bg-danger" style="width:95%">95%</div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Barra de progreso a rayas</h3>
+    <p>
+      Añade <code>progress-bar-striped</code> para mostrar líneas en la barra.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-striped bg-success" style="width:70%"&gt;70%&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success" style="width:70%">70%</div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Barra de progreso animada</h3>
+    <p>
+      Para animar la barra, añade <code>progress-bar-animated</code> junto con <code>progress-bar-striped</code>.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar progress-bar-striped bg-success progress-bar-animated" style="width:70%"&gt;70%&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" style="width:70%">70%</div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Barra de progreso compuesta</h3>
+    <p>
+      Puedes mostrar varias barras dentro de una sola barra de progreso para indicar distintos estados.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div class="progress"&gt;
+  &lt;div class="progress-bar bg-success" style="width:30%"&gt;Correcto&lt;/div&gt;
+  &lt;div class="progress-bar bg-warning" style="width:30%"&gt;Cuidado&lt;/div&gt;
+  &lt;div class="progress-bar bg-danger" style="width:20%"&gt;Peligro&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress">
+        <div class="progress-bar bg-success" style="width:30%">Correcto</div>
+        <div class="progress-bar bg-warning" style="width:30%">Cuidado</div>
+        <div class="progress-bar bg-danger" style="width:20%">Peligro</div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Alto de la barra de progreso</h3>
+    <p>
+      Puedes modificar la altura de la barra usando la propiedad <code>height</code> en el div principal.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div class="progress" style="height:2rem"&gt;
+  &lt;div class="progress-bar bg-info" style="width:65%"&gt;65%&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress" style="height:2rem">
+        <div class="progress-bar bg-info" style="width:65%">65%</div>
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Ejemplo avanzado: Combinando estilos</h3>
+    <div class="code-block">
+<pre>
+&lt;div class="progress mb-3" style="height:2rem"&gt;
+  &lt;div class="progress-bar progress-bar-striped bg-success progress-bar-animated" style="width:70%"&gt;70%&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="progress-demo">
+      <span class="example-label">Visualización:</span>
+      <div class="progress mb-3" style="height:2rem">
+        <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" style="width:70%">70%</div>
+      </div>
+    </div>
+
+    <p>
+      <strong>Nota:</strong> Puedes combinar los diferentes estilos para mostrar el avance de procesos con la apariencia más adecuada a tu aplicación.
+    </p>
+  </div>
+</div>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/63 - Componente - dropdown (lista desplegable).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

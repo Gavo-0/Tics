@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 5: Navbar responsiva con botón hamburguesa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <style>
+    .section-title {
+      color: #7952B3;
+      font-size: 1.25em;
+      font-weight: 700;
+      margin-top: 2em;
+      margin-bottom: .7em;
+    }
+    .code-block {
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      padding: 1em;
+      font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+      margin-bottom: 1.5em;
+      overflow-x: auto;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #5a3d94;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .copy-btn:active, .copy-btn:focus { background: #7952b3; }
+    .info-block {
+      background: #f7f2fa;
+      border-left: 4px solid #7952B3;
+      border-radius: 7px;
+      padding: 1em 1.3em .7em 1.3em;
+      margin-bottom: 2em;
+      color: #432c5c;
+      font-size: 1.06em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Navbar con botón hamburguesa</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="mb-4">Navbar responsiva y botón hamburguesa en Bootstrap 5</h1>
+    <div class="info-block">
+      Bootstrap 5 facilita la creación de barras de navegación que se adaptan a cualquier tamaño de pantalla. 
+      <ul>
+        <li>En pantallas grandes, la barra muestra todas las opciones horizontalmente.</li>
+        <li>En dispositivos angostos, muestra un <b>botón hamburguesa</b> que despliega el menú al hacer clic.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Ejemplo visual</h2>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light mb-4">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#opciones">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand ms-2" href="#">
+        <img src="../../src/bootstrap-logo-black.svg" width="30" height="30" alt="Logo">
+      </a>
+      <div class="collapse navbar-collapse" id="opciones">   
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Opción 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Opción 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Opción 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Opción 4</a>
+          </li>            
+        </ul>
+      </div>
+    </nav>
+
+    <div class="info-block">
+      <b>¿Cómo funciona?</b>
+      <ul>
+        <li>La clase <code>navbar-expand-sm</code> indica que será horizontal desde pantallas pequeñas hacia arriba. En pantallas menores, colapsa y muestra el botón hamburguesa.</li>
+        <li>El <code>navbar-toggler</code> es el botón que despliega el menú colapsado.</li>
+        <li>El menú colapsable debe tener un <b>id</b> único (ejemplo: <code>opciones</code>) y el botón debe tener <code>data-bs-target="#opciones"</code>.</li>
+        <li>Puedes incluir un logo o nombre de marca con <code>navbar-brand</code>.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Ejemplo para copiar y pegar</h2>
+    <div class="code-block mb-4">
+      <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      <pre><code>&lt;nav class="navbar navbar-expand-md navbar-dark bg-primary"&gt;
+  &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav"&gt;
+    &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;a class="navbar-brand ms-2" href="#"&gt;
+    &lt;img src="https://www.tutorialesprogramacionya.com/imagenes/foto1.jpg" width="30" height="30" alt="Logo"&gt;
+  &lt;/a&gt;
+  &lt;div class="collapse navbar-collapse" id="menuNav"&gt;
+    &lt;ul class="navbar-nav"&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link active" href="#"&gt;Inicio&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;Servicios&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;Contacto&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="#"&gt;Ayuda&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="info-block">
+      <b>Tips rápidos:</b>
+      <ul>
+        <li>Puedes cambiar <code>navbar-expand-md</code> por <code>sm</code>, <code>lg</code>, <code>xl</code> según cuándo quieres que colapse.</li>
+        <li>Personaliza colores usando <code>bg-dark</code>, <code>bg-success</code>, etc., y combina con <code>navbar-dark</code> o <code>navbar-light</code>.</li>
+        <li>Puedes poner el botón hamburguesa a la derecha agregando <code>ms-auto</code> a la marca o menú.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function copyCode(btn) {
+      var code = btn.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code);
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => { btn.textContent = "Copiar"; }, 1300);
+    }
+  </script>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/60 - Componente - carousel.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+  <footer role="contentinfo">
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero &amp; Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

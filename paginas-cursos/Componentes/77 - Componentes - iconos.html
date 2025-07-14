@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Iconos (Bootstrap Icons)</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    .icon-demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      align-items: center;
+      margin-bottom: 1.7em;
+      padding-bottom: 8px;
+    }
+    .icon-demo-row .bi {
+      font-size: 2.25em;
+      color: #7952B3;
+      background: #f4edfd;
+      border-radius: 13px;
+      padding: 14px 18px;
+      box-shadow: 0 2px 10px #7952b313, 0 1.5px 0 #e6e0f7;
+      transition: color 0.13s, background 0.13s, box-shadow 0.15s, transform 0.14s;
+      cursor: pointer;
+      position: relative;
+    }
+    .icon-demo-row .bi:hover {
+      color: #fff;
+      background: #7952B3;
+      box-shadow: 0 4px 24px #7952b322, 0 2.5px 0 #c0b4e9;
+      transform: scale(1.09) translateY(-2px);
+      z-index: 2;
+    }
+    .icon-table {
+      margin: 1.5em 0 2.2em;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: #f8f9fa;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px #7952b320;
+      border: 1.3px solid #e6e0f7;
+    }
+    .icon-table th, .icon-table td {
+      padding: 13px 20px 13px 12px;
+      border-bottom: 1px solid #e6e0f7;
+      font-size: 1.08em;
+    }
+    .icon-table th {
+      background: #f6f3fb;
+      color: #7952B3;
+      border-bottom: 2px solid #e6e0f7;
+      letter-spacing: 0.03em;
+    }
+    .icon-table .bi {
+      font-size: 1.7em;
+      color: #5a3d94;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
+    .info-block {
+      background: linear-gradient(120deg, #f4edfd 80%, #eae3f7 100%);
+      border-left: 5px solid #7952B3;
+      border-radius: 11px;
+      padding: 1.1em 1.5em .8em 1.5em;
+      margin-bottom: 1.8em;
+      color: #432c5c;
+      font-size: 1.09em;
+      box-shadow: 0 2px 10px #7952b322;
+    }
+    .demo-section-title {
+      color: #5a3d94;
+      font-size: 1.13em;
+      font-weight: 700;
+      margin-top: 2em;
+      margin-bottom: .6em;
+    }
+    .main-content ul {
+      margin-bottom: 1.4em;
+    }
+    .main-content li {
+      margin-bottom: .46em;
+    }
+    .alert-info {
+      border-left: 6px solid #7952B3;
+      background: #f4edfd;
+      color: #432c5c;
+      font-size: 1.06em;
+      border-radius: 10px;
+      margin-top: 2.7em;
+    }
+    @media (max-width: 700px) {
+      .icon-demo-row, .demo-btns-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .icon-demo-row .bi {
+        width: 100%;
+        text-align: center;
+      }
+      .footer-logo {
+        max-width: 100px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Iconos</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Iconos en Bootstrap 5: Bootstrap Icons</h1>
+  <div class="subtitle">
+    Bootstrap ofrece su propio set de iconos SVG vectoriales y personalizables a través de la librería <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Icons</a>. Puedes usarlos en tus botones, menús, formularios, alertas y cualquier elemento HTML de tu sitio.
+  </div>
+
+  <div class="info-block">
+    <b>¿Cómo usar Bootstrap Icons?</b>
+    <ul>
+      <li>
+        Solo debes cargar el archivo CSS de Bootstrap Icons (como se muestra en el <b>&lt;head&gt;</b> de esta página).
+        <br>
+        <code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" /&gt;</code>
+      </li>
+      <li>
+        Para mostrar un icono, añade la clase <b>bi</b> y el nombre del icono:
+        <br>
+        <code>&lt;i class="bi bi-alarm"&gt;&lt;/i&gt;</code>
+      </li>
+      <li>
+        Personalización sencilla: tamaño, color, posición, sombra y animaciones con clases de Bootstrap y CSS.
+      </li>
+    </ul>
+  </div>
+
+  <h2>Ejemplo básico: Algunos iconos populares</h2>
+  <div class="icon-demo-row">
+    <i class="bi bi-bootstrap" title="bootstrap"></i>
+    <i class="bi bi-alarm" title="alarma"></i>
+    <i class="bi bi-check-circle" title="check"></i>
+    <i class="bi bi-x-circle" title="error"></i>
+    <i class="bi bi-heart-fill text-danger" title="amor"></i>
+    <i class="bi bi-github" title="github"></i>
+    <i class="bi bi-arrow-right-circle" title="flecha derecha"></i>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;i class="bi bi-alarm"&gt;&lt;/i&gt;
+&lt;i class="bi bi-heart-fill text-danger"&gt;&lt;/i&gt;
+&lt;i class="bi bi-github"&gt;&lt;/i&gt;
+</pre>
+  </div>
+
+  <h2>Ejemplos útiles: Iconos en botones, inputs y más</h2>
+  <div class="demo-section-title">Iconos en botones</div>
+  <div class="icon-demo-row">
+    <button class="btn btn-success shadow"><i class="bi bi-check-circle" style="background-color: transparent; color: #fff; border-color: transparent;"></i> Guardar</button>
+    <button class="btn btn-danger shadow"><i class="bi bi-trash3" style="background-color: transparent; color: #fff; border-color: transparent;"></i> Eliminar</button>
+    <button class="btn btn-info shadow"><i class="bi bi-pencil-square"style="background-color: transparent; color: #fff; border-color: transparent;"></i> Editar</button>
+    <button class="btn btn-warning text-dark shadow"><i class="bi bi-exclamation-triangle"style="background-color: transparent; color: #fff; border-color: transparent;"></i> Advertencia</button>
+    <button class="btn btn-primary shadow"><i class="bi bi-github"style="background-color: transparent; color: #fff; border-color: transparent;"></i></button>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;button class="btn btn-success"&gt;&lt;i class="bi bi-check-circle"&gt;&lt;/i&gt; Guardar&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;&lt;i class="bi bi-trash3"&gt;&lt;/i&gt; Eliminar&lt;/button&gt;
+</pre>
+  </div>
+
+  <div class="demo-section-title">Iconos en campos de formulario (inputs)</div>
+  <form class="row g-3 mb-4 align-items-center">
+    <div class="col-auto">
+      <label for="inputEmail" class="col-form-label">Correo:</label>
+    </div>
+    <div class="col-auto input-group">
+      <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+      <input type="email" class="form-control" id="inputEmail" placeholder="usuario@email.com">
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" type="submit"><i class="bi bi-send"></i> Enviar</button>
+    </div>
+  </form>
+  <div class="code-block">
+<pre>
+&lt;div class="input-group"&gt;
+  &lt;span class="input-group-text"&gt;&lt;i class="bi bi-envelope-fill"&gt;&lt;/i&gt;&lt;/span&gt;
+  &lt;input type="email" class="form-control" ... &gt;
+&lt;/div&gt;
+</pre>
+  </div>
+
+  <h2>Tabla rápida: Ejemplos de iconos útiles</h2>
+  <table class="icon-table">
+    <thead>
+      <tr>
+        <th>Icono</th>
+        <th>Nombre de clase</th>
+        <th>Uso común</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i class="bi bi-house-door"></i></td>
+        <td>bi-house-door</td>
+        <td>Inicio, home</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-search"></i></td>
+        <td>bi-search</td>
+        <td>Buscar</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-person-circle"></i></td>
+        <td>bi-person-circle</td>
+        <td>Perfil, usuario</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-cart"></i></td>
+        <td>bi-cart</td>
+        <td>Carrito de compras</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-gear"></i></td>
+        <td>bi-gear</td>
+        <td>Configuración</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-info-circle"></i></td>
+        <td>bi-info-circle</td>
+        <td>Información</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-exclamation-triangle"></i></td>
+        <td>bi-exclamation-triangle</td>
+        <td>Advertencia</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-check2-circle"></i></td>
+        <td>bi-check2-circle</td>
+        <td>Éxito, validación</td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-x-circle"></i></td>
+        <td>bi-x-circle</td>
+        <td>Error, cerrar</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Personalización de iconos</h2>
+  <ul>
+    <li><b>Cambiar tamaño:</b>
+      <code>style="font-size: 2.5em;"</code> o clases utilitarias <code>.fs-1</code>, <code>.fs-2</code>, etc.<br>
+      <i class="bi bi-cloud fs-1"></i> <i class="bi bi-cloud fs-2"></i> <i class="bi bi-cloud fs-3"></i>
+    </li>
+    <li><b>Cambiar color:</b>
+      Usa clases como <code>text-primary</code>, <code>text-danger</code>, <code>text-success</code>, o estilos CSS.<br>
+      <i class="bi bi-alarm text-danger"></i> <i class="bi bi-alarm text-success"></i> <i class="bi bi-alarm text-secondary"></i>
+    </li>
+    <li><b>Sombras y fondo:</b> Puedes aplicar <code>.shadow</code> y <code>bg-light</code> para destacar iconos.
+      <span class="ms-2"><i class="bi bi-bell shadow p-2 bg-light border rounded"></i></span>
+    </li>
+    <li><b>Animaciones:</b>
+      Algunos iconos pueden animarse con CSS, por ejemplo para indicar carga o alerta.<br>
+      <i class="bi bi-arrow-repeat" style="animation:spin 1s linear infinite; color:#7952B3;"></i>
+      <style>
+        @keyframes spin { 100% { transform: rotate(360deg);} }
+      </style>
+    </li>
+    <li><b>Accesibilidad:</b> Usa <code>aria-label</code> o <code>title</code> para describir el icono.<br>
+      <i class="bi bi-question-circle" aria-label="Ayuda" title="Ayuda"></i>
+    </li>
+  </ul>
+
+  <h2>¿Dónde encontrar más iconos?</h2>
+  <div class="info-block">
+    Explora la colección completa en <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener">icons.getbootstrap.com</a>.<br>
+    Puedes buscar, copiar el nombre de la clase y pegarlo en tu HTML. Cada icono es un SVG optimizado y puede usarse con cualquier color y tamaño.
+  </div>
+
+  <h2>Ejemplo avanzado: Iconos interactivos</h2>
+  <div class="icon-demo-row">
+    <button class="btn  " title="Recargar">
+      <i class="bi bi-arrow-clockwise fs-4"></i>
+    </button>
+    <a href="https://github.com/" class="btn  " target="_blank" title="Ir a GitHub">
+      <i class="bi bi-github"></i>
+    </a>
+    <span style="cursor:pointer;" title="Favorito">
+      <i class="bi bi-star" id="starIcon"></i>
+    </span>
+    <span style="cursor:pointer;" title="Like">
+      <i class="bi bi-heart" id="heartIcon"></i>
+    </span>
+  </div>
+  <div class="code-block">
+<pre>
+&lt;button class="btn btn-outline-secondary"&gt;
+  &lt;i class="bi bi-arrow-clockwise"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;a href="https://github.com/" class="btn btn-outline-dark"&gt;
+  &lt;i class="bi bi-github"&gt;&lt;/i&gt;
+&lt;/a&gt;
+&lt;span style="cursor:pointer;"&gt;
+  &lt;i class="bi bi-star" id="starIcon"&gt;&lt;/i&gt;
+&lt;/span&gt;
+</pre>
+  </div>
+
+  <div class="alert alert-info mt-5" style="max-width:700px;margin:auto;">
+    <strong>TIP:</strong> ¡Puedes cambiar el icono dinámicamente con JavaScript!<br>
+    <b>Ejemplo:</b> Haz clic en la estrella o el corazón para activar/desactivar el favorito o el like.
+  </div>
+</div>
+
+<!-- Iconos interactivos JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const star = document.getElementById('starIcon');
+    const heart = document.getElementById('heartIcon');
+    if(star) {
+      star.addEventListener('click', function() {
+        star.classList.toggle('bi-star');
+        star.classList.toggle('bi-star-fill');
+        star.style.color = star.classList.contains('bi-star-fill') ? '#FFD700' : '';
+      });
+    }
+    if(heart) {
+      heart.addEventListener('click', function() {
+        heart.classList.toggle('bi-heart');
+        heart.classList.toggle('bi-heart-fill');
+        heart.style.color = heart.classList.contains('bi-heart-fill') ? '#d63384' : '';
+      });
+    }
+  });
+</script>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+  <div class="custom-alert-box">
+    <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+    <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+    <p>
+      🎉 <strong>¡Felicidades!</strong><br>
+      Has llegado al final de este módulo de <strong>Bootstrap</strong>.<br>
+      Has aprendido a crear interfaces modernas, responsivas y con estilo profesional. <br>
+      ¡Sigue practicando y construyendo proyectos increíbles! 
+    </p>
+    <div class="custom-alert-actions">
+      <button class="custom-alert-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-house-door"></i> Ir al inicio
+      </button>
+      <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+        <i class="bi bi-x-circle"></i> Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="../../Js/chat.js"> </script>
+<script src="../../Js/modulos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  </div>
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</body>
+</html>

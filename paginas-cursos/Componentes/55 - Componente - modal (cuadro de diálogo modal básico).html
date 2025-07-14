@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial: Modal (Cuadros de diálogo) con Bootstrap 5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Bootstrap Icons (opcional para botones de ejemplo) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.15rem;
+    }
+    .main-content {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 70px 10px 30px 10px;
+    }
+    .section-title {
+      color: #7952B3;
+      font-size: 1.35em;
+      font-weight: 700;
+      margin-top: 2em;
+      margin-bottom: .8em;
+    }
+    .info-block {
+      background: #f7f2fa;
+      border-left: 4px solid #7952B3;
+      border-radius: 7px;
+      padding: 1.1em 1.5em .7em 1.5em;
+      margin-bottom: 2em;
+      color: #432c5c;
+      font-size: 1.06em;
+    }
+    .code-block {
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      padding: 1em;
+      font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+      margin-bottom: 1.5em;
+      position: relative;
+      overflow-x: auto;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #5a3d94;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:active, .copy-btn:focus {
+      background: #7952b3;
+    }
+    .example-modal-btn {
+      margin-bottom: 1.7em;
+    }
+    @media (max-width: 700px) {
+      .main-content { max-width: 97vw; }
+    }
+  </style>
+</head>
+<body>
+    <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas con Imágenes</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+  <main class="main-content">
+    <h1>Cuadros de diálogo (Modal) en Bootstrap 5</h1>
+    <p class="lead">
+      Los <strong>modales</strong> permiten mostrar ventanas emergentes superpuestas sobre el contenido principal.<br>
+      Úsalos para mostrar información importante, formularios o confirmaciones.
+    </p>
+    <div class="info-block">
+      <b>¡Importante!</b> <br>
+      Los modales de Bootstrap requieren la librería JavaScript de Bootstrap. No olvides importarla al final del <b>&lt;body&gt;</b>.
+    </div>
+    
+    <section>
+      <h2 class="section-title">Estructura básica de un modal</h2>
+      <div class="info-block">
+        <ul>
+          <li>El contenedor principal debe tener clases <code>modal</code> y <code>fade</code>, además de un <code>id</code> único.</li>
+          <li>Dentro hay un <b>modal-dialog</b> y un <b>modal-content</b>.</li>
+          <li>El contenido se divide en: <b>modal-header</b> (cabecera), <b>modal-body</b> (cuerpo) y <b>modal-footer</b> (pie).</li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-primary example-modal-btn" data-bs-toggle="modal" data-bs-target="#ejemploModal">
+        Abrir modal de ejemplo
+      </button>
+      <!-- Modal de ejemplo -->
+      <div class="modal fade" id="ejemploModal" tabindex="-1" aria-labelledby="ejemploModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Cabecera -->
+            <div class="modal-header">
+              <h5 class="modal-title" id="ejemploModalLabel">Título del Modal</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <!-- Cuerpo -->
+            <div class="modal-body">
+              ¡Hola! Soy un diálogo modal de Bootstrap 5.<br>
+              Puedes cerrarme con la X, el botón de abajo o haciendo clic fuera del cuadro.<br>
+              <small class="text-muted">Solo puede haber un modal abierto a la vez.</small>
+            </div>
+            <!-- Pie -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dialogo1"&gt;Abrir ventana de diálogo&lt;/button&gt;
+
+&lt;div class="modal fade" id="dialogo1"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;h5 class="modal-title"&gt;Título del diálogo&lt;/h5&gt;
+        &lt;button type="button" class="btn-close" data-bs-dismiss="modal"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        Contenido del diálogo.
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button type="button" class="btn btn-secondary" data-bs-dismiss="modal"&gt;Cerrar&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Al final del body agrega: --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </section>
+    
+    <section>
+      <h2 class="section-title">Evitar que se cierre el modal al hacer clic fuera</h2>
+      <div class="info-block">
+        Para que el usuario solo pueda cerrar el modal con los botones, añade <code>data-bs-backdrop="static"</code> en el div principal:
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="modal fade" id="dialogo1" data-bs-backdrop="static"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Modal con contenido largo (scroll interno)</h2>
+      <div class="info-block">
+        Si el contenido es extenso, añade la clase <code>modal-dialog-scrollable</code> al div <code>modal-dialog</code> para mostrar una barra de desplazamiento dentro del modal:
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="modal fade" id="dialogo2"&gt;
+  &lt;div class="modal-dialog modal-dialog-scrollable"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+    
+    <section>
+      <h2 class="section-title">Importar JavaScript de Bootstrap</h2>
+      <div class="info-block">
+        ¡No olvides este paso!<br>
+        Agrega la siguiente línea al final del <b>&lt;body&gt;</b> para que los modales funcionen:
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </section>
+  </main>
+  <script>
+    function copyCode(btn) {
+      var code = btn.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code);
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => { btn.textContent = "Copiar"; }, 1300);
+    }
+  </script>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/56 - Componente - modal (tamaño y centrado del diálogo).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+  <footer role="contentinfo">
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero &amp; Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+  <!-- Bootstrap JS Bundle (para que funcionen los modales) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

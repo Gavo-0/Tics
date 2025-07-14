@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial: Alertas con Bootstrap 5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Iconos Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <style>
+    .alert-demo-row .col { min-width: 220px; margin-bottom: 1em; }
+    .example-alert { margin-bottom: 1.3em; }
+  </style>
+</head>
+<body>
+  <!-- Topbar de navegación -->
+ 
+<div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas con Imágenes</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+  <main class="main-content" role="main">
+    <h1>Alertas con Bootstrap 5</h1>
+    <p class="lead">
+      <strong>Bootstrap 5</strong> permite mostrar mensajes destacados a los usuarios de manera simple, visual y profesional, usando colores y estilos fácilmente reconocibles.
+    </p>
+
+    <div class="info-block">
+      <b>¿Para qué sirven las alertas?</b><br>
+      Las alertas se usan para mostrar advertencias, errores, confirmaciones o información importante. Cada color transmite un significado:
+      <ul style="margin: .7em 0 0 0;">
+        <li><b>Azul (primary):</b> Información general</li>
+        <li><b>Verde (success):</b> Éxito</li>
+        <li><b>Rojo (danger):</b> Error o peligro</li>
+        <li><b>Amarillo (warning):</b> Advertencia</li>
+        <li><b>Gris (secondary, light, dark):</b> Neutro o contexto especial</li>
+        <li><b>Celeste (info):</b> Información secundaria</li>
+      </ul>
+    </div>
+
+    <!-- Clases principales -->
+    <section class="section">
+      <h2 class="section-title">¿Cómo se crea una alerta?</h2>
+      <div class="info-block">
+        <b>Estructura básica:</b><br>
+        Usa un <code>&lt;div&gt;</code> con la clase base <code>alert</code> y una clase de color contextual:<br>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="alert alert-success"&gt;
+  ¡Operación realizada con éxito!
+&lt;/div&gt;</code></pre>
+      </div>
+      <div class="example-alert">
+        <div class="alert alert-success">¡Operación realizada con éxito!</div>
+      </div>
+      <div class="info-block" style="margin-bottom:0">
+        <b>Clases de color disponibles:</b> <br>
+        <code>alert-primary</code>, <code>alert-secondary</code>, <code>alert-success</code>, <code>alert-danger</code>, <code>alert-warning</code>, <code>alert-info</code>, <code>alert-light</code>, <code>alert-dark</code>
+      </div>
+    </section>
+
+    <!-- Ejemplo: Todos los colores -->
+    <section class="section">
+      <h2 class="section-title">Ejemplo visual: Todos los colores de alerta</h2>
+      <div class="info-block">
+        Combina las alertas en una grilla para que el usuario vea rápidamente todas las opciones:
+      </div>
+      <div class="alert-demo-row row">
+        <div class="col">
+          <div class="alert alert-primary"><strong>Primary</strong>: Mensaje informativo.</div>
+        </div>
+        <div class="col">
+          <div class="alert alert-secondary"><strong>Secondary</strong>: Mensaje neutro.</div>
+        </div>
+        <div class="col">
+          <div class="alert alert-success"><strong>Success</strong>: ¡Acción exitosa!</div>
+        </div>
+      </div>
+      <div class="alert-demo-row row">
+        <div class="col">
+          <div class="alert alert-danger"><strong>Danger</strong>: ¡Ha ocurrido un error!</div>
+        </div>
+        <div class="col">
+          <div class="alert alert-warning"><strong>Warning</strong>: Atención, revisa esto.</div>
+        </div>
+        <div class="col">
+          <div class="alert alert-info"><strong>Info</strong>: Dato adicional para el usuario.</div>
+        </div>
+      </div>
+      <div class="alert-demo-row row">
+        <div class="col">
+          <div class="alert alert-light"><strong>Light</strong>: Fondo claro, poco intrusivo.</div>
+        </div>
+        <div class="col">
+          <div class="alert alert-dark"><strong>Dark</strong>: Fondo oscuro, contraste fuerte.</div>
+        </div>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="alert alert-primary"&gt;Primary: Mensaje informativo.&lt;/div&gt;
+&lt;div class="alert alert-secondary"&gt;Secondary: Mensaje neutro.&lt;/div&gt;
+&lt;div class="alert alert-success"&gt;Success: ¡Acción exitosa!&lt;/div&gt;
+&lt;div class="alert alert-danger"&gt;Danger: ¡Ha ocurrido un error!&lt;/div&gt;
+&lt;div class="alert alert-warning"&gt;Warning: Atención, revisa esto.&lt;/div&gt;
+&lt;div class="alert alert-info"&gt;Info: Dato adicional para el usuario.&lt;/div&gt;
+&lt;div class="alert alert-light"&gt;Light: Fondo claro, poco intrusivo.&lt;/div&gt;
+&lt;div class="alert alert-dark"&gt;Dark: Fondo oscuro, contraste fuerte.&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Alertas con enlaces y títulos -->
+    <section class="section">
+      <h2 class="section-title">Alertas enriquecidas (título, enlace y separador)</h2>
+      <div class="info-block">
+        Puedes agregar títulos, enlaces y divisores para que la alerta sea más clara y útil:
+      </div>
+      <div class="example-alert">
+        <div class="alert alert-info">
+          <h4 class="alert-heading">¡Atención!</h4>
+          <p>
+            El navegador más utilizado es <a class="alert-link" href="https://www.google.com/chrome/">Chrome</a>.
+          </p>
+          <hr>
+          <p class="mb-0">Si tienes dudas, consulta al administrador.</p>
+        </div>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="alert alert-info"&gt;
+  &lt;h4 class="alert-heading"&gt;¡Atención!&lt;/h4&gt;
+  &lt;p&gt;
+    El navegador más utilizado es 
+    &lt;a class="alert-link" href="https://www.google.com/chrome/"&gt;Chrome&lt;/a&gt;.
+  &lt;/p&gt;
+  &lt;hr&gt;
+  &lt;p class="mb-0"&gt;Si tienes dudas, consulta al administrador.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Alertas con íconos SVG -->
+    <section class="section">
+      <h2 class="section-title">Alertas con íconos SVG</h2>
+      <div class="info-block">
+        Puedes agregar un ícono SVG para hacer la alerta más visual y llamativa:
+      </div>
+      <div class="example-alert">
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-exclamation-triangle flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M7.938 2.016a.13.13 0 0 1 .125 0l6.857 11.856c.06.104-.015.228-.13.228H1.21a.145.145 0 0 1-.13-.228L7.938 2.016zM8 4.002c-.535 0-.954.462-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4.002zm.002 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+          <div>
+            <strong>¡Cuidado!</strong> Estás a punto de eliminar datos importantes.
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="alert alert-warning d-flex align-items-center" role="alert"&gt;
+  &lt;svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-exclamation-triangle flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:"&gt;
+    &lt;path d="M7.938 2.016a.13.13 0 0 1 .125 0l6.857 11.856c.06.104-.015.228-.13.228H1.21a.145.145 0 0 1-.13-.228L7.938 2.016zM8 4.002c-.535 0-.954.462-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4.002zm.002 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/&gt;
+  &lt;/svg&gt;
+  &lt;div&gt;
+    &lt;strong&gt;¡Cuidado!&lt;/strong&gt; Estás a punto de eliminar datos importantes.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Importar JS Bootstrap -->
+    <section class="section">
+      <h2 class="section-title">¿Cómo activar funcionalidades interactivas?</h2>
+      <div class="info-block">
+        Si quieres que las alertas puedan cerrarse (descartarse), debes importar el JavaScript de Bootstrap al final del <b>&lt;body&gt;</b>:
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Alertas cerrables -->
+    <section class="section">
+      <h2 class="section-title">Alertas cerrables (con botón de cierre)</h2>
+      <div class="info-block">
+        <ul>
+          <li>Agrega la clase <code>alert-dismissible</code> a la alerta.</li>
+          <li>Agrega el botón con <code>btn-close</code> y <code>data-bs-dismiss="alert"</code>.</li>
+          <li>Incluye <code>fade show</code> para animar el cierre.</li>
+        </ul>
+      </div>
+      <div class="example-alert">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>¡Error!</strong> No se pudo guardar tu información.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+        <pre><code>&lt;div class="alert alert-danger alert-dismissible fade show" role="alert"&gt;
+  &lt;strong&gt;¡Error!&lt;/strong&gt; No se pudo guardar tu información.
+  &lt;button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- Recuerda importar el JS de Bootstrap al final del body --&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Resumen -->
+    <section class="section">
+      <h2 class="section-title">Resumen rápido</h2>
+      <ul>
+        <li>Usa <code>div.alert.alert-color</code> para mostrar mensajes.</li>
+        <li>Puedes combinar con títulos, enlaces (<code>alert-link</code>), divisores y párrafos.</li>
+        <li>Agrega íconos SVG para hacerlas más visuales.</li>
+        <li>Hazlas cerrables con <code>alert-dismissible</code> y <code>btn-close</code>.</li>
+        <li>Importa el JavaScript de Bootstrap para funciones interactivas.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Script para copiar código -->
+  <script>
+    function copyCode(btn) {
+      var code = btn.parentElement.querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code);
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => { btn.textContent = "Copiar"; }, 1300);
+    }
+  </script>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/55 - Componente - modal (cuadro de diálogo modal básico).html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero &amp; Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle (para alertas cerrables) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

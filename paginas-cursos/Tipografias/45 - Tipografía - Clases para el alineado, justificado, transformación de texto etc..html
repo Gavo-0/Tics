@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Alineación y Transformación de Texto</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+<style>
+
+ 
+  :root {
+    --primary-light: #7952B3;
+    --primary-dark: #a991e6;
+  }
+
+  body {
+    background-color: #f9f6fd;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .main-content {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(121, 82, 179, 0.15);
+    margin: 2rem auto;
+    max-width: 960px;
+  }
+
+  h1 {
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--primary-dark);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-block {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .section p {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: #f1edf9;
+    border-left: 5px solid var(--primary-light);
+    border-radius: 5px;
+  }
+
+ 
+
+  .mark {
+    background-color: #fff3cd;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+  }
+
+  kbd {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-weight: bold;
+    font-family: monospace;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'"><i class="bi bi-arrow-left"></i><span class="btn-text">Regresar al inicio</span></button>
+    </div>
+    <div class="title">Curso de Bootstrap - Títulos y Display</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()"><i class="bi bi-check2-circle"></i><span class="btn-text">Finalizar el curso</span></button>
+    </div>
+  </div>
+  <!-- Contenido principal -->
+  <!-- Contenido principal -->
+<div class="main-content">
+  <h1><i class="bi bi-text-left"></i> Alineación y Transformación de Texto</h1>
+
+  <div class="info-block">
+    Bootstrap 5 provee clases para alinear (<code>.text-start</code>, <code>.text-center</code>), transformar (<code>.text-uppercase</code>, etc.) y marcar texto destacado (<code>.mark</code>).
+  </div>
+
+  <div class="section">
+    <p class="text-start">Texto alineado a la izquierda.</p>
+    <p class="text-end">Texto alineado a la derecha.</p>
+    <p class="text-center">Texto centrado.</p>
+    <p style="text-align: justify;">Texto justificado. Texto justificado. Texto justificado. Texto justificado.</p>
+    <p class="small">Texto pequeño con la clase <code>.small</code>.</p>
+    <p class="lead">Texto destacado con la clase <code>.lead</code>.</p>
+    <p class="text-nowrap">Este texto no se ajusta al <br>contenedor con <code>.text-nowrap</code>.</p>
+    <p class="text-lowercase">ESTE TEXTO EN minúsculas.</p>
+    <p class="text-uppercase">este texto en MAYÚSCULAS.</p>
+    <p class="text-capitalize">este texto Capitalizado.</p>
+    <p class="mark">Texto resaltado con <code>.mark</code>.</p>
+    <p>Presiona <kbd>Ctrl T</kbd> para abrir una nueva pestaña.</p>
+  </div>
+
+  <div class="code-block">
+    &lt;p class="text-start"&gt;Texto alineado a la izquierda.&lt;/p&gt;<br>
+    &lt;p class="text-end"&gt;Texto alineado a la derecha.&lt;/p&gt;<br>
+    &lt;p class="text-center"&gt;Texto centrado.&lt;/p&gt;<br>
+    &lt;p style="text-align: justify;"&gt;Texto justificado...&lt;/p&gt;<br>
+    &lt;p class="small"&gt;Texto pequeño.&lt;/p&gt;<br>
+    &lt;p class="lead"&gt;Texto destacado.&lt;/p&gt;<br>
+    &lt;p class="text-nowrap"&gt;Texto no ajustado.&lt;/p&gt;<br>
+    &lt;p class="text-lowercase"&gt;Minúsculas.&lt;/p&gt;<br>
+    &lt;p class="text-uppercase"&gt;Mayúsculas.&lt;/p&gt;<br>
+    &lt;p class="text-capitalize"&gt;Capitalizado.&lt;/p&gt;<br>
+    &lt;p class="mark"&gt;Texto resaltado.&lt;/p&gt;<br>
+    &lt;kbd&gt;Ctrl T&lt;/kbd&gt;
+  </div>
+</div>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Imagenes/46 - Imágenes.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+     <script src="../../Js/modulos.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+
+</body>
+</html>

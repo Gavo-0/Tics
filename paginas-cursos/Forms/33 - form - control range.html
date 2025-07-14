@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Control Range (form-range)</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  
+</head>
+<body>
+  <div id="brillo-overlay"></div>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Control Range</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-sliders"></i> Control de rango en formularios (<code>form-range</code>)</h1>
+    <div class="info-block">
+      El control <b>range</b> permite seleccionar un valor numérico dentro de un rango definido, mediante una barra deslizante. Bootstrap 5 aporta la clase <code>form-range</code> para asegurar un diseño uniforme, moderno y responsive en todos los navegadores.<br>
+      <b>Ventajas:</b><br>
+      <ul>
+        <li>Interfaz visual y fácil de usar para valores numéricos.</li>
+        <li>Permite definir valores mínimo, máximo y el incremento (<code>step</code>).</li>
+        <li>El estilo <code>form-range</code> asegura compatibilidad visual entre navegadores y dispositivos.</li>
+        <li>Puede combinarse con etiquetas o mostrar el valor en tiempo real.</li>
+        <li>Ideal para seleccionar cantidades, ajustar volúmenes, brillo, porcentajes, etc.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Ejemplo básico de control range</h2>
+      <div class="code-block">
+<pre>
+&lt;form&gt;
+  &lt;label for="rango1" class="form-label"&gt;Ejemplo de control rango&lt;/label&gt;
+  &lt;input type="range" class="form-range" id="rango1"&gt;
+&lt;/form&gt;
+</pre>
+      </div>
+      <form>
+        <label for="rango1" class="form-label">Ejemplo de control rango</label>
+        <input type="range" class="form-range mb-3" id="rango1">
+      </form>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Configuración de valores (min, max, step)</h2>
+      <div class="info-block">
+        Puedes personalizar el rango y precisión del control usando <code>min</code>, <code>max</code> y <code>step</code>. El valor inicial se establece con <code>value</code>.
+      </div>
+      <div class="code-block">
+<pre>
+&lt;input type="range" class="form-range" id="rango2" min="0" max="5" step="0.5" value="2.5"&gt;
+</pre>
+      </div>
+      <form>
+        <label for="rango2" class="form-label">Seleccione un valor entre 0 y 5 (avanza de 0.5 en 0.5): 
+          <span id="valorRange2" class="range-value">2.5</span>
+        </label>
+        <input type="range" class="form-range mb-3" id="rango2" min="0" max="5" step="0.5" value="2.5" oninput="document.getElementById('valorRange2').textContent = this.value">
+      </form>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Mostrar el valor seleccionado en tiempo real</h2>
+      <div class="info-block">
+        Es común mostrar el valor actual del range junto a la barra usando JavaScript. Así, el usuario sabe exactamente qué valor está seleccionando.
+      </div>
+      <div class="code-block">
+<pre>
+&lt;label for="rango3" class="form-label"&gt;Volumen: 
+  &lt;span id="valorRange3"&gt;50&lt;/span&gt;%
+&lt;/label&gt;
+&lt;input type="range" class="form-range" id="rango3" min="0" max="100" value="50"
+  oninput="document.getElementById('valorRange3').textContent = this.value"&gt;
+</pre>
+      </div>
+      <form>
+        <label for="rango3" class="form-label">Volumen: <span id="valorRange3" class="range-value">50</span>%</label>
+        <input type="range" class="form-range mb-3" id="rango3" min="0" max="100" value="50" 
+          oninput="document.getElementById('valorRange3').textContent = this.value">
+      </form>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Deshabilitar el control range</h2>
+      <div class="info-block">
+        Puedes desactivar el control range agregando el atributo <code>disabled</code>. El usuario no podrá modificar el valor y el control aparece atenuado.
+      </div>
+      <div class="code-block">
+<pre>
+&lt;input type="range" class="form-range" id="rango4" min="1" max="10" value="6" disabled&gt;
+</pre>
+      </div>
+      <form>
+        <label for="rango4" class="form-label">Deshabilitado:</label>
+        <input type="range" class="form-range mb-3" id="rango4" min="1" max="10" value="6" disabled>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Combinar range con texto de ayuda y brillo de toda la pantalla</h2>
+      <div class="info-block">
+        Puedes utilizar <code>form-text</code> para mostrar ayuda o instrucciones debajo del control.<br>
+        <b>Ahora este control de brillo ajusta el brillo de <u>toda la pantalla</u> usando <code>filter: brightness</code> con una capa overlay para un efecto uniforme.</b>
+      </div>
+      <div class="code-block">
+<pre>
+&lt;label for="rango5" class="form-label"&gt;
+  &lt;i class="bi bi-brightness-high icon-brillo"&gt;&lt;/i&gt;Brillo: 
+  &lt;span id="brillo-valor" class="range-value"&gt;80&lt;/span&gt;%
+&lt;/label&gt;
+&lt;input type="range" class="form-range mb-1" id="rango5" min="10" max="100" value="80"
+  oninput="setBrilloPantalla(this.value)"&gt;
+&lt;div class="form-text"&gt;Elige un valor entre 10 y 100. Cambia el brillo de toda la pantalla.&lt;/div&gt;
+</pre>
+      </div>
+      <form>
+        <label for="rango5" class="form-label">
+          <i class="bi bi-brightness-high icon-brillo"></i>
+          Brillo:
+          <span id="brillo-valor" class="range-value">80</span>%
+        </label>
+        <input type="range" class="form-range mb-1" id="rango5" min="0" max="100" value="80"
+          oninput="setBrilloPantalla(this.value)">
+        <div class="form-text">Elige un valor entre 0 y 100. Cambia el brillo de toda la pantalla.</div>
+      </form>
+    </div>
+
+    <div class="info-block">
+      <strong>Tips adicionales:</strong>
+      <ul>
+        <li>Puedes usar <code>form-range</code> en formularios horizontales o en sistemas de grillas.</li>
+        <li>Utiliza <code>min</code>, <code>max</code> y <code>step</code> según la lógica de tu aplicación.</li>
+        <li>Para accesibilidad, acompaña el <code>range</code> de una etiqueta <code>&lt;label&gt;</code> clara y precisa.</li>
+        <li>Combina <code>form-range</code> con otros controles para interfaces más ricas (por ejemplo: valores de volumen, brillo, porcentajes, etc).</li>
+      </ul>
+      <div class="alert alert-info my-2">
+        <b>Nota:</b> El brillo se aplica a <code>&lt;html&gt;</code> y una capa overlay para que <u>toda la ventana</u> responda y el oscurecimiento sea absolutamente uniforme.
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Forms/34 - form - clase input-group.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+  <script src="../../Js/modulos.js"></script>
+   <script src="../../Js/chat.js"> </script>
+  <script>
+    // Brillo uniforme con overlay
+    function setBrilloPantalla(valor) {
+      valor = Math.max(0, Math.min(100, valor)); // seguridad
+      document.getElementById('brillo-valor').textContent = valor;
+      document.documentElement.style.background = "#f9f8fd";
+      let overlay = document.getElementById('brillo-overlay');
+      // Si el brillo es mayor a 100, ignorar, si menor a 100, overlay blanco, si muy bajo, overlay oscuro
+      if (valor >= 100) {
+        overlay.style.opacity = 0;
+        overlay.style.background = "#fff";
+        document.body.classList.remove("brillo-dark");
+        overlay.style.setProperty('--overlay-dark', 0);
+      } else if (valor >= 35) {
+        // overlay blanco (aclara)
+        overlay.style.background = "#fff";
+        overlay.style.opacity = (100 - valor) / 100;
+        document.body.classList.remove("brillo-dark");
+        overlay.style.setProperty('--overlay-dark', 0);
+      } else {
+        // overlay oscuro (oscurece mucho)
+        overlay.style.background = "#000";
+        let dark = 1 - (valor / 25); // de 0 a 1
+        overlay.style.opacity = dark;
+        document.body.classList.add("brillo-dark");
+        overlay.style.setProperty('--overlay-dark', dark);
+      }
+    }
+    window.addEventListener("DOMContentLoaded", function() {
+      setBrilloPantalla(document.getElementById('rango5').value);
+    });
+  </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

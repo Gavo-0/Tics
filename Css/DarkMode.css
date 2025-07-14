@@ -1,0 +1,93 @@
+/* Variables generales */
+:root {
+  --main-bg-light: #f8f9fa;
+  --main-bg-dark: #181a1b;
+  --card-bg-light: #fff;
+  --card-bg-dark: #23272b;
+  --text-light: #333;
+  --text-dark: #eee;
+  --primary-light: #7952B3;
+  --primary-dark: #a991e6;
+  --footer-bg-dark: #181a1b;
+  --footer-border-dark: #333;
+}
+
+/* Modo claro por defecto */
+body.light-mode {
+  background: var(--main-bg-light);
+  color: var(--text-light);
+}
+body.light-mode .main-content {
+  background: var(--main-bg-light);
+}
+body.light-mode .custom-card {
+  background: var(--card-bg-light);
+  color: var(--text-light);
+}
+body.light-mode .card-title, 
+body.light-mode h2 {
+  color: var(--primary-light);
+}
+body.light-mode .btn {
+  background-color: var(--primary-light);
+  color: #fff;
+  border-color: #5a3d94;
+}
+body.light-mode .btn:hover {
+  background-color: #5a3d94;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background: var(--main-bg-dark);
+  color: var(--text-dark);
+}
+body.dark-mode .main-content {
+  background: var(--main-bg-dark);
+}
+body.dark-mode .custom-card {
+  background: var(--card-bg-dark);
+  color: var(--text-dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+body.dark-mode .card-title, 
+body.dark-mode h2 {
+  color: var(--primary-dark);
+}
+body.dark-mode .card-text {
+  color: var(--text-dark);
+}
+body.dark-mode .btn {
+  background-color: var(--primary-dark);
+  color: #23272b;
+  border-color: #7952B3;
+}
+body.dark-mode .btn:hover {
+  background-color: #7952B3;
+  color: #fff;
+}
+
+body.dark-mode .topbar,.hamburger {
+  background-color: #222;
+  color: var(--text-dark);
+}
+
+body.dark-mode .container, 
+body.dark-mode .centered-wrapper {
+  background: transparent;
+}
+body.dark-mode .sidebar {
+  background: #222;
+  color: var(--text-dark);
+}
+body.dark-mode footer {
+  background: #222;
+  color: var(--text-dark);
+}
+body.dark-mode .footer-line {
+  border-top: 2px solid var(--footer-border-dark);
+}
+body.dark-mode .footer-bottom, 
+body.dark-mode .footer-slogan {
+  color: var(--text-dark);
+}

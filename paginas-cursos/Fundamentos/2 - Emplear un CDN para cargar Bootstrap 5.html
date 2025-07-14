@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación de Bootstrap a través de CDN</title>
+    <link rel="icon" href="../../src/bootstrap.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Css/Footer.css">
+    <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+    
+</head>
+<body>
+    <div class="topbar">
+        <button class="topbar-btn" onclick="location.href='../../index.html'">
+  <i class="bi bi-arrow-left"></i>
+  <span class="btn-text">Regresar al inicio</span>
+</button>
+<div class="title">Instalación de Bootstrap</div>
+<button class="topbar-btn" onclick="mostrarAlertaFinal()">
+  <i class="bi bi-check2-circle"></i>
+  <span class="btn-text">Finalizar el curso</span>
+</button>
+    </div>
+    <div class="main-content">
+        <h1 class="mb-3">Instalación de Bootstrap a través de CDN</h1>
+
+        <div class="section">
+            <h2>¿Qué es un CDN?</h2>
+            <p>
+                Un <strong>CDN</strong> (Content Delivery Network o red de entrega de contenidos) es una red de servidores distribuidos geográficamente que almacenan copias de archivos estáticos, como hojas de estilo CSS, scripts JavaScript e imágenes.
+            </p>
+            <p>
+                Cuando un usuario accede a un sitio web que utiliza un CDN, los archivos se descargan desde el servidor más cercano a su ubicación, lo cual reduce la latencia y mejora el tiempo de carga del sitio.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>¿Por qué usar un CDN con Bootstrap?</h2>
+            <ul>
+                <li><b>Mejora del rendimiento:</b> Los archivos se descargan desde un servidor geográficamente cercano al usuario.</li>
+                <li><b>Reducción de carga en el servidor:</b> Los archivos se obtienen desde un servidor externo, disminuyendo el uso de recursos del servidor principal.</li>
+                <li><b>Uso de caché del navegador:</b> Los archivos descargados desde CDNs suelen conservarse en caché, acelerando visitas futuras.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Estructura mínima de un archivo HTML con Bootstrap desde CDN</h2>
+            <p>A continuación se muestra cómo incluir Bootstrap desde un CDN en un archivo HTML:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyToClipboard('cdn-ejemplo')">Copiar</button>
+                <pre><code id="cdn-ejemplo" class="language-html">&lt;!doctype html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+    &lt;!-- CSS de Bootstrap desde CDN --&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+    &lt;title&gt;Hola Mundo&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container" style="background-color: #ccc;"&gt;
+      &lt;h1&gt;Hola Mundo!&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;!-- JS de Bootstrap desde CDN (requerido para componentes interactivos) --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" 
+            crossorigin="anonymous"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ventajas del uso de CDN para cargar Bootstrap</h2>
+            <ul>
+                <li><b>Disminución de carga en el servidor:</b> Ideal para sitios en hosting compartido con recursos limitados.</li>
+                <li><b>Aprovechamiento de la caché del navegador:</b> Los archivos se guardan en caché y no se descargan nuevamente.</li>
+                <li><b>Reducción de latencia:</b> Los archivos se entregan más rápido gracias a servidores distribuidos globalmente.</li>
+                <li><b>Reducción de costos de servidor:</b> Menor ancho de banda y procesamiento en tu servidor principal.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Desventajas del uso de CDN</h2>
+            <ul>
+                <li><b>Dependencia de conexión a internet:</b> Si no tienes conexión, no podrás visualizar correctamente el sitio localmente.</li>
+                <li><b>Dependencia externa:</b> Existe una baja posibilidad de que el servidor CDN esté fuera de servicio.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Consideraciones adicionales</h2>
+            <ul>
+                <li>Bootstrap incluye componentes interactivos que dependen de JavaScript.</li>
+                <li>Para que funcionen correctamente, incluye el archivo <code>bootstrap.bundle.min.js</code> desde CDN o local.</li>
+                <li>Si solo incluyes el CSS, no podrás usar funcionalidades como menús desplegables, modales o carruseles.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Alerta personalizada de finalización -->
+     <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/3 - Sistema de grillas de Bootstrap 5.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+      <script src="../../Js/modulos.js"> </script>
+       <script src="../../Js/chat.js"> </script>
+    <script>
+        function copyToClipboard(elementId) {
+            var text = document.getElementById(elementId).innerText;
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try { document.execCommand('copy'); } catch (err) {}
+            document.body.removeChild(textArea);
+        }
+        function mostrarAlertaFinal() {
+            document.getElementById('customAlert').style.display = 'flex';
+        }
+        function cerrarAlertaFinal() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+        // Cierra alerta con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") cerrarAlertaFinal();
+        });
+        // Cierra alerta si se hace click fuera de la caja
+        document.getElementById('customAlert').addEventListener('click', function(e) {
+            if (e.target === this) cerrarAlertaFinal();
+        });
+    </script>
+    
+    <footer>
+        <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+        <div class="footer-line"></div>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="HHC" class="footer-logo" >
+        </div>
+        <div class="footer-bottom">
+            © 12-G Ángel Vargas Montero & Cristian SIles Quesada Todos los Derechos Reservados | Desarrollo Web COVAO
+        </div>
+    </footer>
+</body>
+</html>

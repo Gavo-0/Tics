@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Tipografía - Listas</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    /* Específicos de esta página */
+    .listas-section-title {
+      color: #7952B3;
+      font-size: 1.3em;
+      font-weight: 700;
+      margin-top: 2em;
+      margin-bottom: .8em;
+    }
+    .listas-demo-box {
+      background: #f7f2fa;
+      border-left: 4px solid #7952B3;
+      border-radius: 7px;
+      padding: 1.1em 1.5em .7em 1.5em;
+      margin-bottom: 2em;
+      color: #432c5c;
+    }
+    .listas-horizontal-dl dt {
+      font-weight: 600;
+      color: #583d7c;
+    }
+    .listas-horizontal-dl dd {
+      color: #404040;
+      margin-bottom: 0.7em;
+    }
+    .listas-code {
+      background: #222;
+      color: #fff;
+      border-radius: 6px;
+      padding: 0.8em 1em;
+      font-family: "Fira Mono", "Consolas", monospace;
+      margin-bottom: 1.1em;
+      font-size: 1em;
+      overflow-x: auto;
+    }
+    .listas-ul-demo, .listas-ol-demo, .listas-inline-demo {
+      margin-bottom: 1.6em;
+    }
+    .listas-inline-demo .list-inline-item {
+      background: #e7dbf7;
+      border-radius: 5px;
+      padding: 0.2em 0.7em;
+      margin-bottom: 0.3em;
+      color: #5a3d94;
+      font-weight: 500;
+    }
+    .listas-horizontal-dl {
+      margin-top: 1em;
+      margin-bottom: 1.6em;
+    }
+    .listas-no-bullet {
+      background: #f8f9fa;
+      border-radius: 5px;
+      padding: .5em 1em;
+      color: #7c668a;
+    }
+    .listas-table {
+      margin-bottom: 2em;
+      font-size: 1em;
+      background: #fcfafc;
+    }
+    .listas-table th, .listas-table td {
+      padding: 0.4em 1em;
+    }
+    .listas-table th {
+      background: #eee;
+      color: #7952B3;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      .listas-horizontal-dl .col-sm-3, .listas-horizontal-dl .col-sm-9 {
+        flex: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar inicio -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tipografía: Listas</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+  <!-- Topbar fin -->
+
+  <div class="main-content">
+    <h1 class="listas-section-title">Listas en Bootstrap 5</h1>
+    <div class="listas-demo-box">
+      Bootstrap 5 provee estilos para listas ordenadas (<code>&lt;ol&gt;</code>), no ordenadas (<code>&lt;ul&gt;</code>), listas sin viñetas, listas en línea y listas de definición (<code>&lt;dl&gt;</code>), mejorando su presentación y adaptabilidad en cualquier dispositivo.
+    </div>
+
+    <h2>Listas ordenadas (<code>&lt;ol&gt;</code>)</h2>
+    <div class="listas-ul-demo">
+      <p>Ejemplo de lista ordenada:</p>
+      <ol>
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+        <li>Cuarto elemento</li>
+      </ol>
+      <div class="listas-code">
+        &lt;ol&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Primer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Segundo elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Tercer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Cuarto elemento&lt;/li&gt;<br>
+        &lt;/ol&gt;
+      </div>
+    </div>
+
+    <h2>Listas no ordenadas (<code>&lt;ul&gt;</code>)</h2>
+    <div class="listas-ul-demo">
+      <p>Ejemplo de lista no ordenada:</p>
+      <ul>
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+        <li>Cuarto elemento</li>
+      </ul>
+      <div class="listas-code">
+        &lt;ul&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Primer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Segundo elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Tercer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Cuarto elemento&lt;/li&gt;<br>
+        &lt;/ul&gt;
+      </div>
+    </div>
+
+    <h2>Listas sin viñetas y en línea</h2>
+    <div class="listas-ul-demo">
+      <p><b>.list-unstyled</b> elimina las viñetas y el margen izquierdo:</p>
+      <ul class="list-unstyled listas-no-bullet">
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+        <li>Cuarto elemento</li>
+      </ul>
+      <div class="listas-code">
+        &lt;ul class="list-unstyled"&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Primer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Segundo elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Tercer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Cuarto elemento&lt;/li&gt;<br>
+        &lt;/ul&gt;
+      </div>
+    </div>
+    <div class="listas-inline-demo">
+      <p><b>.list-inline</b> y <b>.list-inline-item</b> muestran la lista horizontalmente:</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">Primer elemento</li>
+        <li class="list-inline-item">Segundo elemento</li>
+        <li class="list-inline-item">Tercer elemento</li>
+        <li class="list-inline-item">Cuarto elemento</li>
+      </ul>
+      <div class="listas-code">
+        &lt;ul class="list-inline"&gt;<br>
+        &nbsp;&nbsp;&lt;li class="list-inline-item"&gt;Primer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li class="list-inline-item"&gt;Segundo elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li class="list-inline-item"&gt;Tercer elemento&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li class="list-inline-item"&gt;Cuarto elemento&lt;/li&gt;<br>
+        &lt;/ul&gt;
+      </div>
+    </div>
+
+    <h2>Listas de definición (<code>&lt;dl&gt;</code>)</h2>
+    <div class="listas-demo-box">
+      Las listas de definición son ideales para glosarios, descripciones o pares término-definición. Usan <code>&lt;dt&gt;</code> para el término y <code>&lt;dd&gt;</code> para la definición.
+    </div>
+    <dl>
+      <dt>Palabra 1</dt>
+      <dd>Definición de la palabra 1</dd>
+      <dt>Palabra 2</dt>
+      <dd>Definición de la palabra 2</dd>
+      <dt>Palabra 3</dt>
+      <dd>Definición de la palabra 3</dd>
+    </dl>
+    <div class="listas-code">
+      &lt;dl&gt;<br>
+      &nbsp;&nbsp;&lt;dt&gt;Palabra 1&lt;/dt&gt;<br>
+      &nbsp;&nbsp;&lt;dd&gt;Definición de la palabra 1&lt;/dd&gt;<br>
+      &nbsp;&nbsp;&lt;dt&gt;Palabra 2&lt;/dt&gt;<br>
+      &nbsp;&nbsp;&lt;dd&gt;Definición de la palabra 2&lt;/dd&gt;<br>
+      &nbsp;&nbsp;&lt;dt&gt;Palabra 3&lt;/dt&gt;<br>
+      &nbsp;&nbsp;&lt;dd&gt;Definición de la palabra 3&lt;/dd&gt;<br>
+      &lt;/dl&gt;
+    </div>
+    <h3>Lista de definición horizontal</h3>
+    <div class="listas-demo-box">
+      Agrega la clase <code>.row</code> a <code>&lt;dl&gt;</code> y usa <code>col-*</code> en <code>&lt;dt&gt;</code> y <code>&lt;dd&gt;</code> para una presentación en filas.
+    </div>
+    <dl class="row listas-horizontal-dl">
+      <dt class="col-sm-3">Palabra 1</dt>
+      <dd class="col-sm-9">Definición de la palabra 1</dd>
+      <dt class="col-sm-3">Palabra 2</dt>
+      <dd class="col-sm-9">Definición de la palabra 2</dd>
+      <dt class="col-sm-3">Palabra 3</dt>
+      <dd class="col-sm-9">Definición de la palabra 3</dd>
+    </dl>
+    <div class="listas-code">
+      &lt;dl class="row"&gt;<br>
+      &nbsp;&nbsp;&lt;dt class="col-sm-3"&gt;Palabra 1&lt;/dt&gt;<br>
+      &nbsp;&nbsp;&lt;dd class="col-sm-9"&gt;Definición de la palabra 1&lt;/dd&gt;<br>
+      &nbsp;&nbsp;&lt;dt class="col-sm-3"&gt;Palabra 2&lt;/dt&gt;<br>
+      &nbsp;&nbsp;&lt;dd class="col-sm-9"&gt;Definición de la palabra 2&lt;/dd&gt;<br>
+      &nbsp;&nbsp;&lt;dt class="col-sm-3"&gt;Palabra 3&lt;/dt&gt;<br>
+      &nbsp;&nbsp;&lt;dd class="col-sm-9"&gt;Definición de la palabra 3&lt;/dd&gt;<br>
+      &lt;/dl&gt;
+    </div>
+
+    <h2>Resumen de clases útiles para listas en Bootstrap 5</h2>
+    <table class="listas-table table table-bordered">
+      <thead>
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>list-unstyled</code></td>
+          <td>Quita viñetas y margen izquierdo de la lista.</td>
+        </tr>
+        <tr>
+          <td><code>list-inline</code></td>
+          <td>Muestra los elementos en línea horizontalmente.</td>
+        </tr>
+        <tr>
+          <td><code>list-inline-item</code></td>
+          <td>Convierte el elemento <code>&lt;li&gt;</code> en item en línea dentro de <code>.list-inline</code>.</td>
+        </tr>
+        <tr>
+          <td><code>row</code> (en <code>dl</code>)</td>
+          <td>Utiliza el sistema de grillas para listas de definición horizontales.</td>
+        </tr>
+        <tr>
+          <td><code>col-*</code></td>
+          <td>Define el ancho de cada término y definición en una lista de definición horizontal.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="listas-demo-box">
+      <b>Consejos de buenas prácticas:</b>
+      <ul>
+        <li>Utiliza <b>listas ordenadas</b> para pasos secuenciales o rankings, y <b>no ordenadas</b> para listados generales.</li>
+        <li>Las <b>listas en línea</b> son ideales para menús, tags o navegación secundaria.</li>
+        <li>Las <b>listas de definición</b> son perfectas para glosarios, términos técnicos o fichas de datos.</li>
+        <li>Combina las utilidades de Bootstrap con utilidades personalizadas para lograr la presentación deseada.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada -->
+ <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Tipografias/42 - Tipografía - citas de bloque.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+  <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

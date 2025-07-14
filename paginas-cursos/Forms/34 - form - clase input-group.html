@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 5: Ejemplos de Input Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+</head>
+<body>
+
+    <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Control Range</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <h1><i class="bi bi-boxes"></i> Ejemplos con <code>input-group</code> en Bootstrap 5</h1>
+    <div class="info-block">
+      La clase <b>input-group</b> permite asociar a un control de formulario un texto o incluso otro control (como un botón) a un lado o a ambos lados del mismo. Esto es útil para mostrar unidades, prefijos, sufijos o acciones asociadas al campo de entrada.
+    </div>
+    <form>
+      <h5 class="mb-2">Prefijo de texto (icono @ a la izquierda)</h5>
+      <div class="input-group mb-3">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="nombre de usuario en el sitio">
+      </div>
+      <div class="code-block">
+<pre>
+&lt;div class="input-group mb-3"&gt;
+  &lt;span class="input-group-text"&gt;@&lt;/span&gt;
+  &lt;input type="text" class="form-control" placeholder="nombre de usuario en el sitio"&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <h5 class="mb-2">Sufijo de texto (dominio a la derecha)</h5>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="usuario">
+        <span class="input-group-text" id="texto2">@gmail.com</span>
+      </div>
+      <div class="code-block">
+<pre>
+&lt;div class="input-group mb-3"&gt;
+  &lt;input type="text" class="form-control" placeholder="usuario"&gt;
+  &lt;span class="input-group-text" id="texto2"&gt;@gmail.com&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <h5 class="mb-2">Botón junto al input</h5>
+      <div class="input-group mb-3">
+        <button class="btn btn-primary" type="button" id="boton1">Verificar</button>
+        <input type="text" class="form-control" placeholder="Nombre de usuario nuevo">
+      </div>
+      <div class="code-block">
+<pre>
+&lt;div class="input-group"&gt;
+  &lt;button class="btn btn-primary" type="button" id="boton1"&gt;Verificar&lt;/button&gt;
+  &lt;input type="text" class="form-control" placeholder="Nombre de usuario nuevo"&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+    </form>
+    <div class="info-block">
+      <b>Tip:</b> Puedes combinar varios elementos en un <code>input-group</code>, como iconos, selectores, botones y más, para crear entradas ricas y contextualizadas.
+    </div>
+  </div>
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Botones/35 - button - estilos.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+     <script src="../../Js/chat.js"> </script>
+     <script src="../../Js/modulos.js"></script>
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+
+</body>
+</html>

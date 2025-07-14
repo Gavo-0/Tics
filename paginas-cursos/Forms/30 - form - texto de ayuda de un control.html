@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Texto de ayuda en formularios (form-text)</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Ayuda en formularios</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-info-circle"></i> Texto de ayuda en formularios (<code>form-text</code>)</h1>
+    <div class="info-block">
+      Bootstrap 5 facilita agregar textos de ayuda debajo de los campos de formulario usando la clase <code>form-text</code>. De esta manera, puedes indicar al usuario cómo completar cada campo correctamente, mejorando la experiencia y la claridad.
+    </div>
+    <div class="section">
+      <h2 class="section-title">Ejemplo de uso de <code>form-text</code></h2>
+      <div class="code-block">
+<pre>
+&lt;form&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="nombre" class="form-label"&gt;Ingrese su nombre:&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="nombre" name="nombre"&gt;
+    &lt;div class="form-text"&gt;No ingrese espacios en blanco.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="clave" class="form-label"&gt;Ingrese su clave:&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="clave" name="clave"&gt;
+    &lt;div class="form-text"&gt;Debe tener al menos 10 caracteres, de los cuales al menos uno debe ser un número.&lt;/div&gt;
+  &lt;/div&gt;      
+  &lt;button type="submit" class="btn btn-primary"&gt;Enviar&lt;/button&gt;       
+&lt;/form&gt;
+</pre>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Ingrese su nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre">
+          <div class="form-text">No ingrese espacios en blanco.</div>
+        </div>
+        <div class="mb-3">
+          <label for="clave" class="form-label">Ingrese su clave:</label>
+          <input type="password" class="form-control" id="clave" name="clave">
+          <div class="form-text">Debe tener al menos 10 caracteres, de los cuales al menos uno debe ser un número.</div>
+        </div>      
+        <button type="submit" class="btn btn-primary">Enviar</button>       
+      </form>
+    </div>
+    <div class="info-block">
+      <strong>Tip:</strong> Puedes usar <code>form-text</code> en un <code>&lt;div&gt;</code>, <code>&lt;small&gt;</code>, <code>&lt;span&gt;</code>, etc. para mostrar el texto de ayuda.
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Forms/31 - form - tamaño de los controles de formulario.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+  <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Tarjetas y Dimensionamiento</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+  <style>
+    .example-section {
+      margin-bottom: 2.8em;
+      background: linear-gradient(95deg, #f8f5fc 60%, #e6dbfa 100%);
+      border: 1.5px solid #e1d1f6;
+      border-radius: 16px;
+      padding: 1.8em 1.5em 1.1em 1.5em;
+      box-shadow: 0 4px 16px #7952b321;
+      position: relative;
+      overflow-x: auto;
+    }
+    .example-section::before {
+      content: "Ejemplo";
+      display: inline-block;
+      position: absolute;
+      top: 0.9em;
+      left: 1.1em;
+      background: #7952B3;
+      color: #fff;
+      padding: 0.13em 0.7em;
+      border-radius: 7px 7px 7px 0;
+      font-size: .95em;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      box-shadow: 0 2px 8px #7952b330;
+    }
+    .example-section > .container,
+    .example-section > .d-flex {
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    /* Card animation on hover */
+    .example-section .card {
+      transition: transform .14s cubic-bezier(.77,0,.18,1), box-shadow .18s;
+      box-shadow: 0 2px 12px #7952b322;
+      border: 2px solid #e3d3f9;
+      background: linear-gradient(120deg, #7952b3 80%, #54397e 100%);
+      outline: none;
+    }
+    .example-section .card:hover, .example-section .card:focus-within {
+      transform: translateY(-7px) scale(1.03) rotate(-1deg);
+      box-shadow: 0 7px 32px #7952b34a;
+      border-color: #9e7ac7;
+      z-index: 3;
+    }
+    .example-section .card .card-header {
+      background: linear-gradient(90deg, #fff2, #7952B3 60%, #fff2);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.13em;
+      border-bottom: none;
+      letter-spacing: 0.2px;
+      border-radius: 7px 7px 0 0;
+    }
+    .example-section .card .btn {
+      border-radius: 22px;
+      box-shadow: 0 2px 8px #28a74533;
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-top: 0.6em;
+      background: linear-gradient(87deg, #28a745 70%, #3cd85d 100%);
+      border: none;
+      transition: background .19s, box-shadow .13s;
+    }
+    .example-section .card .btn:hover, .example-section .card .btn:focus {
+      background: #1c9537;
+      box-shadow: 0 2px 16px #28a74591;
+    }
+    .example-section .card .card-title {
+      color: #fff;
+      font-size: 1.18em;
+      font-weight: 700;
+      margin-bottom: .6em;
+    }
+    .example-section .card .card-text {
+      color: #e6d9fa;
+      font-size: 1.01em;
+      margin-bottom: .2em;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 991px) {
+      .example-section {
+        padding: 1.1em 0.3em 0.7em 0.3em;
+      }
+      .example-section::before {
+        left: 0.65em;
+        top: 0.6em;
+        padding: 0.13em 0.5em;
+        font-size: 0.92em;
+      }
+      .example-section > .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+    @media (max-width: 540px) {
+      .example-section .card {
+        min-width: 230px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+   <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tarjetas con Imágenes</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+
+    <h1>Tarjetas dimensionadas en Bootstrap 5</h1>
+
+    <p class="lead">
+      <strong>Bootstrap 5</strong> nos permite controlar el tamaño y disposición de las tarjetas (<code>.card</code>) de diversas formas, usando tanto el sistema de grillas (<code>.row</code> y <code>.col-*</code>) como clases de anchura o estilos personalizados.
+    </p>
+
+    <div class="info-block">
+      <b>Problema práctico:</b> <br>
+      <ul>
+        <li>Mostrar tres tarjetas donde las dos primeras ocupen <b>5 columnas</b> cada una y la tercera <b>2 columnas</b> en pantallas extra grandes (<code>col-xxl-*</code>).</li>
+        <li>Si el ancho de la ventana es menor a 1400px, las tarjetas se apilan en una sola columna.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">1. Usando grilla Bootstrap (<code>col-xxl-*</code>)</h2>
+    <div class="info-block">
+      <span class="abbr-icons bi bi-grid-1x2"></span>
+      <b>Recomendado</b> para mantener responsividad. 
+      <br>
+      Las tarjetas se dimensionan automáticamente según las columnas asignadas:
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      <pre><code>&lt;div class="container"&gt;   
+  &lt;div class="row"&gt;
+    &lt;div class="col-xxl-5"&gt;
+      &lt;div class="card bg-primary text-white mb-3"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xxl-5"&gt;
+      &lt;div class="card bg-primary text-white mb-3"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xxl-2"&gt;
+      &lt;div class="card bg-primary text-white mb-3"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <div class="example-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-5 mb-3">
+            <div class="card text-white text-center bg-primary mb-3 h-100">
+              <div class="card-header">Tarjeta 1</div>
+              <div class="card-body">
+                <h5 class="card-title">Título 1</h5>
+                <p class="card-text">Ocupa 5 columnas en <code>xxl</code> y se apila en dispositivos pequeños.</p>
+                <a href="#" class="btn btn-success">Entrar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-5 mb-3">
+            <div class="card text-white text-center bg-primary mb-3 h-100">
+              <div class="card-header">Tarjeta 2</div>
+              <div class="card-body">
+                <h5 class="card-title">Título 2</h5>
+                <p class="card-text">También ocupa 5 columnas y es responsiva.</p>
+                <a href="#" class="btn btn-success">Entrar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-2 mb-3">
+            <div class="card text-white text-center bg-primary mb-3 h-100">
+              <div class="card-header">Tarjeta 3</div>
+              <div class="card-body">
+                <h5 class="card-title">Título 3</h5>
+                <p class="card-text">Ocupa solo 2 columnas en <code>xxl</code> y se apila en móviles.</p>
+                <a href="#" class="btn btn-success">Entrar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">2. Usando clases de ancho relativo (<code>w-25, w-50, w-75</code>)</h2>
+    <div class="info-block">
+      <span class="abbr-icons bi bi-arrows-angle-expand"></span>
+      Puedes forzar el ancho de una tarjeta con clases utilitarias:
+      <div class="abbr-example"><code>&lt;div class="card w-50"&gt;...&lt;/div&gt;</code></div>
+      <b>Nota:</b> El padre <b>debe tener <code>d-flex</code></b> para que la anchura se aplique horizontalmente.
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      <pre><code>&lt;div class="d-flex gap-3"&gt;
+  &lt;div class="card w-50"&gt;...&lt;/div&gt;
+  &lt;div class="card w-75"&gt;...&lt;/div&gt;
+  &lt;div class="card w-25"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <div class="example-section">
+      <div class="d-flex gap-3 flex-wrap justify-content-center">
+        <div class="card w-50 text-white text-center bg-primary mb-3 h-100">
+          <div class="card-header"><i class="bi bi-aspect-ratio"></i> w-50</div>
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta w-50</h5>
+            <p class="card-text">Ancho relativo 50% del padre.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+        <div class="card w-75 text-white text-center bg-primary mb-3 h-100">
+          <div class="card-header"><i class="bi bi-arrows-angle-expand"></i> w-75</div>
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta w-75</h5>
+            <p class="card-text">Ancho relativo 75% del padre.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+        <div class="card w-25 text-white text-center bg-primary mb-3 h-100">
+          <div class="card-header"><i class="bi bi-arrows-angle-contract"></i> w-25</div>
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta w-25</h5>
+            <p class="card-text">Ancho relativo 25% del padre.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">3. Usando una anchura fija por CSS</h2>
+    <div class="info-block">
+      <span class="abbr-icons bi bi-arrows-collapse"></span>
+      Puedes establecer un ancho fijo directamente en el estilo:
+      <div class="abbr-example"><code>&lt;div class="card" style="width:20rem"&gt;...&lt;/div&gt;</code></div>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+      <pre><code>&lt;div class="d-flex gap-2"&gt;
+  &lt;div class="card" style="width:22rem"&gt;...&lt;/div&gt;
+  &lt;div class="card" style="width:18rem"&gt;...&lt;/div&gt;
+  &lt;div class="card" style="width:10rem"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <div class="example-section">
+      <div class="d-flex gap-2 flex-wrap justify-content-center">
+        <div class="card text-white text-center bg-primary mb-3 h-100" style="width:22rem">
+          <div class="card-header"><i class="bi bi-arrows-fullscreen"></i> width: 22rem</div>
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta 22rem</h5>
+            <p class="card-text">Ancho fijo de 22rem.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+        <div class="card text-white text-center bg-primary mb-3 h-100" style="width:18rem">
+          <div class="card-header"><i class="bi bi-arrows-fullscreen"></i> width: 18rem</div>
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta 18rem</h5>
+            <p class="card-text">Ancho fijo de 18rem.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+        <div class="card text-white text-center bg-primary mb-3 h-100" style="width:10rem">
+          <div class="card-header"><i class="bi bi-arrows-fullscreen"></i> width: 10rem</div>
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta 10rem</h5>
+            <p class="card-text">Ancho fijo de 10rem.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">4. Igualando la altura de todas las tarjetas</h2>
+    <div class="info-block">
+      <span class="abbr-icons bi bi-arrows-vertical"></span>
+      Para que todas las tarjetas tengan la misma altura, añade la clase <code>h-100</code> a cada tarjeta:
+      <div class="abbr-example"><code>&lt;div class="card h-100"&gt;...&lt;/div&gt;</code></div>
+    </div>
+    <div class="example-section">
+      <div class="d-flex gap-3 flex-wrap align-items-stretch justify-content-center" style="min-height: 200px;">
+        <div class="card w-50 text-white text-center bg-primary mb-3 h-100">
+          <div class="card-header"><i class="bi bi-arrows-vertical"></i> h-100</div>
+          <div class="card-body">
+            <h5 class="card-title">Altura igualada</h5>
+            <p class="card-text">Esta tarjeta tiene la clase <code>h-100</code> y se estira igual a las otras.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+        <div class="card w-50 text-white text-center bg-primary mb-3 h-100">
+          <div class="card-header"><i class="bi bi-arrows-vertical"></i> h-100</div>
+          <div class="card-body">
+            <h5 class="card-title">Altura igualada</h5>
+            <p class="card-text">También tiene <code>h-100</code>, logrando misma altura si el padre es <code>align-items-stretch</code>.</p>
+            <a href="#" class="btn btn-success">Entrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Conclusión</h2>
+    <ul>
+      <li>Usa el sistema de grillas de Bootstrap para un diseño responsivo y fácil de mantener.</li>
+      <li>Para casos puntuales puedes emplear <code>w-25</code>, <code>w-50</code>, <code>w-75</code> o estilos fijos, pero cuida la responsividad.</li>
+      <li>Para igualar la altura de las tarjetas, usa <code>h-100</code> en cada una.</li>
+    </ul>
+  </div>
+
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/54 - Componente - alert.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+  <script>
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre code');
+      navigator.clipboard.writeText(pre.textContent);
+      btn.textContent = '¡Copiado!';
+      setTimeout(() => { btn.textContent = 'Copiar'; }, 1200);
+    }
+    function mostrarAlertaFinal() {
+      alert("¡Felicidades! Has finalizado el curso de Bootstrap.");
+    }
+  </script>
+</body>
+</html>

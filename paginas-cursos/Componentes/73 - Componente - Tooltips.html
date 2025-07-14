@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Ejemplos de Tooltips</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+   
+    h1 {
+      color: #7952B3;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-top: 2em;
+    }
+    h2 {
+      color: #5a3d94;
+      margin-top: 2em;
+      margin-bottom: .6em;
+      font-size: 1.25em;
+      font-weight: 700;
+    }
+    .subtitle {
+      color: #432c5c;
+      font-size: 1.13em;
+      margin-bottom: 2em;
+    }
+    .example-block {
+      margin-bottom: 2em;
+    }
+    .btn-group, .d-flex.gap-3 {
+      flex-wrap: wrap;
+      gap: 1.1em;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tooltips</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h1>Bootstrap 5: Tooltips</h1>
+    <div class="subtitle">
+      Un <b>Tooltip</b> es un pequeño mensaje que aparece cuando el usuario pasa el cursor sobre un elemento. Bootstrap 5 permite mostrar tooltips en botones, enlaces, iconos y otros elementos HTML, personalizando su contenido, posición y formato fácilmente.
+    </div>
+
+    <h2>¿Cómo funcionan los tooltips?</h2>
+    <ul>
+      <li>Debes importar el <b>CSS</b> y el <b>JavaScript</b> de Bootstrap.</li>
+      <li>Agrega <code>data-bs-toggle="mensaje"</code> (o <code>tooltip</code> si prefieres el estándar) al elemento que tendrá el tooltip.</li>
+      <li>Define el texto o HTML del tooltip en el atributo <code>title</code>.</li>
+      <li>Opcional: Personaliza la posición con <code>data-bs-placement</code> (<b>top</b>, <b>bottom</b>, <b>left</b>, <b>right</b>).</li>
+      <li>Opcional: Para mensaje con formato HTML, agrega <code>data-bs-html="true"</code> y usa etiquetas en <code>title</code>.</li>
+      <li>Inicializa los tooltips con JavaScript:</li>
+    </ul>
+    <div class="code-block">
+<pre>
+&lt;script&gt;
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="mensaje"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+&lt;/script&gt;
+</pre>
+    </div>
+
+    <h2>Ejemplo básico: Tooltip en botones de buscadores</h2>
+    <div class="example-block d-flex gap-3">
+      <a data-bs-toggle="mensaje" title="Google Inc." href="https://www.google.com" target="_blank" class="btn btn-success">
+        Google
+      </a>
+      <a data-bs-toggle="mensaje" title="Microsoft" href="https://www.bing.com" target="_blank" class="btn btn-primary">
+        Bing
+      </a>
+      <a data-bs-toggle="mensaje" title="Yahoo Inc" href="https://www.yahoo.com" target="_blank" class="btn btn-warning text-dark">
+        Yahoo
+      </a>
+    </div>
+    <div class="code-block">
+<pre>
+&lt;a data-bs-toggle="mensaje" title="Google Inc." href="https://www.google.com" class="btn btn-success"&gt;Google&lt;/a&gt;
+&lt;a data-bs-toggle="mensaje" title="Microsoft" href="https://www.bing.com" class="btn btn-primary"&gt;Bing&lt;/a&gt;
+&lt;a data-bs-toggle="mensaje" title="Yahoo Inc" href="https://www.yahoo.com" class="btn btn-warning text-dark"&gt;Yahoo&lt;/a&gt;
+</pre>
+    </div>
+
+    <h2>Ejemplo avanzado: Posición y formato HTML en el mensaje</h2>
+    <div class="example-block d-flex gap-3">
+      <button type="button" class="btn btn-secondary"
+        data-bs-toggle="mensaje" data-bs-placement="bottom"
+        title="Tooltip en la parte inferior">
+        Tooltip abajo <i class="bi bi-arrow-down"></i>
+      </button>
+      <span tabindex="0" class="btn btn-outline-info"
+        data-bs-toggle="mensaje" data-bs-placement="right"
+        title="Tooltip a la derecha">
+        Tooltip derecha <i class="bi bi-arrow-right"></i>
+      </span>
+      <button class="btn btn-danger"
+        data-bs-toggle="mensaje" data-bs-html="true"
+        data-bs-placement="top"
+        title="Este es un <b style='color:yellow;'>tooltip</b> <em style='color:#fff;background:#7952B3;border-radius:4px;padding:2px 6px;'>con formato</em>">
+        Tooltip con HTML <i class="bi bi-info-circle"></i>
+      </button>
+    </div>
+    <div class="code-block">
+<pre>
+&lt;button type="button" class="btn btn-secondary"
+  data-bs-toggle="mensaje" data-bs-placement="bottom"
+  title="Tooltip en la parte inferior"&gt;
+  Tooltip abajo &lt;i class="bi bi-arrow-down"&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;span tabindex="0" class="btn btn-outline-info"
+  data-bs-toggle="mensaje" data-bs-placement="right"
+  title="Tooltip a la derecha"&gt;
+  Tooltip derecha &lt;i class="bi bi-arrow-right"&gt;&lt;/i&gt;
+&lt;/span&gt;
+
+&lt;button class="btn btn-danger"
+  data-bs-toggle="mensaje" data-bs-html="true"
+  data-bs-placement="top"
+  title="Este es un &lt;b style='color:yellow;'&gt;tooltip&lt;/b&gt; &lt;em style='color:#fff;background:#7952B3;border-radius:4px;padding:2px 6px;'&gt;con formato&lt;/em&gt;"&gt;
+  Tooltip con HTML &lt;i class="bi bi-info-circle"&gt;&lt;/i&gt;
+&lt;/button&gt;
+</pre>
+    </div>
+
+    <h2>Más ejemplos de Tooltips</h2>
+    <div class="example-block d-flex gap-3">
+      <i class="bi bi-github" style="font-size:2em; cursor:pointer; color:#7952B3;"
+         data-bs-toggle="mensaje" title="¡Síguenos en GitHub!"></i>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" width="36" height="36"
+           data-bs-toggle="mensaje" data-bs-placement="top" title="Logo Markdown" alt="logo markdown" style="cursor:pointer;">
+      <span data-bs-toggle="mensaje" data-bs-html="true"
+        title="Pasa el <b>mouse</b> por aquí para ver este <span style='color:#7952B3;'>tooltip</span> con <em>HTML</em>"
+        style="text-decoration:underline; cursor:pointer; color:#5a3d94; font-weight:600;">Texto con tooltip</span>
+    </div>
+    <div class="code-block">
+<pre>
+&lt;i class="bi bi-github" data-bs-toggle="mensaje" title="¡Síguenos en GitHub!"&gt;&lt;/i&gt;
+&lt;img src="logo.svg" data-bs-toggle="mensaje" data-bs-placement="top" title="Logo Markdown"&gt;
+&lt;span data-bs-toggle="mensaje" data-bs-html="true"
+  title="Pasa el &lt;b&gt;mouse&lt;/b&gt; por aquí para ver este &lt;span style='color:#7952B3;'&gt;tooltip&lt;/span&gt; con &lt;em&gt;HTML&lt;/em&gt;"&gt;
+  Texto con tooltip
+&lt;/span&gt;
+</pre>
+    </div>
+
+    <div class="alert alert-info mt-5" style="max-width:700px;margin:auto;">
+      <strong>TIP:</strong> Puedes usar <code>data-bs-toggle="tooltip"</code> para el valor estándar de Bootstrap, y <b>no olvides inicializar</b> los tooltips con JavaScript después de cargar la página.
+    </div>
+  </div>
+
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/74 - Componente - Popover.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ 
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Inicializar todos los tooltips que usan el data-bs-toggle personalizado "mensaje"
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="mensaje"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+  <script src="../../Js/modulos.js"></script>
+
+  <footer class="footer">
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

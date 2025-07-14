@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 5: Uso de la etiqueta &lt;table&gt;</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+ 
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Tablas en HTML</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Uso de la etiqueta <code>&lt;table&gt;</code> en HTML con Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      La etiqueta <code>&lt;table&gt;</code> de HTML se utiliza para mostrar información estructurada en filas y columnas, es decir, en forma tabular. Cuando se incorpora el framework Bootstrap 5, se habilita una serie de clases que permiten estilizar, organizar y mejorar la presentación de las tablas de forma responsiva, sin necesidad de escribir mucho CSS personalizado.
+    </p>
+    <h3>Estructura básica de una tabla</h3>
+    <p>Una tabla HTML suele estar compuesta por los siguientes elementos:</p>
+    <ul>
+      <li><code>&lt;table&gt;</code>: Elemento raíz de la tabla.</li>
+      <li><code>&lt;thead&gt;</code>: Sección del encabezado de la tabla.</li>
+      <li><code>&lt;tbody&gt;</code>: Contenedor del cuerpo de la tabla.</li>
+      <li><code>&lt;tr&gt;</code>: Fila de la tabla (table row).</li>
+      <li><code>&lt;th&gt;</code>: Celda de encabezado (table header).</li>
+      <li><code>&lt;td&gt;</code>: Celda de datos (table data).</li>
+    </ul>
+    <p>
+      Con Bootstrap, basta agregar la clase <code>.table</code> a la etiqueta <code>&lt;table&gt;</code> para aplicar estilos básicos que incluyen separación entre filas, líneas divisorias sutiles, espaciado adecuado y tipografía mejorada.
+    </p>
+    <div class="code-block">
+      <pre><code>&lt;table class="table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nombre&lt;/th&gt;
+      &lt;th&gt;Edad&lt;/th&gt;
+      &lt;th&gt;Ciudad&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ana&lt;/td&gt;&lt;td&gt;22&lt;/td&gt;&lt;td&gt;Madrid&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Luis&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;Barcelona&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Eva&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;Valencia&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+    </div>
+
+    <h3>Clases adicionales de Bootstrap 5 para tablas</h3>
+    <p>
+      Además de <code>.table</code>, Bootstrap 5 ofrece una variedad de clases que se pueden aplicar para mejorar o cambiar el comportamiento de la tabla:
+    </p>
+    <ol>
+      <li>
+        <b>.table-striped:</b> Agrega un color de fondo alterno a las filas del cuerpo de la tabla para mejorar la legibilidad.
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-striped"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>.table-bordered:</b> Agrega bordes a todas las celdas de la tabla.
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-bordered"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>.table-hover:</b> Aplica un efecto de resaltado cuando el usuario pasa el cursor sobre las filas.
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-hover"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>.table-sm:</b> Reduce el espaciado entre celdas para obtener una versión más compacta.
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-sm"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>.table-dark</b> y <b>.table-light:</b> Permiten aplicar temas oscuros o claros a la tabla.
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-dark"&gt;...&lt;/table&gt;
+&lt;table class="table table-light"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>Combinación de clases:</b> Es posible combinar múltiples clases para lograr una apariencia más completa:
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-bordered table-striped table-hover table-sm"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+    </ol>
+    <h3>Tablas responsivas</h3>
+    <p>
+      Para que una tabla sea responsiva (que se pueda deslizar horizontalmente en pantallas pequeñas), se puede encerrar dentro de un contenedor con la clase <code>.table-responsive</code>. Esto es útil especialmente cuando se tienen muchas columnas.
+    </p>
+    <div class="code-block">
+      <pre><code>&lt;div class="table-responsive"&gt;
+  &lt;table class="table"&gt;
+    ...
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+    <p>
+      En pantallas pequeñas, este contenedor agregará una barra de desplazamiento horizontal sin romper el diseño general del sitio.
+    </p>
+
+    <h3>Accesibilidad y buenas prácticas</h3>
+    <ul>
+      <li>Usa <code>&lt;th&gt;</code> para los encabezados de columnas. Si las filas también tienen encabezado, puedes usar <code>&lt;th scope="row"&gt;</code>.</li>
+      <li>Asegúrate de que el contenido sea legible en todos los tamaños de pantalla.</li>
+      <li>Añadir títulos descriptivos en las tablas y usar etiquetas semánticas mejora la accesibilidad.</li>
+    </ul>
+
+    <h3>Ejemplo visual:</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover table-sm demo-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Laptop</td>
+            <td>$900</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>Mouse</td>
+            <td>$20</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>Monitor</td>
+            <td>$150</td>
+            <td>30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Tablas/14 - table-básica con color oscuro.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  </div>
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+
+</body>
+</html>

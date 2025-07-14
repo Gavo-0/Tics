@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap 5: Alineación horizontal de columnas</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Alineación horizontal</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="mb-3">Alineación horizontal de columnas en Bootstrap 5</h1>
+
+    <div class="section">
+      <p>
+        En Bootstrap 5 puedes alinear horizontalmente las columnas dentro de una fila utilizando utilidades de Flexbox. 
+        Esto es posible cuando la suma de anchos de columna es menor a 12, ya que si ocupan todo el espacio disponible, no se pueden mover horizontalmente.
+      </p>
+      <p>
+        Las utilidades más usadas para esto son las clases <code>justify-content-*</code> aplicadas sobre el <code>.row</code>. Estas clases definen cómo se distribuyen las columnas dentro del espacio restante.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Ejemplo de alineación horizontal</h2>
+      <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row justify-content-end"&gt;
+    &lt;div class="col-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Columna 2&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row justify-content-start"&gt;
+    &lt;div class="col-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Columna 2&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row justify-content-center"&gt;
+    &lt;div class="col-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Columna 2&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row justify-content-between"&gt;
+    &lt;div class="col-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Columna 2&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row justify-content-around"&gt;
+    &lt;div class="col-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Columna 2&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row justify-content-evenly"&gt;
+    &lt;div class="col-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Columna 2&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <p>Resultado visual en el navegador:</p>
+      <!-- Ejemplo real de alineación horizontal -->
+      <div class="container my-4">
+        <div class="row justify-content-end mb-2">
+          <div class="col-3 bg-primary text-white text-center p-2">Columna 1</div>
+          <div class="col-3 bg-secondary text-white text-center p-2">Columna 2</div>
+        </div>
+        <div class="row justify-content-start mb-2">
+          <div class="col-3 bg-primary text-white text-center p-2">Columna 1</div>
+          <div class="col-3 bg-secondary text-white text-center p-2">Columna 2</div>
+        </div>
+        <div class="row justify-content-center mb-2">
+          <div class="col-3 bg-primary text-white text-center p-2">Columna 1</div>
+          <div class="col-3 bg-secondary text-white text-center p-2">Columna 2</div>
+        </div>
+        <div class="row justify-content-between mb-2">
+          <div class="col-3 bg-primary text-white text-center p-2">Columna 1</div>
+          <div class="col-3 bg-secondary text-white text-center p-2">Columna 2</div>
+        </div>
+        <div class="row justify-content-around mb-2">
+          <div class="col-3 bg-primary text-white text-center p-2">Columna 1</div>
+          <div class="col-3 bg-secondary text-white text-center p-2">Columna 2</div>
+        </div>
+        <div class="row justify-content-evenly mb-2">
+          <div class="col-3 bg-primary text-white text-center p-2">Columna 1</div>
+          <div class="col-3 bg-secondary text-white text-center p-2">Columna 2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Clases de alineación horizontal disponibles</h2>
+      <ul>
+        <li><code>justify-content-start</code>: Alinea al inicio (izquierda en LTR, por defecto).</li>
+        <li><code>justify-content-end</code>: Alinea al final (derecha en LTR).</li>
+        <li><code>justify-content-center</code>: Centra las columnas horizontalmente.</li>
+        <li><code>justify-content-between</code>: Deja máximo espacio entre columnas.</li>
+        <li><code>justify-content-around</code>: Espacio igual a los lados y entre columnas.</li>
+        <li><code>justify-content-evenly</code>: Espacio igual en todos los extremos y entre columnas.</li>
+      </ul>
+      <p>
+        <b>Importante:</b> Si la suma de las columnas es exactamente 12, no hay espacio para ver el efecto de alineación. Usa <code>col-3</code> o <code>col-4</code> para dejar espacio disponible.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Consejos prácticos y errores comunes</h2>
+      <ul>
+        <li>✔️ Usa columnas que sumen menos de 12 para ver la alineación.</li>
+        <li>❌ No uses márgenes manuales para forzar alineación, mejor usa las clases de Bootstrap.</li>
+        <li>✔️ Prueba diferentes combinaciones con el inspector (F12) del navegador.</li>
+        <li>✔️ Usa clases como <code>.bg-light</code> o <code>.border</code> para ayudarte a visualizar el espacio.</li>
+        <li>❌ No uses <code>justify-content</code> en columnas directamente, solo en filas (<code>.row</code>).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>¿Y si quiero alinear elementos dentro de una columna?</h2>
+      <p>
+        También puedes usar <code>.d-flex</code> dentro de una columna o cualquier otro elemento para aplicar alineaciones internas. Ejemplo:
+      </p>
+      <div class="code-block">
+<pre><code>&lt;div class="col d-flex justify-content-center align-items-center" style="height: 150px;"&gt;
+  &lt;p&gt;Texto centrado horizontal y verticalmente&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <!-- Ejemplo real de alineación interna en columna -->
+      <div class="container mb-3">
+        <div class="row">
+          <div class="col d-flex justify-content-center align-items-center border" style="height: 150px;">
+            <p>Texto centrado horizontal y verticalmente</p>
+          </div>
+        </div>
+      </div>
+      <p>Esto es útil para botones, textos o íconos dentro de una tarjeta o sección.</p>
+    </div>
+
+    <div class="section">
+      <h2>Resumen</h2>
+      <ul>
+        <li>Utiliza <code>justify-content-*</code> en la fila para alinear horizontalmente.</li>
+        <li>La suma de las columnas debe ser menor a 12 para que haya espacio libre.</li>
+        <li>Flexbox permite alineación eficiente, sin necesidad de márgenes manuales.</li>
+        <li>También puedes usar <code>d-flex</code> dentro de columnas para control más preciso.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/9 - Varias líneas en una misma fila-row.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+  <script src="../../Js/modulos.js"></script>
+
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="HHC" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada - Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

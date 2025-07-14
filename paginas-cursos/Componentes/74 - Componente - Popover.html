@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Popover - Ejemplos y Uso</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    
+
+    
+    .popover-examples-row {
+      display: flex;
+      gap: 3em;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 2.2em;
+    }
+    .popover-example-col {
+      flex: 1 1 0px;
+      min-width: 230px;
+      max-width: 340px;
+      padding: 1.2em 1.2em 1.5em 1.2em;
+      background: #f6f0fa;
+      border-radius: 1.4em;
+     
+      margin-bottom: 1.2em;
+      text-align: center;
+    }
+    .popover-example-col h3 {
+      font-size: 1.07em;
+      color: #7952B3;
+      margin-bottom: 1.1em;
+      font-weight: 600;
+    }
+    .popover-example-col .btn, .popover-example-col a, .popover-example-col span, .popover-example-col i {
+      margin-bottom: 0.8em;
+    }
+    
+    @media (max-width: 900px) {
+      
+      .popover-examples-row {
+        flex-direction: column;
+        gap: 0.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Popover</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <section class="main-content">
+    <h1>Bootstrap 5: Popover</h1>
+    <div class="subtitle">
+      Un <b>Popover</b> es una ventana emergente contextual que aparece tras hacer clic o enfocar sobre un elemento. A diferencia de un tooltip, el popover puede mostrar títulos, párrafos, listas, enlaces y formato HTML personalizado. Es ideal para mostrar información adicional, tips, ayuda, detalles o instrucciones sobre botones, enlaces, iconos, etc.
+    </div>
+
+    <div class="info-block">
+      <strong>¿Cómo se usa?</strong>
+      <ul>
+        <li>Importa los archivos CSS y JavaScript de Bootstrap.</li>
+        <li>Agrega <code>data-bs-toggle="popover"</code> al elemento que mostrará el popover.</li>
+        <li>Define el contenido principal con <code>data-bs-content</code> y el título con <code>title</code>.</li>
+        <li>Personaliza la posición con <code>data-bs-placement</code>: <b>top</b>, <b>bottom</b>, <b>left</b>, <b>right</b>.</li>
+        <li><code>data-bs-trigger="focus"</code> lo cierra automáticamente al hacer clic fuera.</li>
+        <li>Inicializa los popovers con JavaScript (ver ejemplo abajo).</li>
+      </ul>
+    </div>
+    <div class="code-block">
+<pre>
+&lt;script&gt;
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  })
+&lt;/script&gt;
+</pre>
+    </div>
+
+    <h2>Ejemplos prácticos de Popover</h2>
+    <div class="popover-examples-row">
+      <div class="popover-example-col">
+        <h3>Popover en botón clásico</h3>
+        <button type="button" class="btn btn-primary"
+          data-bs-toggle="popover"
+          title="¿Qué es Bootstrap?"
+          data-bs-content="Bootstrap es un framework para crear sitios web modernos y responsivos."
+          data-bs-placement="top"
+          data-bs-trigger="focus">
+          Saber más
+        </button>
+        <div class="code-block" style="font-size:.97em;">
+<pre>
+&lt;button type="button" class="btn btn-primary"
+  data-bs-toggle="popover"
+  title="¿Qué es Bootstrap?"
+  data-bs-content="Bootstrap es un framework para crear sitios web modernos y responsivos."
+  data-bs-placement="top"
+  data-bs-trigger="focus"&gt;
+  Saber más
+&lt;/button&gt;
+</pre>
+        </div>
+      </div>
+      <div class="popover-example-col">
+        <h3>Popover con formato HTML</h3>
+        <button class="btn btn-success"
+          data-bs-toggle="popover"
+          title="Atajo útil"
+          data-bs-html="true"
+          data-bs-content="Puedes usar <b>Ctrl+C</b> para copiar y <span style='color:#7952B3;'>Ctrl+V</span> para pegar."
+          data-bs-placement="bottom"
+          data-bs-trigger="focus">
+          Ver atajo
+        </button>
+        <div class="code-block" style="font-size:.97em;">
+<pre>
+&lt;button class="btn btn-success"
+  data-bs-toggle="popover"
+  title="Atajo útil"
+  data-bs-html="true"
+  data-bs-content="Puedes usar &lt;b&gt;Ctrl+C&lt;/b&gt; para copiar y &lt;span style='color:#7952B3;'&gt;Ctrl+V&lt;/span&gt; para pegar."
+  data-bs-placement="bottom"
+  data-bs-trigger="focus"&gt;
+  Ver atajo
+&lt;/button&gt;
+</pre>
+        </div>
+      </div>
+      <div class="popover-example-col">
+        <h3>Popover en icono</h3>
+        <i class="bi bi-question-circle" tabindex="0" style="font-size:2.2em; color:#5a3d94; cursor:pointer;"
+           data-bs-toggle="popover"
+           title="Ayuda rápida"
+           data-bs-content="Haz clic aquí si necesitas soporte o asistencia personalizada."
+           data-bs-placement="right"
+           data-bs-trigger="focus"></i>
+        <div class="code-block" style="font-size:.97em;">
+<pre>
+&lt;i class="bi bi-question-circle" tabindex="0"
+  data-bs-toggle="popover"
+  title="Ayuda rápida"
+  data-bs-content="Haz clic aquí si necesitas soporte o asistencia personalizada."
+  data-bs-placement="right"
+  data-bs-trigger="focus"&gt;&lt;/i&gt;
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <h2>Popover en listas y enlaces</h2>
+    <ul>
+      <li>
+        <a href="#" data-bs-toggle="popover" title="Historia de Google" data-bs-trigger="focus"
+          data-bs-content="Larry Page y Sergey Brin empezaron Google en 1996 en Stanford.">Google</a>
+      </li>
+      <li>
+        <a href="#" data-bs-toggle="popover" title="Historia de Yahoo" data-bs-trigger="focus"
+          data-bs-content="Yahoo! fue creada como 'La guía de Jerry para la World Wide Web', su nombre viene de Los viajes de Gulliver.">Yahoo</a>
+      </li>
+      <li>
+        <a href="#" data-bs-toggle="popover" title="Historia de Bing" data-bs-trigger="focus"
+          data-bs-content="Bing es un buscador de Microsoft, lanzado en 2009 por Steve Ballmer.">Bing</a>
+      </li>
+      <li>
+        <span tabindex="0" style="color:#7952B3; cursor:pointer; text-decoration: underline;"
+          data-bs-toggle="popover" data-bs-html="true" title="Popover en texto"
+          data-bs-content="Puedes mostrar <b>popover</b> en cualquier <em>texto</em>.">
+          Texto interactivo con Popover
+        </span>
+      </li>
+    </ul>
+    <div class="code-block">
+<pre>
+&lt;a href="#" data-bs-toggle="popover" title="Historia de Google" data-bs-trigger="focus"
+  data-bs-content="Larry Page y Sergey Brin empezaron Google en 1996 en Stanford."&gt;Google&lt;/a&gt;
+
+&lt;span tabindex="0" data-bs-toggle="popover" data-bs-html="true" title="Popover en texto"
+  data-bs-content="Puedes mostrar &lt;b&gt;popover&lt;/b&gt; en cualquier &lt;em&gt;texto&lt;/em&gt;."&gt;
+  Texto interactivo con Popover
+&lt;/span&gt;
+</pre>
+    </div>
+
+    <div class="info-block mt-4">
+      <strong>TIP:</strong> Si no agregas <code>data-bs-trigger="focus"</code>, el popover se cierra haciendo clic otra vez en el elemento. Puedes usar <b>data-bs-html="true"</b> para mostrar HTML como listas, imágenes, enlaces y más dentro del popover.
+    </div>
+  </section>
+
+ <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/75 - Componente - Offcanvas copy.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Inicializar todos los popovers con data-bs-toggle="popover"
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
+
+
+  <footer class="footer">
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

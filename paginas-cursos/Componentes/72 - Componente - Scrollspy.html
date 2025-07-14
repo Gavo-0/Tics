@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Scrollspy con menú fijo</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    /* ---------- TOPBAR Mejorado ---------- */
+    .topbar {
+      background: #000;
+      color: #fff;
+      padding: 4px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1100;
+      height: 54px;
+      min-height: 0;
+      box-sizing: border-box;
+      box-shadow: 0 2px 16px #7952b322;
+    }
+    .title {
+      font-size: 1.3rem;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      height: 54px;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+    .topbar-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .topbar-btn {
+      background: #7952B3;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 7px 18px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: background 0.18s, color 0.18s, box-shadow 0.15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      display: flex;
+      align-items: center;
+      outline: none;
+    }
+    .topbar-btn:focus {
+      box-shadow: 0 0 0 2px #cbb7e3;
+    }
+    .topbar-btn:hover, .topbar-btn:active {
+      background: #5a3d94;
+      color: #fff;
+    }
+    .topbar .bi {
+      font-size: 1.2em;
+      margin-right: 7px;
+      transition: color 0.18s;
+    }
+    .topbar-btn .btn-text {
+      display: inline;
+    }
+    @media (max-width: 600px) {
+      .title {
+        font-size: 1rem;
+      }
+      .topbar-btn {
+        font-size: 0.5em;
+        padding: 6px 9px;
+        min-width: 0;
+        margin-left: 0 !important;
+        border-radius: 50%;
+        justify-content: center;
+      }
+      .topbar-btn .btn-text {
+        display: none !important;
+      }
+      .topbar-btn .bi {
+        margin-right: 0 !important;
+        font-size: 1.5em;
+      }
+      .topbar {
+        height: 48px;
+        padding: 2px 5px;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.1rem;
+      background-color: #fff;
+      padding-top: 54px;
+    }
+    .navbar {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 24px;
+      background-color: #000 !important;
+    }
+    .navbar-nav .nav-link.active {
+      background: #7952B3 !important;
+      color: #fff !important;
+      border-radius: 4px;
+    }
+    .navbar .navbar-brand {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- SECCIONES ---------- */
+    section {
+      padding-top: 80px;
+      padding-bottom: 40px;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #f8f9fa 70%, #eae3f7 100%);
+      border-radius: 22px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 24px #7952b322;
+      position: relative;
+    }
+    h1, h2 {
+      color: #7952B3;
+      font-weight: 700;
+    }
+    h1 {
+      margin-bottom: .7em;
+    }
+    .lead {
+      font-size: 1.23em;
+      color: #432c5c;
+      margin-bottom: 1.4em;
+    }
+    .info-block {
+      background: #f4edfd;
+      border-left: 4px solid #7952B3;
+      border-radius: 11px;
+      padding: 1.1em 1.5em 1.1em 1.5em;
+      margin-bottom: 2em;
+      color: #432c5c;
+      font-size: 1.07em;
+      box-shadow: 0 2px 10px #7952b322;
+    }
+    .info-block i {
+      color: #7952B3;
+      font-size: 1.2em;
+      margin-right: 0.5em;
+      vertical-align: -0.1em;
+    }
+    .blob-img {
+      width: 100%;
+      max-width: 370px;
+      border-radius: 1.6em 1.6em 3em 1.6em;
+      box-shadow: 0 4px 16px #7952b333;
+      margin-bottom: 16px;
+    }
+    .custom-feature {
+      background: linear-gradient(120deg, #fff7fa 60%, #e3e7fd 100%);
+      border-radius: 1.6em 1.6em 2.2em 1.8em;
+      box-shadow: 0 2px 18px #7952b322;
+      padding: 2.1em 2em 1.4em 2em;
+      margin: 0 0 1.5em 0;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 2.2em;
+    }
+    .custom-feature.reverse {
+      flex-direction: row-reverse;
+      background: linear-gradient(120deg, #e3e7fd 30%, #fff7fa 100%);
+    }
+    .custom-feature .feature-content {
+      max-width: 420px;
+    }
+    @media (max-width: 900px) {
+      .custom-feature, .custom-feature.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.2em;
+      }
+      .custom-feature .feature-content {
+        max-width: none;
+      }
+      .blob-img {
+        max-width: 97vw;
+      }
+    }
+    .feature-content h2 {
+      color: #7952B3;
+      margin-bottom: .55em;
+      font-size: 1.45em;
+      font-weight: 700;
+    }
+    .feature-content p {
+      color: #432c5c;
+      font-size: 1.07em;
+    }
+    .feature-content ul {
+      margin: 1em 0 1em 1.3em;
+      color: #644b8a;
+    }
+    .feature-content li {
+      margin-bottom: .4em;
+    }
+    /* ---------- CODE BLOCK ---------- */
+    .code-block {
+      background: #222;
+      color: #fff;
+      border-radius: 10px;
+      padding: 1.2em 1em .9em 1em;
+      font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+      margin: 1.7em 0 2.1em 0;
+      overflow-x: auto;
+      font-size: 1em;
+      box-shadow: 0 2px 12px #0002;
+      position: relative;
+    }
+    .code-block pre {
+      margin: 0;
+      background: transparent;
+      color: #fff;
+    }
+    .code-label {
+      font-size: 0.98em;
+      color: #d1b6fe;
+      font-weight: bold;
+      margin-bottom: .6em;
+      display: block;
+      letter-spacing: .03em;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#menu1" data-bs-offset="70" tabindex="0">
+
+<!-- TOPBAR Mejorado -->
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'" aria-label="Regresar al inicio">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - ScrollSpy y componentes</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()" aria-label="Finalizar el curso">
+      <i class="bi bi-check2-circle" aria-hidden="true"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<!-- Descripción Scrollspy -->
+<div class="container" style="padding-top: 100px; max-width: 900px;">
+  <section style="padding-bottom: 28px; min-height: auto;">
+    <h1>¿Qué es <span class="text-primary">Scrollspy</span> en Bootstrap 5?</h1>
+    <p class="lead">
+      <b>Scrollspy</b> es una función de Bootstrap 5 que hace que el menú de navegación resalte automáticamente la sección en la que te encuentras al hacer scroll por la página. Así, el usuario siempre sabe en qué parte del sitio se encuentra.
+    </p>
+    <div class="info-block">
+      <i class="bi bi-arrow-down-up"></i>
+      <b>¿Para qué sirve Scrollspy?</b> <br>
+      Sirve para mejorar la experiencia del usuario en páginas largas o de tipo "one page", resaltando en el menú la opción correspondiente a la sección visible. 
+      <ul style="margin-top:.7em; margin-bottom:.1em;">
+        <li>Sincroniza visualmente la navegación con el contenido.</li>
+        <li>Funciona con menús fijos en la parte superior o lateral.</li>
+        <li>Ideal para portafolios, documentaciones o landing pages.</li>
+        <li>No requiere JavaScript extra: solo configurar <code>data-bs-spy="scroll"</code>, <code>data-bs-target</code> y <code>data-bs-offset</code> en el <code>&lt;body&gt;</code>.</li>
+      </ul>
+      <b>Ejemplo:</b> En este curso, el menú superior resalta la sección actual ("Card", "Form", "Accordion") mientras navegas.
+    </div>
+
+    <div class="code-block">
+      <span class="code-label">Ejemplo de estructura mínima con Scrollspy:</span>
+      <pre><code>&lt;body data-bs-spy="scroll" data-bs-target="#menu1" data-bs-offset="70"&gt;
+
+  &lt;nav id="menu1" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top"&gt;
+    &lt;ul class="navbar-nav"&gt;
+      &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#seccion1"&gt;Card&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#seccion2"&gt;Form&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#seccion3"&gt;Accordion&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;section id="seccion1"&gt;...&lt;/section&gt;
+  &lt;section id="seccion2"&gt;...&lt;/section&gt;
+  &lt;section id="seccion3"&gt;...&lt;/section&gt;
+
+&lt;/body&gt;</code></pre>
+    </div>
+  </section>
+</div>
+
+<!-- Menú de navegación fijo ScrollSpy -->
+<nav id="menu1" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" style="top:54px;">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand me-4" href="#">
+      <i class="bi bi-bootstrap-fill"></i> Scrollspy Bootstrap 5
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#seccion1">Card</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#seccion2">Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#seccion3">Accordion</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" style="padding-top: 40px; max-width: 950px;">
+
+  <section id="seccion1">
+    <div class="custom-feature">
+      <img class="blob-img" src="../../src/desarrollo web.png" alt="Imagen Card Bootstrap">
+      <div class="feature-content">
+        <h2><i class="bi bi-image"></i> Card: Muestra elegante de contenido</h2>
+        <p>
+          Las <b>Cards</b> en Bootstrap permiten mostrar información agrupada, como imágenes, texto, enlaces y botones, en un contenedor flexible y atractivo. Son ideales para productos, perfiles, noticias y mucho más.
+        </p>
+        <ul>
+          <li>Diseño limpio y responsivo.</li>
+          <li>Puedes incluir imágenes arriba, abajo o solo texto.</li>
+          <li>Combínalas con <b>.row</b> y <b>.col-*</b> para grillas dinámicas.</li>
+        </ul>
+        <span class="badge bg-primary">Versátil</span> <span class="badge bg-success">Fácil de usar</span>
+      </div>
+    </div>
+    <div class="code-block">
+      <span class="code-label">Código de ejemplo para Card:</span>
+      <pre><code>&lt;div class="custom-feature"&gt;
+  &lt;img class="blob-img" src="URL_IMAGEN" alt="Imagen Card Bootstrap"&gt;
+  &lt;div class="feature-content"&gt;
+    &lt;h2&gt;Card: Muestra elegante de contenido&lt;/h2&gt;
+    &lt;p&gt;Las &lt;b&gt;Cards&lt;/b&gt; en Bootstrap permiten mostrar información agrupada...&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Diseño limpio y responsivo.&lt;/li&gt;
+      &lt;li&gt;Pueden incluir imágenes arriba, abajo o solo texto.&lt;/li&gt;
+      &lt;li&gt;Combínalas con &lt;b&gt;.row&lt;/b&gt; y &lt;b&gt;.col-* &lt;/b&gt; para grillas dinámicas.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+
+  <section id="seccion2">
+    <div class="custom-feature reverse">
+      <img class="blob-img" src="../../src/Captura de pantalla 2025-07-10 225112.png" alt="Imagen Formulario Bootstrap">
+      <div class="feature-content">
+        <h2><i class="bi bi-ui-checks"></i> Formulario: Interacción moderna</h2>
+        <p>
+          Los <b>formularios</b> en Bootstrap ofrecen controles estilizados y adaptativos, perfectos para recolectar información de los usuarios de manera segura y elegante.
+        </p>
+        <ul>
+          <li>Campos alineados y separados fácilmente.</li>
+          <li>Validación visual y accesible.</li>
+          <li>Se adapta a todo tipo de dispositivos.</li>
+        </ul>
+        <form style="margin-top:1em;">
+          <div class="mb-2">
+            <input type="text" class="form-control" placeholder="Nombre completo">
+          </div>
+          <div class="mb-2">
+            <input type="password" class="form-control" placeholder="Contraseña">
+          </div>
+          <button type="submit" class="btn btn-primary">Confirmar</button>
+        </form>
+      </div>
+    </div>
+    <div class="code-block">
+      <span class="code-label">Código de ejemplo para Formulario:</span>
+      <pre><code>&lt;form&gt;
+  &lt;div class="mb-2"&gt;
+    &lt;input type="text" class="form-control" placeholder="Nombre completo"&gt;
+  &lt;/div&gt;
+  &lt;div class="mb-2"&gt;
+    &lt;input type="password" class="form-control" placeholder="Contraseña"&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-primary"&gt;Confirmar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+  </section>
+
+  <section id="seccion3">
+    <div class="custom-feature">
+      <img class="blob-img" src="../../src/AceptacionCriticas-Marte.png" alt="Imagen Accordion Bootstrap">
+      <div class="feature-content">
+        <h2><i class="bi bi-layers"></i> Accordion: Información organizada</h2>
+        <p>
+          El <b>Accordion</b> permite mostrar bloques de información colapsables, útiles para preguntas frecuentes, menús o texto extenso organizado por temas.
+        </p>
+        <ul>
+          <li>Solo una sección visible a la vez.</li>
+          <li>Ideal para FAQ, instrucciones, menús dinámicos.</li>
+          <li>Fácil de integrar y personalizar.</li>
+        </ul>
+        <div class="accordion" id="accordion1" style="margin-top:1.1em;">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="cabecera1">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta1"
+                aria-expanded="true" aria-controls="respuesta1">
+                ¿Qué es Bootstrap?
+              </button>
+            </h2>
+            <div id="respuesta1" class="accordion-collapse collapse show" aria-labelledby="cabecera1" data-bs-parent="#accordion1">
+              <div class="accordion-body">
+                Bootstrap es un framework CSS y JS para crear sitios web modernos y responsivos con componentes listos para usar.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="cabecera2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta2"
+                aria-expanded="false" aria-controls="respuesta2">
+                ¿Qué es Scrollspy?
+              </button>
+            </h2>
+            <div id="respuesta2" class="accordion-collapse collapse" aria-labelledby="cabecera2" data-bs-parent="#accordion1">
+              <div class="accordion-body">
+                Scrollspy sincroniza la navegación con el scroll, activando en el menú la opción correspondiente a la sección visible.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="cabecera3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta3"
+                aria-expanded="false" aria-controls="respuesta3">
+                ¿Para qué sirve el acordeón?
+              </button>
+            </h2>
+            <div id="respuesta3" class="accordion-collapse collapse" aria-labelledby="cabecera3" data-bs-parent="#accordion1">
+              <div class="accordion-body">
+                El acordeón organiza contenido extenso, mostrando solo la información relevante bajo demanda para una experiencia de usuario eficiente.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="code-block">
+      <span class="code-label">Código de ejemplo para Accordion:</span>
+      <pre><code>&lt;div class="accordion" id="accordion1"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;h2 class="accordion-header" id="cabecera1"&gt;
+      &lt;button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuesta1"
+        aria-expanded="true" aria-controls="respuesta1"&gt;
+        ¿Qué es Bootstrap?
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id="respuesta1" class="accordion-collapse collapse show" aria-labelledby="cabecera1" data-bs-parent="#accordion1"&gt;
+      &lt;div class="accordion-body"&gt;
+        Bootstrap es un framework CSS y JS para crear sitios web modernos y responsivos con componentes listos para usar.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- ...más items --&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+</div>
+
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/73 - Componente - Tooltips.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ 
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+ <script src="../../Js/modulos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Refresca scrollspy si el contenido cambia dinámicamente
+  document.addEventListener('DOMContentLoaded', function () {
+    var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+    dataSpyList.forEach(function (dataSpyEl) {
+      bootstrap.ScrollSpy.getOrCreateInstance(dataSpyEl)
+    })
+  });
+ 
+</script>
+</body>
+</html>

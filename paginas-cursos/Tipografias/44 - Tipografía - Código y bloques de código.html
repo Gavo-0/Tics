@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Código y Bloques de Código</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Tipografía Código</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="alert('¡Has finalizado esta lección!')">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar lección</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <h1 class="section-title">
+      <i class="bi bi-code-slash"></i> Tipografía: Código y Bloques de Código en Bootstrap 5
+    </h1>
+
+    <div class="info-block">
+      El elemento <code>&lt;code&gt;</code> se utiliza para resaltar fragmentos de código en línea dentro del texto.<br>
+      <span class="abbr-icons"><i class="bi bi-info-circle"></i></span>
+      Bootstrap 5 aplica estilos especiales al elemento <code>&lt;code&gt;</code> para hacerlo visualmente distintivo.
+    </div>
+
+    <div class="abbr-example">
+      <strong>Ejemplo de código en línea:</strong><br>
+      Nuestra primera línea en Basic puede haber sido: <code>10 print "Hola Mundo"</code>
+    </div>
+    <div class="code-block">
+      &lt;p&gt;Nuestra primera línea en Basic puede haber sido &lt;code&gt;10 print "Hola Mundo"&lt;/code&gt;&lt;/p&gt;
+    </div>
+
+    <div class="info-block">
+      El elemento <code>&lt;pre&gt;</code> permite mostrar bloques de código con formato predefinido (espacios, saltos de línea, etc.).<br>
+      <span class="abbr-icons"><i class="bi bi-terminal"></i></span>
+      Bootstrap también le aplica estilos para mejorar su legibilidad.
+    </div>
+
+    <div class="abbr-example">
+      <strong>Ejemplo de bloque de código:</strong><br>
+      <pre>
+10 print "hola mundo"
+20 goto 10
+      </pre>
+    </div>
+    <div class="code-block">
+      &lt;pre&gt;<br>
+      &nbsp;&nbsp;10 print "hola mundo"<br>
+      &nbsp;&nbsp;20 goto 10<br>
+      &lt;/pre&gt;
+    </div>
+
+    <div class="info-block">
+      <i class="bi bi-lightbulb"></i> <b>¿Cuándo usar cada uno?</b>
+      <ul>
+        <li><b><code>&lt;code&gt;</code></b>: Para resaltar una pequeña porción de código dentro de un párrafo.</li>
+        <li><b><code>&lt;pre&gt;</code></b>: Para mostrar líneas completas o estructuras de código con formato original.</li>
+      </ul>
+      <span class="abbr-icons"><i class="bi bi-eye"></i></span>
+      <b>Accesibilidad:</b> Usar correctamente estos elementos mejora la accesibilidad y comprensión del código.
+    </div>
+  </div>
+<<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Tipografias/45 - Tipografía - Clases para el alineado, justificado, transformación de texto etc..html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+     <script src="../../Js/modulos.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

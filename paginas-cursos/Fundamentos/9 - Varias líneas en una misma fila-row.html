@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap 5: Saltos de fila con w-100</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Salto de fila con w-100</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="mb-3">Salto de fila en una <code>row</code> usando <code>w-100</code> en Bootstrap 5</h1>
+
+    <div class="section">
+      <p>
+        Bootstrap 5 permite que, dentro de una misma fila (<code>.row</code>), puedas forzar un salto de línea entre columnas utilizando un div vacío con clase <code>w-100</code>. Esta clase asigna un ancho del 100%, lo que obliga a que las columnas posteriores se muevan a la siguiente línea dentro de la misma fila.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Ejemplo de salto de fila con <code>w-100</code></h2>
+      <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row text-center"&gt;
+    &lt;div class="col-3 bg-secondary text-white p-3"&gt;Columna 1 &lt;br&gt; Línea 1&lt;/div&gt;
+    &lt;div class="col-6 bg-dark text-white p-3"&gt;Columna 2 &lt;br&gt; Línea 1&lt;/div&gt;
+    &lt;div class="w-100"&gt;&lt;/div&gt;
+    &lt;div class="col-6 bg-secondary text-white p-3"&gt;Columna 1 &lt;br&gt; Línea 2&lt;/div&gt;
+    &lt;div class="col-6 bg-dark text-white p-3"&gt;Columna 2 &lt;br&gt; Línea 2&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <p>
+        Aquí, el <code>&lt;div class="w-100"&gt;&lt;/div&gt;</code> actúa como un separador y obliga a que las siguientes columnas comiencen en una nueva línea, sin necesidad de cerrar la fila ni crear otra.
+      </p>
+      <!-- Ejemplo real de w-100 -->
+      <div class="container my-4">
+        <div class="row text-center">
+          <div class="col-3 bg-secondary text-white p-3">Columna 1 <br> Línea 1</div>
+          <div class="col-6 bg-dark text-white p-3">Columna 2 <br> Línea 1</div>
+          <div class="w-100"></div>
+          <div class="col-6 bg-secondary text-white p-3">Columna 1 <br> Línea 2</div>
+          <div class="col-6 bg-dark text-white p-3">Columna 2 <br> Línea 2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>¿Para qué sirve?</h2>
+      <ul>
+        <li>👉 Para crear <b>líneas múltiples de columnas dentro de una misma fila</b>, cuando el diseño lo requiere.</li>
+        <li>👉 Ideal para layouts más complejos sin perder el control del orden lógico del HTML.</li>
+        <li>👉 Útil cuando quieres <b>mantener una sola fila semántica</b> pero dividir visualmente las secciones.</li>
+        <li>👉 Puedes usarlo también en componentes de tarjetas o formularios extensos para organizar el espacio.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Consejos y buenas prácticas</h2>
+      <ul>
+        <li>✔️ Siempre utiliza <code>w-100</code> dentro de una <code>.row</code>, no en una columna directamente.</li>
+        <li>✔️ Es compatible con todas las clases responsivas como <code>col-md-6</code>, <code>col-lg-4</code>, etc.</li>
+        <li>✔️ Puedes añadir clases de espaciado como <code>my-2</code> para separar las "líneas".</li>
+        <li>❌ No uses <code>&lt;br&gt;</code> como reemplazo de salto de fila estructural. <code>w-100</code> es más semántico y controlable.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Resumen</h2>
+      <ul>
+        <li><b><code>w-100</code></b> es una clase de Bootstrap que fuerza una nueva línea dentro de una fila.</li>
+        <li>Permite construir filas con varias “líneas” de columnas sin cerrar la estructura.</li>
+        <li>Muy útil para mantener el orden del HTML y facilitar estilos o comportamiento JS.</li>
+        <li>No es necesario duplicar <code>.row</code>: basta con colocar <code>w-100</code> entre bloques.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/10 - Reordenar las columnas en una fila.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+
+  <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="HHC" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada - Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

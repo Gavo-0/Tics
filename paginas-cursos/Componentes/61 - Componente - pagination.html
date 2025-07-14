@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Paginación de datos</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+
+    .pagination-demo {
+      margin-bottom: 2.2em;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Paginación</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="container main-content">
+  <h1>Paginadores en Bootstrap 5: Clases y ejemplos</h1>
+  <div class="cuerpodetalle">
+    <p>
+      Para mostrar un paginador de datos en Bootstrap 5, utiliza una lista <code>&lt;ul&gt;</code> con la clase <code>pagination</code>. Cada ítem de página lleva la clase <code>page-item</code> y cada enlace la clase <code>page-link</code>.
+    </p>
+    <ul>
+      <li><b>pagination</b>: Se aplica al elemento <code>ul</code> principal.</li>
+      <li><b>page-item</b>: Se aplica a cada <code>li</code> que representa una página.</li>
+      <li><b>page-link</b>: Se aplica a cada <code>a</code> dentro de los <code>li</code>.</li>
+    </ul>
+
+    <h3 class="demo-section-title">Ejemplo básico de paginador</h3>
+    <div class="code-block">
+<pre>
+&lt;ul class="pagination"&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;&lt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;6&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="page-item"&gt;&lt;a class="page-link" href="#"&gt;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+    </div>
+    <div class="pagination-demo">
+      <span class="example-label">Visualización:</span>
+      <ul class="pagination flex-wrap">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+      </ul>
+    </div>
+
+    <h3 class="demo-section-title">Tamaños de paginación</h3>
+    <p>
+      Puedes mostrar los enlaces de paginación en tamaño pequeño (<code>pagination-sm</code>) o grande (<code>pagination-lg</code>).
+    </p>
+    <div class="code-block">
+<pre>
+&lt;ul class="pagination pagination-sm"&gt; ... &lt;/ul&gt;
+&lt;ul class="pagination pagination-lg"&gt; ... &lt;/ul&gt;
+</pre>
+    </div>
+    <div class="pagination-demo">
+      <span class="example-label">Pequeño:</span>
+      <ul class="pagination pagination-sm flex-wrap">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+      </ul>
+      <span class="example-label">Grande (con página activa):</span>
+      <ul class="pagination pagination-lg flex-wrap">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+      </ul>
+    </div>
+
+    <h3 class="demo-section-title">Página activa</h3>
+    <p>
+      Para indicar la página activa, agrega la clase <code>active</code> al elemento <code>li</code> correspondiente.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;li class="page-item active"&gt;&lt;a class="page-link" href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+</pre>
+    </div>
+
+    <h3 class="demo-section-title">Alineación de la paginación</h3>
+    <p>
+      Puedes alinear el paginador usando las clases <code>justify-content-center</code>, <code>justify-content-start</code> o <code>justify-content-end</code> en el elemento <code>ul</code>.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;ul class="pagination justify-content-center"&gt; ... &lt;/ul&gt;
+&lt;ul class="pagination justify-content-end"&gt; ... &lt;/ul&gt;
+</pre>
+    </div>
+    <div class="pagination-demo">
+
+      <span class="example-label">izquierda:</span>
+      <ul class="pagination justify-content-start flex-wrap ">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+      </ul>
+      <span class="example-label">Centrado:</span>
+      <ul class="pagination justify-content-center flex-wrap">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+      </ul>
+      <span class="example-label">Derecha:</span>
+      <ul class="pagination justify-content-end flex-wrap">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+      </ul>
+    </div>
+
+    <p>
+      <strong>Nota:</strong> Utilizar estos estilos y clases para paginadores facilita la navegación y la experiencia del usuario en tu sitio web.
+    </p>
+  </div>
+</div>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/62 - Componente - progress.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Collapse (Mostrar/Ocultar contenido)</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>  
+    .collapse-demo {
+      margin-bottom: 2.2em;
+      max-width: 700px;
+    }
+    .example-label {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #7952B3;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+    .collapse-caption {
+      font-size: .95em;
+      color: #432c5c;
+      margin-top: .4em;
+      margin-bottom: .7em;
+    }
+    .card.card-body {
+      background: #f7f2fa;
+      border-radius: 8px;
+      border: 1.5px solid #7952B3;
+      color: #432c5c;
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Collapse</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Collapse: Mostrar y ocultar contenido en Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      La componente <b>collapse</b> permite mostrar u ocultar contenido de forma dinámica, utilizando botones o enlaces. Es útil para mostrar información adicional sin recargar la interfaz.
+    </p>
+    <ul>
+      <li><b>collapse</b>: Clase que aplica el comportamiento de mostrar/ocultar.</li>
+      <li>Se activa mediante <code>data-bs-toggle="collapse"</code> y un <code>href</code> o <code>data-bs-target</code> apuntando al <code>id</code> del contenido.</li>
+    </ul>
+
+    <h3 class="demo-section-title">Collapse con hipervínculo</h3>
+    <div class="code-block">
+<pre>
+&lt;a href="#politica" data-bs-toggle="collapse"&gt;Políticas de privacidad&lt;/a&gt;
+&lt;div id="politica" class="collapse"&gt;...&lt;/div&gt;
+</pre>
+    </div>
+    <div class="collapse-demo">
+      <span class="example-label">Visualización:</span>
+      <a href="#politica" data-bs-toggle="collapse" class="mb-2 d-block">Políticas de privacidad</a>
+      <div id="politica" class="collapse">
+        Las lagrimas de ayer son las sonrisas de hoy.
+
+        -Joshua Guzman Quesada
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Collapse visible al cargar la página</h3>
+    <p>
+      Agrega la clase <code>show</code> para que el contenido aparezca visible al cargar.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div id="politica" class="collapse show"&gt;...&lt;/div&gt;
+</pre>
+    </div>
+    <div class="collapse-demo">
+      <span class="example-label">Visualización:</span>
+      <a href="#politica2" data-bs-toggle="collapse" class="mb-2 d-block">Políticas de privacidad</a>
+      <div id="politica2" class="collapse show">
+        If you're making mistakes, it means you're out there doing something.
+<br>
+        - David Coto Brenes
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Collapse con botón</h3>
+    <div class="code-block">
+<pre>
+&lt;button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#politica3"&gt;Políticas de privacidad&lt;/button&gt;
+&lt;div id="politica3" class="collapse"&gt;...&lt;/div&gt;
+</pre>
+    </div>
+    <div class="collapse-demo">
+      <span class="example-label">Visualización:</span>
+      <button class="btn btn-warning mb-2" data-bs-toggle="collapse" data-bs-target="#politica3">Políticas de privacidad</button>
+      <div id="politica3" class="collapse">
+        El mundo lo gobiernan los nerds, y nosotros somos los nerds.
+<br>
+        -Alex Monge Vargas
+      </div>
+    </div>
+
+    <h3 class="demo-section-title">Collapse de múltiples áreas</h3>
+    <p>
+      Se pueden mostrar y ocultar varias áreas independientes usando <code>data-bs-target</code> y diferentes <code>id</code>.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;a href="#area1" data-bs-toggle="collapse" data-bs-target="#area1"&gt;Área 1&lt;/a&gt;
+&lt;a href="#area2" data-bs-toggle="collapse" data-bs-target="#area2"&gt;Área 2&lt;/a&gt;
+
+&lt;div id="area1" class="collapse multi-collapse"&gt;&lt;div class="card card-body"&gt;...&lt;/div&gt;&lt;/div&gt;
+&lt;div id="area2" class="collapse multi-collapse"&gt;&lt;div class="card card-body"&gt;...&lt;/div&gt;&lt;/div&gt;
+</pre>
+    </div>
+    <div class="collapse-demo">
+      <span class="example-label">Visualización:</span>
+      <p>
+        <a href="#area1" data-bs-toggle="collapse" data-bs-target="#area1" class="me-2">Área 1</a>
+        <a href="#area2" data-bs-toggle="collapse" data-bs-target="#area2">Área 2</a>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="area1">
+            <div class="card card-body">
+              Todo va a estar bien.
+<br>
+              -Arlene Carrillo Arias
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="area2">
+            <div class="card card-body">
+              Ustedes son los mejores, no se dejen engañar por los demás, si estan aca es por su esfuerzo y dedicación.
+<br>
+              -Mauricio Vargas Carballo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>
+      <strong>Nota:</strong> Puedes personalizar el contenido y los estilos según tus necesidades. Recuerda siempre incluir <code>bootstrap.bundle.min.js</code> para que la funcionalidad collapse funcione correctamente.
+    </p>
+  </div>
+</div>
+
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/65 - Componente - accordion.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

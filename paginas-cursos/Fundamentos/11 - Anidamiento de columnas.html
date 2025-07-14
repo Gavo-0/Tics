@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5: Anidamiento de columnas</title>
+    <link rel="icon" href="../../src/bootstrap.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Css/Footer.css">
+    <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-btns">
+            <button class="topbar-btn" onclick="location.href='../../index.html'">
+                <i class="bi bi-arrow-left"></i>
+                <span class="btn-text">Regresar al inicio</span>
+            </button>
+        </div>
+        <div class="title">Curso de Bootstrap - Anidamiento de columnas</div>
+        <div class="topbar-btns">
+            <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+                <i class="bi bi-check2-circle"></i>
+                <span class="btn-text">Finalizar el curso</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 class="mb-3">Anidamiento de columnas en Bootstrap 5</h1>
+
+        <div class="section">
+            <h2>¿Qué es el anidamiento de columnas?</h2>
+            <p>
+                El anidamiento de columnas es una técnica que permite incluir una fila y columnas adicionales dentro de una columna existente.
+                Esto permite construir diseños más sofisticados sin salirse del sistema de grillas de Bootstrap.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo básico de anidamiento</h2>
+            <p>
+                En este ejemplo, tenemos una fila principal con dos columnas. Dentro de la segunda columna, anidamos una fila con otras dos columnas internas:
+            </p>
+            <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-6" style="background:#aaa"&gt;
+      &lt;h1&gt;Columna 1&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div class="col-lg-6" style="background:#bbb"&gt;
+      &lt;h1&gt;Columna 2&lt;/h1&gt;
+      &lt;div class="row"&gt;
+        &lt;div class="col-lg-6" style="background:#ccc"&gt;
+          &lt;p&gt;Columna 2a&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="col-lg-6" style="background:#ddd"&gt;
+          &lt;p&gt;Columna 2b&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <!-- Ejemplo real de anidamiento -->
+            <div class="container mb-4">
+                <div class="row">
+                    <div class="col-lg-6" style="background:#aaa">
+                        <h1>Columna 1</h1>
+                    </div>
+                    <div class="col-lg-6" style="background:#bbb">
+                        <h1>Columna 2</h1>
+                        <div class="row">
+                            <div class="col-lg-6" style="background:#ccc">
+                                <p>Columna 2a</p>
+                            </div>
+                            <div class="col-lg-6" style="background:#ddd">
+                                <p>Columna 2b</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                Como ves, la columna 2 contiene internamente dos columnas más. Bootstrap adapta todo automáticamente para que sea responsivo.
+            </p>
+            <p>
+                Si reduces el ancho del navegador, todas las columnas (externas e internas) se colapsan una debajo de otra, manteniendo el diseño responsivo:
+            </p>
+            <!-- Ejemplo real de anidamiento colapsado en móvil (el mismo bloque anterior sirve al reducir el ancho) -->
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo práctico: tarjeta con subcolumnas</h2>
+            <p>Este patrón es útil para interfaces con información agrupada:</p>
+            <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-6"&gt;
+      &lt;div class="border p-3 bg-light rounded"&gt;
+        &lt;h5&gt;Perfil de Usuario&lt;/h5&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-6"&gt;Nombre: Ana&lt;/div&gt;
+          &lt;div class="col-6"&gt;Edad: 28&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <!-- Ejemplo real de tarjeta con subcolumnas -->
+            <div class="container mb-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="border p-3 bg-light rounded">
+                            <h5>Perfil de Usuario</h5>
+                            <div class="row">
+                                <div class="col-6">Nombre: Ana</div>
+                                <div class="col-6">Edad: 28</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Recomendaciones importantes</h2>
+            <ul>
+                <li>Asegúrate de usar <code>.row</code> dentro de una columna, no directamente dentro de <code>.container</code>.</li>
+                <li>La suma de columnas anidadas también debe ser 12 o menos.</li>
+                <li>Evita anidar demasiadas veces para no complicar el mantenimiento del código.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Resumen</h2>
+            <ul>
+                <li>El anidamiento permite crear diseños complejos manteniendo la estructura responsiva.</li>
+                <li>Se puede usar <code>.row</code> y <code>.col-*</code> dentro de cualquier <code>.col</code>.</li>
+                <li>El sistema de grillas de Bootstrap mantiene la alineación y distribución de forma automática.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Alerta personalizada -->
+    <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/12 - Offset (desplazamiento) de columnas.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+    <footer>
+        <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+        <div class="footer-line"></div>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+        </div>
+        <div class="footer-bottom">
+            © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+        </div>
+    </footer>
+</body>
+</html>

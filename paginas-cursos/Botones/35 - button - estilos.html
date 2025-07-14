@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Tipos de botones y sus significados</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Tipos de botones</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Botones en Bootstrap 5: Clases, colores y significados</h1>
+  <div class="cuerpodetalle">
+    <p>
+      Bootstrap 5 propone utilizar las etiquetas <code>&lt;button&gt;</code>, <code>&lt;a&gt;</code> o <code>&lt;input&gt;</code> y define una serie de clases para crear botones de diferentes colores y significados.
+      <br>Siempre se debe asignar la clase <code>btn</code> y alguna de las clases de color para definir el tipo de botón.
+    </p>
+    <ul>
+      <li><b>btn-primary</b>: Es un botón que se destaca entre un conjunto de botones.</li>
+      <li><b>btn-secondary</b>: Es un botón no tan importante como btn-primary.</li>
+      <li><b>btn-success</b>: Se usa para indicar una acción exitosa.</li>
+      <li><b>btn-info</b>: Botón para información.</li>
+      <li><b>btn-warning</b>: Advierte que debemos tener cuidado con la acción.</li>
+      <li><b>btn-danger</b>: Indica una acción peligrosa (por ejemplo, borrar una cuenta).</li>
+      <li><b>btn-dark</b>: Botón oscuro.</li>
+      <li><b>btn-light</b>: Botón claro.</li>
+      <li><b>btn-link</b>: Convierte el botón en un enlace, de menor importancia visual.</li>
+    </ul>
+    <h3 class="demo-section-title">Ejemplo: Botones sólidos</h3>
+    <form class="btn-demo-list">
+      <div class="mb-3">
+        <button type="button" class="btn btn-primary">
+          btn-primary : Es un botón que se destaca entre un conjunto de botones.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-secondary">
+          btn-secondary : Es un botón no tan importante como btn-primary.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-success">
+          btn-success : Se utiliza para indicar una acción exitosa.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-info">
+          btn-info : Es un botón para información.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-warning">
+          btn-warning : Es un botón que nos informa que debemos tener cuidado con la acción que tiene asociado el botón.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-danger">
+          btn-danger : Indica que la acción que tiene asociado el botón es peligrosa.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-dark">
+          btn-dark : Muestra un botón oscuro.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-light">
+          btn-light : Muestra un botón claro.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-link">
+          btn-link : Convierte al botón como un hipervínculo, haciendo que disminuya su importancia.
+        </button>
+      </div>
+    </form>
+
+    <h3 class="demo-section-title">Ejemplo: Botones con solo el contorno ("outline")</h3>
+    <form class="btn-demo-outline-list">
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-primary">
+          btn-outline-primary : Es un botón destacado solo con su contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-secondary">
+          btn-outline-secondary : Botón no tan importante, solo contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-success">
+          btn-outline-success : Acción exitosa, solo contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-info">
+          btn-outline-info : Botón informativo, solo contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-warning">
+          btn-outline-warning : Botón de advertencia, solo contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-danger">
+          btn-outline-danger : Acción peligrosa, solo contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-dark">
+          btn-outline-dark : Botón oscuro, solo contorno.
+        </button>
+      </div>
+      <div class="mb-3">
+        <button type="button" class="btn btn-outline-light">
+          btn-outline-light : Botón claro, solo contorno.
+        </button>
+      </div>
+    </form>
+    <p>
+      <strong>Nota:</strong> Utilizar este estándar ayuda a que los visitantes se sientan cómodos navegando tu sitio, ya que los colores y significados de los botones son ampliamente reconocidos en aplicaciones modernas.
+    </p>
+  </div>
+</div>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Botones/36 - button - tamaño.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  </div>
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

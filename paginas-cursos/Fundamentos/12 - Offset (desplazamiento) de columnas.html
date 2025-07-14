@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 5: Uso de offset</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Offset en columnas</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1 class="mb-3">Uso de Offset en Bootstrap 5</h1>
+
+  <div class="cuerpodetalle">
+    <p>Podemos dejar columnas vacías indicando un desplazamiento en el momento de crearla.</p>
+    <h3>Problema</h3>
+    <p>Implementar el código con Bootstrap 5 necesario para mostrar los números "uno", "dos", etc. con el siguiente formato:</p>
+    
+    <!-- Ejemplo real de offset -->
+    <div class="container mb-4">
+      <div class="row mb-2">
+        <div class="col-lg-4 text-center py-3" style="background-color:#aaa"><h1>Uno</h1></div>
+        <div class="col-lg-4 offset-lg-4 text-center py-3" style="background-color:#bbb"><h1>Dos</h1></div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-lg-4 offset-lg-4 text-center py-3" style="background-color:#aaa"><h1>Tres</h1></div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-lg-4 text-center py-3" style="background-color:#aaa"><h1>Cuatro</h1></div>
+        <div class="col-lg-4 offset-lg-4 text-center py-3" style="background-color:#bbb"><h1>Cinco</h1></div>
+      </div>
+    </div>
+
+    <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-4" style="background-color:#aaa"&gt;&lt;h1&gt;Uno&lt;/h1&gt;&lt;/div&gt;
+    &lt;div class="col-lg-4 offset-lg-4" style="background-color:#bbb"&gt;&lt;h1&gt;Dos&lt;/h1&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-4 offset-lg-4" style="background-color:#aaa"&gt;&lt;h1&gt;Tres&lt;/h1&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-4" style="background-color:#aaa"&gt;&lt;h1&gt;Cuatro&lt;/h1&gt;&lt;/div&gt;
+    &lt;div class="col-lg-4 offset-lg-4" style="background-color:#bbb"&gt;&lt;h1&gt;Cinco&lt;/h1&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <p>Las clases disponibles para desplazamiento horizontal son:</p>
+    <pre>offset-*, offset-sm-*, offset-md-*, offset-lg-*, offset-xl-*, offset-xxl-*</pre>
+    <p>El * representa un valor entre 1 y 12. Esto permite espaciar columnas horizontalmente sin necesidad de usar columnas vacías.</p>
+  </div>
+</div>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Tablas/13 - table-básica.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  </div>
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+
+</body>
+</html>

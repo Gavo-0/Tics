@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 5: Aplicación de la clase .table-dark</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+ 
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Clase .table-dark</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Aplicación de la clase <code>.table-dark</code> en Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      Al aplicar la clase <code>table-dark</code> junto con <code>table</code> a una tabla HTML, Bootstrap aplica un tema oscuro a toda la tabla. Esto significa que los colores de fondo, bordes y texto se adaptan para ofrecer una apariencia visual más sobria y contrastante, ideal para interfaces modernas o de baja luminosidad.
+    </p>
+    <h3>¿Qué cambios visuales observamos en el navegador?</h3>
+    <ul>
+      <li>Fondo oscuro para toda la tabla, tanto en el encabezado (<code>&lt;thead&gt;</code>) como en el cuerpo (<code>&lt;tbody&gt;</code>).</li>
+      <li>Texto en color claro (generalmente blanco o gris claro) para asegurar buen contraste.</li>
+      <li>Bordes sutiles en tonos grises oscuros o intermedios, que dividen filas y columnas.</li>
+      <li>Tipografía clara y limpia, manteniendo el estilo de Bootstrap pero adaptada al modo oscuro.</li>
+    </ul>
+    <p>
+      Este resultado es especialmente útil si el diseño del sitio utiliza una paleta oscura o si se busca reducir la fatiga visual en interfaces nocturnas o de administración.
+    </p>
+    <div class="code-block">
+      <pre><code>&lt;table class="table table-dark"&gt;
+  ...
+&lt;/table&gt;
+</code></pre>
+    </div>
+
+    <h3>Ventajas del uso de <code>.table-dark</code></h3>
+    <ul>
+      <li><strong>Accesibilidad visual:</strong> Aumenta el contraste para usuarios en entornos con poca luz.</li>
+      <li><strong>Estética moderna:</strong> Ideal para dashboards, paneles de control y temas oscuros.</li>
+      <li><strong>Consistencia:</strong> Se adapta a otros componentes oscuros de Bootstrap como <code>navbar-dark</code> o <code>bg-dark</code>.</li>
+    </ul>
+
+    <h3>Combinación con otras clases</h3>
+    <p>
+      La clase <code>.table-dark</code> se puede combinar con otras clases para enriquecer la tabla. Algunas combinaciones comunes son:
+    </p>
+    <ol>
+      <li>
+        <b>table-striped:</b> Fondo rayado alterno, aún en tema oscuro, usando grises claros en filas alternas.<br>
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-dark table-striped"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>table-hover:</b> Resalta la fila bajo el cursor, adaptado a tonos claros en modo oscuro.<br>
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-dark table-hover"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>table-bordered:</b> Bordes definidos entre celdas, útil para separar mejor los datos.<br>
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-dark table-bordered"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+      <li>
+        <b>table-sm:</b> Menos padding en celdas para mostrar más información en menos espacio.<br>
+        <div class="code-block">
+          <pre><code>&lt;table class="table table-dark table-sm"&gt;...&lt;/table&gt;</code></pre>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Ejemplo combinado</h3>
+    <p>
+      Puedes combinar todas estas clases para crear una tabla oscura, rayada, con efecto hover, bordes y diseño compacto:
+    </p>
+    <div class="code-block">
+      <pre><code>&lt;table class="table table-dark table-striped table-hover table-bordered table-sm"&gt;
+  ...
+&lt;/table&gt;
+</code></pre>
+    </div>
+
+    <h3>Uso con tablas responsivas</h3>
+    <p>
+      Si tu tabla tiene muchas columnas, puedes combinarla con el contenedor <code>.table-responsive</code> para deslizarla horizontalmente en pantallas pequeñas:
+    </p>
+    <div class="code-block">
+      <pre><code>&lt;div class="table-responsive"&gt;
+  &lt;table class="table table-dark table-striped"&gt;
+    ...
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+    <p>
+      En pantallas pequeñas, este contenedor agrega una barra de desplazamiento horizontal sin romper el diseño.
+    </p>
+
+    <h3>Ejemplo visual</h3>
+    <div class="table-responsive">
+      <table class="table table-dark table-striped table-hover table-bordered table-sm demo-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Laptop</td>
+            <td>Electrónica</td>
+            <td>$900</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Mouse</td>
+            <td>Accesorios</td>
+            <td>$20</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Monitor</td>
+            <td>Electrónica</td>
+            <td>$150</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Teclado</td>
+            <td>Accesorios</td>
+            <td>$45</td>
+            <td>50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Conclusión</h3>
+    <p>
+      La clase <code>table-dark</code> de Bootstrap 5 es una herramienta poderosa para dar un estilo profesional y oscuro a las tablas HTML. Combinada con otras clases utilitarias como <code>table-striped</code>, <code>table-hover</code>, <code>table-bordered</code> o <code>table-sm</code>, permite crear tablas atractivas, funcionales y perfectamente adaptadas a diferentes necesidades de diseño y accesibilidad.
+    </p>
+
+  </div>
+</div>
+
+<!-- Alerta personalizada -->
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Tablas/15 - table - con filas con colores alternados.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div> 
+<script src="../../Js/chat.js"> </script>
+
+<script src="../../Js/modulos.js"></script>
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  </div>
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5: Accordion</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+  <style>
+    .accordion-demo {
+      margin-bottom: 2.2em;
+      max-width: 700px;
+    }
+    .example-label {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #7952B3;
+      margin-bottom: 0.5em;
+      display: block;
+    }
+    .accordion-caption {
+      font-size: .95em;
+      color: #432c5c;
+      margin-top: .4em;
+      margin-bottom: .7em;
+    }
+    .accordion-button {
+      background-color: #f7f2fa;
+      color: #8a4ec9;
+     
+      border-radius: 8px;
+    }
+    .accordion-button:hover {
+      background-color: #e9dff2;
+      color: #8a4ec9;
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="location.href='../../index.html'">
+      <i class="bi bi-arrow-left"></i>
+      <span class="btn-text">Regresar al inicio</span>
+    </button>
+  </div>
+  <div class="title">Curso de Bootstrap - Accordion</div>
+  <div class="topbar-btns">
+    <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+      <i class="bi bi-check2-circle"></i>
+      <span class="btn-text">Finalizar el curso</span>
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>Accordion en Bootstrap 5</h1>
+  <div class="cuerpodetalle">
+    <p>
+      El componente <b>accordion</b> permite mostrar varias áreas de contenido oculto que se despliegan al presionar sus títulos. Es ideal para preguntas frecuentes, políticas, características de productos, etc.
+    </p>
+    <ul>
+      <li><b>accordion-item</b>: Define cada sección del acordeón.</li>
+      <li><b>accordion-header</b>: Cabecera con el botón que despliega/cierra el contenido.</li>
+      <li><b>accordion-button</b>: Botón para mostrar/ocultar el contenido.</li>
+      <li><b>accordion-collapse collapse</b>: Área de contenido oculto.</li>
+      <li><b>show</b>: Hace que el contenido esté visible al cargar.</li>
+      <li><b>data-bs-parent</b>: Permite que sólo una sección esté abierta a la vez.</li>
+    </ul>
+
+    <h3 class="demo-section-title">Ejemplo básico de accordion</h3>
+    <div class="code-block">
+<pre>
+&lt;div id="accordion1"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;div class="accordion-header" id="cabecera1"&gt;
+      &lt;button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuesta1"
+        aria-expanded="true" aria-controls="respuesta1"&gt;
+        Pregunta frecuente 1
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id="respuesta1" class="accordion-collapse collapse show"
+      aria-labelledby="cabecera1" data-bs-parent="#accordion1"&gt;
+      &lt;div class="accordion-body"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  ... <!-- más items -->
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="accordion-demo">
+      <span class="example-label">Visualización:</span>
+      <div id="accordion1">
+        <div class="accordion-item">
+          <div class="accordion-header" id="cabecera1">
+            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuesta1"
+              aria-expanded="true" aria-controls="respuesta1">
+              Pregunta frecuente 1
+            </button>
+          </div>
+          <div id="respuesta1" class="accordion-collapse collapse show"
+            aria-labelledby="cabecera1" data-bs-parent="#accordion1">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="cabecera2">
+            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuesta2"
+              aria-expanded="false" aria-controls="respuesta2">
+              Pregunta frecuente 2
+            </button>
+          </div>
+          <div id="respuesta2" class="accordion-collapse collapse"
+            aria-labelledby="cabecera2" data-bs-parent="#accordion1">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="cabecera3">
+            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuesta3"
+              aria-expanded="false" aria-controls="respuesta3">
+              Pregunta frecuente 3
+            </button>
+          </div>
+          <div id="respuesta3" class="accordion-collapse collapse"
+            aria-labelledby="cabecera3" data-bs-parent="#accordion1">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-caption">
+      El atributo <code>data-bs-parent="#accordion1"</code> asegura que solo una sección esté abierta a la vez.
+    </div>
+
+    <h3 class="demo-section-title">Accordion con contenido abierto sin cerrar los demás</h3>
+    <p>
+      Si omites <code>data-bs-parent</code> en cada <code>accordion-collapse</code>, puedes abrir varias áreas a la vez.
+    </p>
+    <div class="code-block">
+<pre>
+&lt;div id="respuesta1" class="accordion-collapse collapse show"
+  aria-labelledby="cabecera1"&gt;
+  ...
+&lt;/div&gt;
+</pre>
+    </div>
+    <div class="accordion-demo">
+      <span class="example-label">Visualización:</span>
+      <div id="accordion2">
+        <div class="accordion-item">
+          <div class="accordion-header" id="cabeceraA">
+            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuestaA"
+              aria-expanded="true" aria-controls="respuestaA">
+              Característica 1
+            </button>
+          </div>
+          <div id="respuestaA" class="accordion-collapse collapse show"
+            aria-labelledby="cabeceraA">
+            <div class="accordion-body">
+              Este contenido está abierto al cargar y puedes abrir los demás sin cerrarlo.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="cabeceraB">
+            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#respuestaB"
+              aria-expanded="false" aria-controls="respuestaB">
+              Característica 2
+            </button>
+          </div>
+          <div id="respuestaB" class="accordion-collapse collapse"
+            aria-labelledby="cabeceraB">
+            <div class="accordion-body">
+              Puedes abrir este contenido sin cerrar el anterior.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-caption">
+      Omite <code>data-bs-parent</code> para permitir múltiples áreas abiertas simultáneamente.
+    </div>
+
+    <p>
+      <strong>Nota:</strong> Puedes personalizar los títulos y el contenido de cada área según tus necesidades. Recuerda incluir <code>bootstrap.bundle.min.js</code> para que la funcionalidad del accordion funcione correctamente.
+    </p>
+  </div>
+</div>
+
+<div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Componentes/66 - Componente - breadcrumb.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+ <script src="../../Js/modulos.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<footer>
+  <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+  <div class="footer-line"></div>
+  <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo">
+  <div class="footer-bottom">
+    © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+  </div>
+</footer>
+</body>
+</html>

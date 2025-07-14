@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap 5: Orden de columnas con order-*</title>
+  <link rel="icon" href="../../src/bootstrap.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css">
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Orden de columnas</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="mb-3">Orden de columnas con <code>order-*</code> en Bootstrap 5</h1>
+
+    <div class="section">
+      <p>
+        En Bootstrap 5 puedes modificar el orden visual de las columnas sin alterar su posición en el HTML. Esto es especialmente útil cuando quieres cambiar el diseño en diferentes dispositivos (por ejemplo, que una imagen aparezca primero en móvil pero después en escritorio).
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Ejemplo: invertir el orden de tres columnas</h2>
+      <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row text-center"&gt;
+    &lt;div class="col order-3 bg-light border p-3"&gt;Columna 1&lt;/div&gt;
+    &lt;div class="col order-2 bg-secondary text-white p-3"&gt;Columna 2&lt;/div&gt;
+    &lt;div class="col order-1 bg-dark text-white p-3"&gt;Columna 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <p>
+        Aunque el código HTML está en el orden 1 → 2 → 3, en pantalla se mostrará 3 → 2 → 1.
+      </p>
+      <!-- Ejemplo real de order-* -->
+      <div class="container mb-3">
+        <div class="row text-center">
+          <div class="col order-3 bg-light border p-3">Columna 1</div>
+          <div class="col order-2 bg-secondary text-white p-3">Columna 2</div>
+          <div class="col order-1 bg-dark text-white p-3">Columna 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Ejemplo responsivo con <code>order-md-*</code></h2>
+      <p>En el siguiente ejemplo, las columnas tienen orden normal en móvil, pero cambian en pantallas medianas en adelante:</p>
+      <div class="code-block">
+<pre><code>&lt;div class="container"&gt;
+  &lt;div class="row text-center"&gt;
+    &lt;div class="col-6 col-md-4 order-md-3 bg-primary text-white p-3"&gt;Imagen&lt;/div&gt;
+    &lt;div class="col-6 col-md-4 order-md-1 bg-warning p-3"&gt;Texto 1&lt;/div&gt;
+    &lt;div class="col-12 col-md-4 order-md-2 bg-success text-white p-3"&gt;Texto 2&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <!-- Ejemplo real responsivo -->
+      <div class="container mb-3">
+        <div class="row text-center">
+          <div class="col-6 col-md-4 order-md-3 bg-primary text-white p-3">Imagen</div>
+          <div class="col-6 col-md-4 order-md-1 bg-warning p-3">Texto 1</div>
+          <div class="col-12 col-md-4 order-md-2 bg-success text-white p-3">Texto 2</div>
+        </div>
+      </div>
+      <p>Este comportamiento mejora la experiencia del usuario en diferentes dispositivos.</p>
+    </div>
+
+    <div class="section">
+      <h2>Clases disponibles de ordenamiento</h2>
+      <ul>
+        <li><code>order-1</code> hasta <code>order-12</code>: posición de prioridad.</li>
+        <li><code>order-0</code>: valor por defecto.</li>
+        <li><code>order-first</code>: fuerza la columna al inicio.</li>
+        <li><code>order-last</code>: fuerza la columna al final.</li>
+        <li>Clases responsivas: <code>order-sm-*</code>, <code>order-md-*</code>, <code>order-lg-*</code>, etc.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>¿Cuándo usar <code>order-*</code>?</h2>
+      <ul>
+        <li>📱 Cuando deseas invertir el orden de texto e imagen entre móvil y escritorio.</li>
+        <li>🧩 Para mejorar la jerarquía visual en pantallas pequeñas.</li>
+        <li>🌐 Cuando trabajas con contenido generado dinámicamente y no puedes alterar el HTML.</li>
+        <li>🎯 En sitios accesibles, esto permite priorizar contenido visual sin romper la semántica del HTML.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Resumen</h2>
+      <ul>
+        <li><b><code>order-*</code></b> permite reorganizar visualmente columnas sin alterar su estructura en HTML.</li>
+        <li>Puedes usar variantes responsivas para cambiar el orden según el tamaño del dispositivo.</li>
+        <li>Ideal para interfaces adaptativas con Bootstrap 5 + Flexbox.</li>
+        <li>Úsalo con sentido: no abuses si afecta la lógica de lectura o la accesibilidad.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/11 - Anidamiento de columnas.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+ <script src="../../Js/chat.js"> </script>
+  <script src="../../Js/modulos.js"></script>
+
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="HHC" class="footer-logo">
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada - Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>

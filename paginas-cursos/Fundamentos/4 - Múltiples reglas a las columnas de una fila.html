@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Múltiples reglas a las columnas de una fila en Bootstrap 5</title>
+    <link rel="icon" href="../../src/bootstrap.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Css/Footer.css">
+    <link rel="stylesheet" href="../../Css/primer-Modulo.css">
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-btns">
+            <button class="topbar-btn" onclick="location.href='../../index.html'">
+                <i class="bi bi-arrow-left"></i>
+                <span class="btn-text">Regresar al inicio</span>
+            </button>
+        </div>
+        <div class="title">Curso de Bootstrap - Múltiples reglas en columnas</div>
+        <div class="topbar-btns">
+            <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+                <i class="bi bi-check2-circle"></i>
+                <span class="btn-text">Finalizar el curso</span>
+            </button>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1 class="mb-3">Múltiples reglas a las columnas de una fila</h1>
+
+        <div class="section">
+            <p>
+                El sistema de grillas de Bootstrap 5 permite asignar diferentes reglas de ancho a las columnas de una fila, según el tamaño de pantalla del dispositivo. Así, puedes lograr que el diseño se adapte perfectamente a computadoras, tablets y celulares, sin necesidad de escribir CSS adicional.
+            </p>
+            <p>
+                Esto se logra aplicando varias clases <code>col-*</code> en un mismo <code>div</code>. Bootstrap elegirá la regla más específica válida para el ancho del dispositivo.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Breakpoints disponibles en Bootstrap 5</h2>
+            <table class="table table-bordered table-sm align-middle">
+                <thead>
+                    <tr class="table-light">
+                        <th>Breakpoint</th>
+                        <th>Clase</th>
+                        <th>Ancho mínimo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Extra pequeño</td>   <td><code>col-</code></td>   <td>0 px</td></tr>
+                    <tr><td>Pequeño</td>        <td><code>col-sm-</code></td><td>576 px</td></tr>
+                    <tr><td>Mediano</td>        <td><code>col-md-</code></td><td>768 px</td></tr>
+                    <tr><td>Grande</td>         <td><code>col-lg-</code></td><td>992 px</td></tr>
+                    <tr><td>Extra grande</td>   <td><code>col-xl-</code></td><td>1200 px</td></tr>
+                    <tr><td>Extra-extra grande</td><td><code>col-xxl-</code></td><td>1400 px</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo práctico: dos columnas con anchos adaptativos</h2>
+            <p>
+                Puedes definir diferentes anchos para cada columna según el tamaño de pantalla del dispositivo:
+            </p>
+            <div class="code-block">
+                <pre><code>
+1er columna              2da columna
+
+Pantalla muy,muy grande:      10 unidades              2 unidades
+Pantalla muy grande:           9 unidades              3 unidades
+Pantalla grande:               8 unidades              4 unidades
+Pantalla mediana:              7 unidades              5 unidades
+Pantalla chica:                6 unidades              6 unidades
+Pantalla muy chica:            5 unidades              7 unidades
+                </code></pre>
+            </div>
+            <p>
+                El código HTML quedaría así:
+            </p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyToClipboard('cols-multiples')">Copiar</button>
+                <pre><code id="cols-multiples" class="language-html">&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-xxl-10 col-xl-9 col-lg-8 col-md-7 col-sm-6 col-5" style="background-color:#aaa"&gt;
+      &lt;h1&gt;Columna 1&lt;/h1&gt;
+      &lt;p&gt;Esto es una prueba de bootstrap 5.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xxl-2 col-xl-3 col-lg-4 col-md-5 col-sm-6 col-7" style="background-color:#bbb"&gt;
+      &lt;h1&gt;Columna 2&lt;/h1&gt;
+      &lt;p&gt;Esto es una prueba de bootstrap 5.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>¿Qué sucede al cambiar el tamaño de la pantalla?</h2>
+            <ul>
+                <li>Si el ancho es ≥1400px, se aplican <code>col-xxl-10</code> y <code>col-xxl-2</code>.</li>
+                <li>Si es ≥1200px y &lt;1400px, se aplican <code>col-xl-9</code> y <code>col-xl-3</code>.</li>
+                <li>Si es ≥992px y &lt;1200px, se aplican <code>col-lg-8</code> y <code>col-lg-4</code>.</li>
+                <li>Si es ≥768px y &lt;992px, se aplican <code>col-md-7</code> y <code>col-md-5</code>.</li>
+                <li>Si es ≥576px y &lt;768px, se aplican <code>col-sm-6</code> y <code>col-sm-6</code>.</li>
+                <li>Si es &lt;576px, se aplican <code>col-5</code> y <code>col-7</code>.</li>
+            </ul>
+            <p>
+                Bootstrap toma la clase más adecuada según el ancho de pantalla, manteniendo siempre una suma de 12 unidades por fila.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Visualización en diferentes dispositivos</h2>
+            <p>Así se verá el layout en cada breakpoint (prueba reduciendo y agrandando el ancho de la ventana para observar el efecto real):</p>
+            <ul>
+                <li><b>Muy muy grande (≥1400px):</b></li>
+                <div class="container border mb-3" style="max-width: 100%;">
+                  <div class="row">
+                    <div class="col-xxl-10 col-xl-9 col-lg-8 col-md-7 col-sm-6 col-5 text-center p-3" style="background-color:#aaa">Columna 1</div>
+                    <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-5 col-sm-6 col-7 text-center p-3" style="background-color:#bbb">Columna 2</div>
+                  </div>
+                </div>
+                <li><b>Muy grande (≥1200px):</b></li>
+                <div class="container border mb-3 d-xxl-none d-xl-block" style="max-width: 100%;">
+                  <div class="row">
+                    <div class="col-xl-9 col-lg-8 col-md-7 col-sm-6 col-5 text-center p-3" style="background-color:#aaa">Columna 1</div>
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 col-7 text-center p-3" style="background-color:#bbb">Columna 2</div>
+                  </div>
+                </div>
+                <li><b>Grande (≥992px):</b></li>
+                <div class="container border mb-3 d-xl-none d-lg-block" style="max-width: 100%;">
+                  <div class="row">
+                    <div class="col-lg-8 col-md-7 col-sm-6 col-5 text-center p-3" style="background-color:#aaa">Columna 1</div>
+                    <div class="col-lg-4 col-md-5 col-sm-6 col-7 text-center p-3" style="background-color:#bbb">Columna 2</div>
+                  </div>
+                </div>
+                <li><b>Mediana (≥768px):</b></li>
+                <div class="container border mb-3 d-lg-none d-md-block" style="max-width: 100%;">
+                  <div class="row">
+                    <div class="col-md-7 col-sm-6 col-5 text-center p-3" style="background-color:#aaa">Columna 1</div>
+                    <div class="col-md-5 col-sm-6 col-7 text-center p-3" style="background-color:#bbb">Columna 2</div>
+                  </div>
+                </div>
+                <li><b>Pequeña (≥576px):</b></li>
+                <div class="container border mb-3 d-md-none d-sm-block" style="max-width: 100%;">
+                  <div class="row">
+                    <div class="col-sm-6 col-5 text-center p-3" style="background-color:#aaa">Columna 1</div>
+                    <div class="col-sm-6 col-7 text-center p-3" style="background-color:#bbb">Columna 2</div>
+                  </div>
+                </div>
+                <li><b>Muy pequeña (&lt;576px):</b></li>
+                <div class="container border mb-3 d-sm-none" style="max-width: 100%;">
+                  <div class="row">
+                    <div class="col-5 text-center p-3" style="background-color:#aaa">Columna 1</div>
+                    <div class="col-7 text-center p-3" style="background-color:#bbb">Columna 2</div>
+                  </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Ventajas de usar múltiples reglas de columnas</h2>
+            <ul>
+                <li>Diseño responsivo sin necesidad de CSS personalizado.</li>
+                <li>Control total sobre el layout para cada tamaño de dispositivo.</li>
+                <li>Fácil de mantener y expandir.</li>
+                <li>Compatible con otros componentes de Bootstrap.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Buenas prácticas</h2>
+            <ul>
+                <li><b>La suma de columnas por fila debe ser 12</b> para mantener el orden y evitar columnas vacías.</li>
+                <li>Usa siempre <code>.container</code> o <code>.container-fluid</code> para centrar y limitar el ancho.</li>
+                <li>Agrega padding (<code>p-3</code>) o <code>gap</code> (<code>g-2</code>) para separar columnas.</li>
+                <li>Prueba en múltiples dispositivos o usa las herramientas del navegador.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <p>
+                La definición de múltiples reglas es una de las herramientas más poderosas de Bootstrap, permitiéndote definir distintos diseños de página según las capacidades del dispositivo del visitante.
+            </p>
+        </div>
+    </div>
+    <!-- Alerta personalizada de finalización -->
+   <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Fundamentos/5 - Contenedor-clases container y containter-fluid.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+     <script src="../../Js/chat.js"> </script>
+    <script src="../../Js/modulos.js"></script>
+    <footer>
+        <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+        <div class="footer-line"></div>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="HHC" class="footer-logo" >
+        </div>
+        <div class="footer-bottom">
+            © 12-G Ángel Vargas Montero & Cristian SIles Quesada Todos los Derechos Reservados | Desarrollo Web COVAO
+        </div>
+    </footer>
+</body>
+</html>

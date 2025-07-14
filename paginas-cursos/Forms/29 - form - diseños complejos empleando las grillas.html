@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5: Formularios complejos con grillas</title>
+  <link rel="icon" href="../../src/bootstrap.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../Css/Footer.css" />
+  <link rel="stylesheet" href="../../Css/primer-Modulo.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="location.href='../../index.html'">
+        <i class="bi bi-arrow-left"></i>
+        <span class="btn-text">Regresar al inicio</span>
+      </button>
+    </div>
+    <div class="title">Curso de Bootstrap - Formularios complejos</div>
+    <div class="topbar-btns">
+      <button class="topbar-btn" onclick="mostrarAlertaFinal()">
+        <i class="bi bi-check2-circle"></i>
+        <span class="btn-text">Finalizar el curso</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="section-title"><i class="bi bi-grid-1x2"></i> Formularios complejos usando el sistema de grillas</h1>
+    <div class="info-block">
+      Bootstrap 5 utiliza un sistema de grillas de 12 columnas por fila, lo que te permite diseñar formularios complejos y responsivos con controles distribuidos en diferentes filas y columnas según el ancho de dispositivo.
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Ejemplo: Formulario complejo con distintas filas y columnas</h2>
+      <div class="code-block">
+<pre>
+&lt;form class="row g-3"&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;label for="mail" class="form-label"&gt;Mail&lt;/label&gt;
+    &lt;input type="email" class="form-control" id="mail"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;label for="clave" class="form-label"&gt;Clave&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="clave"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-12"&gt;
+    &lt;label for="direccion" class="form-label"&gt;Dirección&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="direccion" placeholder="Covao"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;label for="ciudad" class="form-label"&gt;Ciudad&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="ciudad"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-4"&gt;
+    &lt;label for="provincia" class="form-label"&gt;Provincia&lt;/label&gt;
+    &lt;select id="provincia" class="form-select"&gt;
+      &lt;option selected&gt;Elija...&lt;/option&gt;
+      &lt;option value="Cartago"&gt;Cartago&lt;/option&gt;
+      &lt;option value="San Jose"&gt;San Jose&lt;/option&gt;
+      &lt;option value="Heredia"  &gt;Heredia&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-2"&gt;
+    &lt;label for="codigopostal" class="form-label"&gt;Código postal&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="codigopostal"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-12"&gt;
+    &lt;label for="comentarios" class="form-label"&gt;Deje aquí sus comentarios&lt;/label&gt;
+    &lt;textarea class="form-control" rows="5" id="comentarios" name="comentarios"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-12"&gt;
+    &lt;div class="form-check"&gt;
+      &lt;input class="form-check-input" type="checkbox" id="terminos"&gt;
+      &lt;label class="form-check-label" for="terminos"&gt;
+        Acepta los términos y condiciones
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-12"&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt;Confirmar&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+      </div>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="mail" class="form-label">Mail</label>
+          <input type="email" class="form-control" id="mail">
+        </div>
+        <div class="col-md-6">
+          <label for="clave" class="form-label">Clave</label>
+          <input type="password" class="form-control" id="clave">
+        </div>
+        <div class="col-md-12">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="direccion" placeholder="Covao">
+        </div>
+        <div class="col-md-6">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad">
+        </div>
+        <div class="col-md-4">
+          <label for="provincia" class="form-label">Provincia</label>
+          <select id="provincia" class="form-select">
+            <option selected>Elija...</option>
+            <option value="Cartago">Cartago</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Heredia">Heredia</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="codigopostal" class="form-label">Código postal</label>
+          <input type="text" class="form-control" id="codigopostal">
+        </div>
+        <div class="col-md-12">
+          <label for="comentarios" class="form-label">Deje aquí sus comentarios</label>
+          <textarea class="form-control" rows="5" id="comentarios" name="comentarios"></textarea>
+        </div>
+        <div class="col-md-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="terminos">
+            <label class="form-check-label" for="terminos">
+              Acepta los términos y condiciones
+            </label>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+      </form>
+    </div>
+    <div class="info-block">
+      <b>¿Cómo funciona el sistema de grillas?</b>
+      <ul>
+        <li>La clase <code>row</code> crea una fila de 12 columnas virtuales.</li>
+        <li>Cada <code>col-md-*</code> indica cuántas columnas ocupa un control en la fila (en pantallas medianas en adelante).</li>
+        <li>Si la suma en una fila supera 12, los siguientes elementos pasan a una nueva fila.</li>
+        <li>El formulario es completamente responsivo y se adapta al ancho del dispositivo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Alerta personalizada de finalización -->
+  <div id="customAlert" class="custom-alert-backdrop" style="display:none;">
+        <div class="custom-alert-box">
+            <button class="custom-alert-close" onclick="cerrarAlertaFinal()" title="Cerrar">&times;</button>
+            <h3><i class="bi bi-emoji-sunglasses"></i> ¡Curso finalizado!</h3>
+            <p>¡Felicidades! Has completado este curso introductorio de Bootstrap.<br>¿Qué deseas hacer ahora?</p>
+            <div class="custom-alert-actions">
+               
+                <button class="custom-alert-btn" onclick="cerrarAlertaFinal()">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
+                 <button class="custom-alert-btn" onclick="location.href='../Forms/30 - form - texto de ayuda de un control.html'">
+                    Siguiente<i class="bi bi-arrow-right"></i> 
+                </button>
+            </div>
+        </div>
+    </div>
+  <script src="../../Js/modulos.js"></script>
+ <script src="../../Js/chat.js"> </script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-slogan">“Proyecto TIC's Segundo periodo 2025”</div>
+    <div class="footer-line"></div>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="https://covao.ed.cr/wp-content/uploads/2025/01/Especialidades-logos-05-e1736905518920.webp" alt="Logo COVAO" class="footer-logo" />
+    </div>
+    <div class="footer-bottom">
+      © 12-G Ángel Vargas Montero & Cristian Siles Quesada. Todos los Derechos Reservados | Desarrollo Web COVAO
+    </div>
+  </footer>
+</body>
+</html>
